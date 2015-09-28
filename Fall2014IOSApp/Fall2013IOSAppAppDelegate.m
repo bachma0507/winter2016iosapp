@@ -83,13 +83,13 @@ int iNotificationCounter=0;
     // Use this option to notifiy beta users of any updates
     
     
-    [Parse setApplicationId:@"mLUbtG8L32TT1qDsSkEHyh0ONq0j2HG2pSPT5V4h"
-                  clientKey:@"oxeGIrPi9BxZrpv7Lx7pJyGxJ0WA7tcBMEg21fFs"];
+    [Parse setApplicationId:@"jnsv9lO2crT74EbL2mdx17qn47e3dlyMtEVQ9E9s"
+                  clientKey:@"pLEmmQhpJ9g9A12KM97Q3n00f9KMpK8QITL8faI0"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
    
-    [Crittercism enableWithAppID:@"553fedcd7365f84f7d3d7007"];
+    [Crittercism enableWithAppID:@"5608ae1fd224ac0a00ed3e4a"];
     
     [PFFacebookUtils initializeFacebook];
     

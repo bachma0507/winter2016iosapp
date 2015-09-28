@@ -2017,7 +2017,7 @@
             </objects>
             <point key="canvasLocation" x="-4237" y="274"/>
         </scene>
-        <!--BICSI Fall Conference-->
+        <!--BICSI Winter Conference-->
         <scene sceneID="3aB-FB-LMr">
             <objects>
                 <viewController storyboardIdentifier="View1" id="YN0-vG-j3O" customClass="StartPageViewController" sceneMemberID="viewController">
@@ -2295,7 +2295,7 @@
                         <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.88627450980392153" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                         <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="0.0" maxY="-40"/>
                     </view>
-                    <navigationItem key="navigationItem" title="BICSI Fall Conference" id="nbY-AN-a1f">
+                    <navigationItem key="navigationItem" title="BICSI Winter Conference" id="nbY-AN-a1f">
                         <barButtonItem key="leftBarButtonItem" image="navigation-btn-menu.png" id="RLM-dS-2lj">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
