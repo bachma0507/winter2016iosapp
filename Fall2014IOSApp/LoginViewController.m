@@ -209,12 +209,14 @@
               if (error != nil) [ProgressHUD showError:@"Network error."];
           }];
          //-----------------------------------------------------------------------------------------------------------------------------------------
-         user[PF_USER_EMAILCOPY] = userData[@"email"];
+//         user[PF_USER_EMAILCOPY] = userData[@"email"];
          user[PF_USER_FULLNAME] = userData[@"name"];
          user[PF_USER_FULLNAME_LOWER] = [userData[@"name"] lowercaseString];
          user[PF_USER_FACEBOOKID] = userData[@"id"];
          user[PF_USER_PICTURE] = filePicture;
          user[PF_USER_THUMBNAIL] = fileThumbnail;
+           //user[PF_USER_FULLNAME]= user[PF_USER_USERNAME];
+         
          [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
           {
               if (error == nil)
