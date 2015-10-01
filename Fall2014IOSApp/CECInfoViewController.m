@@ -62,7 +62,7 @@
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    [webView loadRequest:request];
     
-    NSString *httpSource = @"http://www.bicsi.org/directory/uplink/default.aspx?id=7822";
+    NSString *httpSource = @"http://www.bicsi.org/directory/uplink/default.aspx?id=8027";
     //NSString *httpSource = @"http://www.speedyreference.com/bicsiappcms/cec.html";
     NSURL *fullUrl = [NSURL URLWithString:httpSource];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];

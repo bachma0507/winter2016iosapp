@@ -576,7 +576,7 @@ int iNotificationCounter=0;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
-            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/exhibitorsF15.php"];
+            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/exhibitorsW16.php"];
             NSData * data = [NSData dataWithContentsOfURL:url];
             NSError * error;
             //added code 092715 to handle exception
@@ -728,8 +728,8 @@ int iNotificationCounter=0;
             
             //NSHTTPURLResponse *response = nil;
             
-            //NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            //NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
 
@@ -866,7 +866,7 @@ int iNotificationCounter=0;
             
             //NSHTTPURLResponse *response = nil;
             
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
 
@@ -987,7 +987,7 @@ int iNotificationCounter=0;
             
             //NSHTTPURLResponse *response = nil;
             
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
 
@@ -1108,7 +1108,7 @@ int iNotificationCounter=0;
             
             //NSHTTPURLResponse *response = nil;
             
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
 
@@ -1229,7 +1229,7 @@ int iNotificationCounter=0;
             
             //NSHTTPURLResponse *response = nil;
             
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
 
@@ -1349,7 +1349,7 @@ int iNotificationCounter=0;
             
             //NSHTTPURLResponse *response = nil;
             
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
 
@@ -1475,7 +1475,7 @@ int iNotificationCounter=0;
             //NSHTTPURLResponse *response = nil;
             
             //NSURL *url = [NSURL URLWithString:@"http://www.speedyreference.com/bicsi/convertcsv1.json"];
-            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-NV-0915"];
+            NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/testtrunc3.json"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
@@ -1749,7 +1749,7 @@ int iNotificationCounter=0;
         #pragma mark - Create Sponsor Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
-            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/sponsorsF15.php"];
+            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/sponsorsW16.php"];
             NSData * data = [NSData dataWithContentsOfURL:url];
             NSError * error;
             //added code 092715 to handle exception
@@ -1846,7 +1846,7 @@ int iNotificationCounter=0;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
-            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/cscheduleF15.php"];
+            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/cscheduleW16.php"];
             NSData * data = [NSData dataWithContentsOfURL:url];
             NSError * error;
             //added code 092715 to handle exception
@@ -1942,7 +1942,7 @@ int iNotificationCounter=0;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
-            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/ehscheduleF15.php"];
+            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/ehscheduleW16.php"];
             NSData * data = [NSData dataWithContentsOfURL:url];
             NSError * error;
             //added code 092715 to handle exception
