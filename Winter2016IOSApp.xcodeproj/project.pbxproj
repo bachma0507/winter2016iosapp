@@ -281,13 +281,13 @@
 		4C9B1E1419E34387007E0F51 /* UIImage+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DC719E34387007E0F51 /* UIImage+JSQMessages.m */; };
 		4C9B1E1519E34387007E0F51 /* UIView+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DC919E34387007E0F51 /* UIView+JSQMessages.m */; };
 		4C9B1E1619E34387007E0F51 /* JSQMessagesKeyboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DCC19E34387007E0F51 /* JSQMessagesKeyboardController.m */; };
-		4C9B1E1719E34387007E0F51 /* JSQMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DCE19E34387007E0F51 /* JSQMessagesViewController.m */; };
+		4C9B1E1719E34387007E0F51 /* JSQMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DCE19E34387007E0F51 /* JSQMessagesViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4C9B1E1819E34387007E0F51 /* JSQMessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C9B1DCF19E34387007E0F51 /* JSQMessagesViewController.xib */; };
 		4C9B1E1919E34387007E0F51 /* JSQMessagesAvatarFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DD219E34387007E0F51 /* JSQMessagesAvatarFactory.m */; };
 		4C9B1E1A19E34387007E0F51 /* JSQMessagesBubbleImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DD419E34387007E0F51 /* JSQMessagesBubbleImageFactory.m */; };
 		4C9B1E1B19E34387007E0F51 /* JSQMessagesTimestampFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DD619E34387007E0F51 /* JSQMessagesTimestampFormatter.m */; };
 		4C9B1E1C19E34387007E0F51 /* JSQMessagesToolbarButtonFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DD819E34387007E0F51 /* JSQMessagesToolbarButtonFactory.m */; };
-		4C9B1E1D19E34387007E0F51 /* JSQMessagesCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DDC19E34387007E0F51 /* JSQMessagesCollectionViewFlowLayout.m */; };
+		4C9B1E1D19E34387007E0F51 /* JSQMessagesCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DDC19E34387007E0F51 /* JSQMessagesCollectionViewFlowLayout.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4C9B1E1E19E34387007E0F51 /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DDE19E34387007E0F51 /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m */; };
 		4C9B1E1F19E34387007E0F51 /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DE019E34387007E0F51 /* JSQMessagesCollectionViewLayoutAttributes.m */; };
 		4C9B1E2019E34387007E0F51 /* JSQMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9B1DE319E34387007E0F51 /* JSQMessage.m */; };
@@ -3027,7 +3027,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Fall2013IOSApp;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = BICSI;
 				TargetAttributes = {
 					4C2D69F4174541100053BCC0 = {
@@ -3655,6 +3655,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3690,6 +3692,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
