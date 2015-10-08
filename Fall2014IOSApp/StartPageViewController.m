@@ -20,7 +20,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize json, exhibitorsArray, speakersArray, sessionsArray, updateLabel;
+@synthesize json, exhibitorsArray, speakersArray, sessionsArray, updateLabel, is24h;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,7 +37,27 @@
 {
     [super viewDidLoad];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+    self.is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+    //[formatter release];
+    NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
     
+    if (self.is24h) {
+        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times and restart the app.";
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+                                                           message:message
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Settings"
+                                                 otherButtonTitles:nil,nil];
+        alertView.tag = 0;
+        [alertView show];
+    }
     
     self.optionIndices = [NSMutableIndexSet indexSetWithIndex:1];
     
@@ -135,6 +155,19 @@
     }//else block ends
 
 }
+
+/*-(void) alertView2:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
+    if (alertView.tag ==0) {
+        
+        if (buttonIndex == 0) {
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            
+        }
+    }
+}*/
 
 
 //- (void)dismissHelpView:(UITapGestureRecognizer *)sender {
@@ -365,6 +398,18 @@
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
     //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
+    if (alertView.tag ==0) {
+        
+        if (buttonIndex == 0) {
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            
+        }
+    }
+
+    
+    
+    
 
     if (buttonIndex == 1) {
 

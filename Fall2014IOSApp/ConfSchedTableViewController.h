@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 @property (strong, nonatomic) NSArray *objects;
+@property BOOL is24h;
 
 //#pragma mark - Methods
 //-(void) retrieveData;

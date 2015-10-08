@@ -15,7 +15,7 @@
 
 @implementation ConfSchedTableViewController
 @synthesize json;
-@synthesize confSchedArray, myTableView, results, objects;
+@synthesize confSchedArray, myTableView, results, objects, is24h;
 
 
 - (NSManagedObjectContext *)managedObjectContext {
@@ -39,6 +39,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    /*NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+    self.is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+    //[formatter release];
+    NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
+    
+    if (self.is24h) {
+        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times and restart the app.";
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+                                                           message:message
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Settings"
+                                                 otherButtonTitles:nil,nil];
+        alertView.tag = 0;
+        [alertView show];
+    }*/
+
     
     
     
@@ -71,6 +94,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

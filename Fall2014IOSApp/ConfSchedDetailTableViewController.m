@@ -18,7 +18,7 @@
 
 @implementation ConfSchedDetailTableViewController
 @synthesize myObjects;
-@synthesize cschedule, mySessions;
+@synthesize cschedule, mySessions, is24h;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -72,6 +72,30 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    /*NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+    self.is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+    //[formatter release];
+    NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
+    
+    if (self.is24h) {
+        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times.";
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+                                                           message:message
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Ok"
+                                                 otherButtonTitles:nil,nil];
+        //alertView.tag = 1;
+        [alertView show];
+    }*/
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,13 +184,105 @@
     NSDate * sTime = [object valueForKey:@"startTime"];
     NSDate * eTime = [object valueForKey:@"endTime"];
     
-    NSDateFormatter *sdf = [[NSDateFormatter alloc]init];
-    [sdf setDateFormat:@"hh:mm a"];
-    NSString *sTimeStr = [sdf stringFromDate:sTime];
+    /*if (!self.is24h) {
+        
+        NSDateFormatter *sdf = [[NSDateFormatter alloc]init];
+        //NSLocale *slocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        //[sdf setLocale:slocale];
+        [sdf setDateFormat:@"hh:mm a"];
+        NSString *sTimeStr = [sdf stringFromDate:sTime];
+        NSLog(@"Start %@", sTimeStr);
+        
+        NSDateFormatter *edf = [[NSDateFormatter alloc]init];
+        //NSLocale *elocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        //[edf setLocale:elocale];
+        [edf setDateFormat:@"hh:mm a"];
+        
+        NSString *eTimeStr = [sdf stringFromDate:eTime];
+        NSLog(@"End %@", eTimeStr);
+        
+        NSString * sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", sTimeStr, eTimeStr];
+        
+        cell.sessionTime.text = sessionTime;
+        cell.sessionTime.textColor = [UIColor whiteColor];
+        cell.itscecs.hidden = YES;
+        cell.sessionStatus.hidden = YES;
+        
+    }
     
-    NSDateFormatter *edf = [[NSDateFormatter alloc]init];
+    if (self.is24h) {*/
+        
+    /*NSDateFormatter *sdf = [[NSDateFormatter alloc]init];
+    [NSLocale autoupdatingCurrentLocale];
+    //NSLocale *slocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    NSLocale *slocale = [NSLocale currentLocale];
+    [sdf setLocale:slocale];
+    [sdf setDateStyle:NSDateFormatterNoStyle];
+    [sdf setTimeStyle:NSDateFormatterShortStyle];
+    [sdf setDateFormat:@"hh:mm a"];
+    //[sdf setTimeZone:[NSTimeZone localTimeZone]];
+    NSString *sTimeStr = [sdf stringFromDate:sTime];
+    NSLog(@"Start %@", sTimeStr);*/
+    ///////////
+    // get the locale
+    
+    
+/*    NSDateComponents* start = [[NSDateComponents alloc]init];
+//    start.year = 2014;
+//    start.month = 3;
+//    start.day = 31;
+    start.hour = 15;
+    start.minute = 30;
+    
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDate* startDate = [calendar dateFromComponents:start];
+    
+    NSDateComponents* end = [[NSDateComponents alloc]init];
+//    end.year = 2014;
+//    end.month = 3;
+//    end.day = 31;
+    end.hour = 16;
+    end.minute = 30;
+    
+    NSDate* endDate = [calendar dateFromComponents:end];*/
+    
+    
+    [NSLocale autoupdatingCurrentLocale];
+    NSLocale *theLocale = [NSLocale currentLocale];
+    
+    // set the formatter like this
+    NSDateFormatter *sdf = [[NSDateFormatter alloc] init];
+    [sdf setLocale:theLocale];
+    [sdf setDateStyle:NSDateFormatterNoStyle];
+    [sdf setTimeStyle:NSDateFormatterShortStyle];
+    
+    NSString *sTimeStr = [sdf stringFromDate:sTime];
+    NSLog(@"Start %@", sTimeStr);
+    
+    [NSLocale autoupdatingCurrentLocale];
+    NSLocale *theLocaleE = [NSLocale currentLocale];
+    
+    // set the formatter like this
+    NSDateFormatter *edf = [[NSDateFormatter alloc] init];
+    [edf setLocale:theLocaleE];
+    [edf setDateStyle:NSDateFormatterNoStyle];
+    [edf setTimeStyle:NSDateFormatterShortStyle];
+    
+    NSString *eTimeStr = [edf stringFromDate:eTime];
+    NSLog(@"End %@", eTimeStr);
+    ////////////
+    /*NSDateFormatter *edf = [[NSDateFormatter alloc]init];
+    [NSLocale autoupdatingCurrentLocale];
+    //NSLocale *elocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    NSLocale *elocale = [NSLocale currentLocale];
+    [edf setLocale:elocale];
+    [edf setDateStyle:NSDateFormatterNoStyle];
+    [edf setTimeStyle:NSDateFormatterShortStyle];
     [edf setDateFormat:@"hh:mm a"];
-    NSString *eTimeStr = [sdf stringFromDate:eTime];
+    //[edf setTimeZone:[NSTimeZone localTimeZone]];
+    NSString *eTimeStr = [edf stringFromDate:eTime];
+    NSLog(@"End %@", eTimeStr);*/
     
     NSString * sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", sTimeStr, eTimeStr];
     
@@ -174,6 +290,7 @@
     cell.sessionTime.textColor = [UIColor whiteColor];
     cell.itscecs.hidden = YES;
     cell.sessionStatus.hidden = YES;
+    //}
     //cell.sessionStatus.text = [object valueForKey:@"sessionStatus"];
     
 //    NSString *itscecsStr = [[NSString alloc] initWithFormat:@"%@",[object valueForKey:@"itscecs"]];

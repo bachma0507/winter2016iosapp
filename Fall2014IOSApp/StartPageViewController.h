@@ -45,7 +45,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) IBOutlet UILabel *updateLabel;
-
+@property BOOL is24h;
 
 - (IBAction)buttonPressed:(id)sender;
 

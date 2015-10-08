@@ -19,5 +19,7 @@
 
 @property (nonatomic, strong) CSchedule * cschedule;
 @property (nonatomic, strong) Sessions * mySessions;
+@property BOOL is24h;
+
 
 @end
