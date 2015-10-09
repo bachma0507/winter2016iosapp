@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface PrivateView : UITableViewController <UISearchBarDelegate, UIAlertViewDelegate>
 
 @end

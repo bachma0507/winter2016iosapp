@@ -15,6 +15,8 @@
 #import "PrivateView.h"
 #import "ChatView.h"
 
+
+
 @interface PrivateView ()
 {
     NSMutableArray *users;
@@ -28,6 +30,7 @@
 
 @implementation PrivateView
 @synthesize viewHeader, searchBar1;
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

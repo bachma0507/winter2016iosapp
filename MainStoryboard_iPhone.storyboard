@@ -602,7 +602,7 @@
                             <webView contentMode="scaleToFill" id="moE-UW-9XX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.96470588235294119" green="0.65490196078431373" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.4549019608" green="0.64705882349999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="-20" maxX="0.0" maxY="20"/>
                                 <connections>
                                     <outlet property="delegate" destination="SV7-3r-Ka7" id="iLc-vc-caC"/>
