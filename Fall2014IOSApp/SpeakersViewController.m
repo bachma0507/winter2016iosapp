@@ -62,7 +62,7 @@
     self.navigationItem.backBarButtonItem = backButtonItem;
     
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky"]];
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
     [tempImageView setFrame:self.myTableView.frame];
     
     self.myTableView.backgroundView = tempImageView;
