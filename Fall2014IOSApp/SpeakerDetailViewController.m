@@ -93,7 +93,7 @@
     
     //set our labels
     speakerName.text = fullName;
-    speakerName.textColor = [UIColor brownColor];
+    //speakerName.textColor = [UIColor brownColor];
     speakerCompany.text = speakers.speakerCompany;
     //speakerBioTextView.text = speakers.speakerBio;
     session1label.text = speakers.session1;
