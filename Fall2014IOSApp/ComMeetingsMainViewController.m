@@ -165,7 +165,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    cell.backgroundColor = [UIColor colorWithRed:247/255.0 green:148/255.0 blue:30/255.0 alpha:1.0];
+    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
     
     if (!cell)
     {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xsZ-21-97U">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
@@ -613,7 +614,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="epH-4l-obW">
                                 <rect key="frame" x="43" y="79" width="120" height="120"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="Conference-scheduleF15">
+                                <state key="normal" image="Conference_scheduleW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3384,7 +3385,7 @@
         <image name="C15_exhibithall_floorplan_icon_ipad2.png" width="446" height="446"/>
         <image name="Committee-meetingsF15" width="320" height="320"/>
         <image name="Concurrent-sessionsF15" width="320" height="320"/>
-        <image name="Conference-scheduleF15" width="320" height="320"/>
+        <image name="Conference_scheduleW16" width="320" height="320"/>
         <image name="Exhibit-hall-scheduleF15" width="320" height="320"/>
         <image name="Ffloor-mapsF15" width="320" height="320"/>
         <image name="Find-area-activitiesF15" width="320" height="320"/>
@@ -3403,7 +3404,7 @@
         <image name="createuser_button_ipad.png" width="224" height="66"/>
         <image name="facebook_button.png" width="111" height="27"/>
         <image name="facebook_button_ipad.png" width="224" height="66"/>
-        <image name="green.png" width="50" height="30"/>
+        <image name="green.png" width="1024" height="768"/>
         <image name="navigation-btn-menu-ipad.png" width="50" height="35"/>
         <image name="presentation_background_ipad.png" width="768" height="1024"/>
         <image name="reload30x30.png" width="30" height="30"/>
