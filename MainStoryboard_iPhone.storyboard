@@ -622,7 +622,7 @@
                                 <rect key="frame" x="16" y="7" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="backbutton.png">
+                                <state key="normal" image="backbuttonW16.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="backbutton_blue.png"/>
@@ -665,7 +665,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="k6m-L0-gzX" rowHeight="80" style="IBUITableViewCellStyleDefault" id="qvk-pq-ac7">
-                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qvk-pq-ac7" id="vb9-0O-NBs">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
@@ -2096,7 +2096,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Uap-98-TY9">
                                 <rect key="frame" x="135" y="62" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="SpeakersF15">
+                                <state key="normal" image="speakersW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2110,7 +2110,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qhN-jT-LoJ">
                                 <rect key="frame" x="239" y="62" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="Exhibit-hall-scheduleF15">
+                                <state key="normal" image="Exhibit_hall_scheduleW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2124,7 +2124,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hYj-ea-Wd7">
                                 <rect key="frame" x="23" y="206" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="sponsors_F15-ipad-test">
+                                <state key="normal" image="SponsorsW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2138,7 +2138,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nby-5E-d22">
                                 <rect key="frame" x="242" y="206" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="ExhibitorsF15">
+                                <state key="normal" image="ExhibitorsW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2152,7 +2152,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iF5-h5-5hh">
                                 <rect key="frame" x="136" y="206" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="Concurrent-sessionsF15">
+                                <state key="normal" image="Concurrent_sessionsW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2166,7 +2166,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="81H-U4-621">
                                 <rect key="frame" x="135" y="344" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="My-session-notesF15">
+                                <state key="normal" image="My_session_notesW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2180,7 +2180,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rJC-SI-sf8">
                                 <rect key="frame" x="243" y="344" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="My-scheduleF15">
+                                <state key="normal" image="My_scheduleW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2194,7 +2194,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wBe-hG-p3N">
                                 <rect key="frame" x="27" y="344" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="My-favorite-exhibitorsF15">
+                                <state key="normal" image="My_favorite_exhibitorsW16">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -3996,16 +3996,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Concurrent-sessionsF15" width="320" height="320"/>
+        <image name="Concurrent_sessionsW16" width="320" height="320"/>
         <image name="Conference_scheduleW16" width="320" height="320"/>
-        <image name="Exhibit-hall-scheduleF15" width="320" height="320"/>
-        <image name="ExhibitorsF15" width="320" height="320"/>
-        <image name="My-favorite-exhibitorsF15" width="320" height="320"/>
-        <image name="My-scheduleF15" width="320" height="320"/>
-        <image name="My-session-notesF15" width="320" height="320"/>
-        <image name="SpeakersF15" width="320" height="320"/>
+        <image name="Exhibit_hall_scheduleW16" width="320" height="320"/>
+        <image name="ExhibitorsW16" width="320" height="320"/>
+        <image name="My_favorite_exhibitorsW16" width="320" height="320"/>
+        <image name="My_scheduleW16" width="320" height="320"/>
+        <image name="My_session_notesW16" width="320" height="320"/>
+        <image name="SponsorsW16" width="320" height="320"/>
         <image name="W15_exhibithall_floorplan_icon_iphone2.png" width="244" height="244"/>
-        <image name="backbutton.png" width="50" height="30"/>
+        <image name="backbuttonW16.png" width="50" height="30"/>
         <image name="backbutton_blue.png" width="50" height="30"/>
         <image name="button-orange-pressed.png" width="143" height="41"/>
         <image name="button-orange.png" width="143" height="41"/>
@@ -4021,7 +4021,7 @@
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
         <image name="reload30x30.png" width="30" height="30"/>
         <image name="social_tab_icon_unselected.png" width="22" height="22"/>
-        <image name="sponsors_F15-ipad-test" width="320" height="320"/>
+        <image name="speakersW16" width="320" height="320"/>
         <image name="updatedata_button.png" width="222" height="65"/>
         <image name="view_website_icon.png" width="25" height="25"/>
         <image name="yelp_logo.png" width="102" height="52"/>

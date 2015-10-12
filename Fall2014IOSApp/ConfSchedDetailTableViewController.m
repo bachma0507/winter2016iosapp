@@ -258,7 +258,7 @@
     [sdf setTimeStyle:NSDateFormatterShortStyle];
     
     NSString *sTimeStr = [sdf stringFromDate:sTime];
-    NSLog(@"Start %@", sTimeStr);
+    //NSLog(@"Start %@", sTimeStr);
     
     [NSLocale autoupdatingCurrentLocale];
     NSLocale *theLocaleE = [NSLocale currentLocale];
@@ -270,7 +270,7 @@
     [edf setTimeStyle:NSDateFormatterShortStyle];
     
     NSString *eTimeStr = [edf stringFromDate:eTime];
-    NSLog(@"End %@", eTimeStr);
+    //NSLog(@"End %@", eTimeStr);
     ////////////
     /*NSDateFormatter *edf = [[NSDateFormatter alloc]init];
     [NSLocale autoupdatingCurrentLocale];
