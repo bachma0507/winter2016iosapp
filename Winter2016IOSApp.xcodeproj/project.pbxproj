@@ -179,6 +179,9 @@
 		4C6A496A17D0BDD9003941C7 /* ConfSchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A496917D0BDD9003941C7 /* ConfSchedTableViewController.m */; };
 		4C6A496D17D0BE55003941C7 /* ConfSched.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A496C17D0BE55003941C7 /* ConfSched.m */; };
 		4C6A497017D0CB92003941C7 /* ConfSchedDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A496F17D0CB92003941C7 /* ConfSchedDetailTableViewController.m */; };
+		4C6AE8B81BCEB2E6000590F5 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6AE8B71BCEB2E5000590F5 /* VideoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4C6AE8BB1BCEC3C5000590F5 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6AE8BA1BCEC3C5000590F5 /* YTPlayerView.m */; settings = {ASSET_TAGS = (); }; };
+		4C6AE8BE1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = 4C6AE8BD1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html */; settings = {ASSET_TAGS = (); }; };
 		4C6CFCE5197031EE00AEB8B2 /* presentation_background_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CFCE3197031EE00AEB8B2 /* presentation_background_ipad.png */; };
 		4C6CFCE6197031EE00AEB8B2 /* presentation_background_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CFCE4197031EE00AEB8B2 /* presentation_background_ipad@2x.png */; };
 		4C6CFCED197036A900AEB8B2 /* training_background_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CFCE7197036A900AEB8B2 /* training_background_ipad.png */; };
@@ -850,6 +853,11 @@
 		4C6A496C17D0BE55003941C7 /* ConfSched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfSched.m; sourceTree = "<group>"; };
 		4C6A496E17D0CB92003941C7 /* ConfSchedDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfSchedDetailTableViewController.h; sourceTree = "<group>"; };
 		4C6A496F17D0CB92003941C7 /* ConfSchedDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfSchedDetailTableViewController.m; sourceTree = "<group>"; };
+		4C6AE8B61BCEB2E5000590F5 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		4C6AE8B71BCEB2E5000590F5 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		4C6AE8B91BCEC3C5000590F5 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		4C6AE8BA1BCEC3C5000590F5 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		4C6AE8BD1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "YTPlayerView-iframe-player.html"; sourceTree = "<group>"; };
 		4C6CFCE3197031EE00AEB8B2 /* presentation_background_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = presentation_background_ipad.png; sourceTree = "<group>"; };
 		4C6CFCE4197031EE00AEB8B2 /* presentation_background_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "presentation_background_ipad@2x.png"; sourceTree = "<group>"; };
 		4C6CFCE7197036A900AEB8B2 /* training_background_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = training_background_ipad.png; sourceTree = "<group>"; };
@@ -1552,6 +1560,7 @@
 		4C2D69EC174541100053BCC0 = {
 			isa = PBXGroup;
 			children = (
+				4C6AE8BC1BCEC3D1000590F5 /* Assets */,
 				4C9B1D5F19E30656007E0F51 /* Constants */,
 				4CD8E08B1937E78300A4326C /* Yelp_API_Request */,
 				4CD8E04C1937E42F00A4326C /* OAuthConsumer */,
@@ -1615,6 +1624,7 @@
 		4C2D69FE174541100053BCC0 /* Fall2014IOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C6AE8B51BCEB266000590F5 /* videoTutorial */,
 				4C657AA81AF29E6200A8A166 /* splitview */,
 				4CB2EFC41A3F948C0066979B /* SegmentControlSchedules */,
 				4CCB78DD1843B65700D9D1C6 /* CEC */,
@@ -1873,6 +1883,8 @@
 		4C48759F176CEDE200059E21 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C6AE8B91BCEC3C5000590F5 /* YTPlayerView.h */,
+				4C6AE8BA1BCEC3C5000590F5 /* YTPlayerView.m */,
 				4CAF0D9919EDFCBB00961A3A /* NSString+MD5.h */,
 				4CAF0D9A19EDFCBB00961A3A /* NSString+MD5.m */,
 				4C9B1E3019E343A2007E0F51 /* JSQSystemSoundPlayer */,
@@ -1979,6 +1991,23 @@
 				4C657AB61AF2A5E400A8A166 /* MasterViewController.m */,
 			);
 			name = splitview;
+			sourceTree = "<group>";
+		};
+		4C6AE8B51BCEB266000590F5 /* videoTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4C6AE8B61BCEB2E5000590F5 /* VideoViewController.h */,
+				4C6AE8B71BCEB2E5000590F5 /* VideoViewController.m */,
+			);
+			name = videoTutorial;
+			sourceTree = "<group>";
+		};
+		4C6AE8BC1BCEC3D1000590F5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4C6AE8BD1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		4C894E2818AD548800001623 /* hotelWebview */ = {
@@ -3161,6 +3190,7 @@
 				4C36C697192F766F0018AB39 /* Images.xcassets in Resources */,
 				4CA334B91AAA84DB00D09FAE /* committee_meetings_C15_568h@2x.png in Resources */,
 				4CB8E2531AA41E2E00F8638A /* sunrise@3x.png in Resources */,
+				4C6AE8BE1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html in Resources */,
 				4CA334B21AAA84DB00D09FAE /* exhibitors_C15-ipad.png in Resources */,
 				4CA334D01AAA84DB00D09FAE /* concurrent_sessions_C15.png in Resources */,
 				4C018E301808E52500A567C6 /* gallery_tab_icon_selected.png in Resources */,
@@ -3436,6 +3466,7 @@
 				4C2D6A18174541100053BCC0 /* Fall2013IOSAppViewController.m in Sources */,
 				4C2D6A35174697D80053BCC0 /* AppViewController.m in Sources */,
 				4C453BB0185BC51A00D57388 /* CSchedule.m in Sources */,
+				4C6AE8BB1BCEC3C5000590F5 /* YTPlayerView.m in Sources */,
 				4C2D6A3817469DE00053BCC0 /* notificationViewController.m in Sources */,
 				4C9B1D6619E31E99007E0F51 /* ProgressHUD.m in Sources */,
 				4C9B1E2C19E34387007E0F51 /* JSQMessagesToolbarContentView.m in Sources */,
@@ -3512,6 +3543,7 @@
 				4CD8E09E1938121600A4326C /* ResultTableViewCell.m in Sources */,
 				4C8A834E177B80B800022E03 /* ExhibitorsDetailViewController.m in Sources */,
 				4CD8E07F1937E42F00A4326C /* OAConsumer.m in Sources */,
+				4C6AE8B81BCEB2E6000590F5 /* VideoViewController.m in Sources */,
 				4C3A0CF6177C6C1300DA1D7E /* ExamsViewController.m in Sources */,
 				4C088C59177F667500CFBC96 /* MagicalImportFunctions.m in Sources */,
 				4CC05AA5180C76DE0082A141 /* IpadLoginViewController.m in Sources */,

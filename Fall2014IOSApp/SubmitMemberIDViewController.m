@@ -115,7 +115,8 @@
             [request setHTTPBody:postData];
             
             
-            NSError *error = [[NSError alloc] init];
+            //NSError *error = [[NSError alloc] init];
+            NSError * error = [NSError errorWithDomain:@"oops" code:200 userInfo:nil];
             NSHTTPURLResponse *response = nil;
             NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             

@@ -665,7 +665,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="k6m-L0-gzX" rowHeight="80" style="IBUITableViewCellStyleDefault" id="qvk-pq-ac7">
-                                <rect key="frame" x="0.0" y="22" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qvk-pq-ac7" id="vb9-0O-NBs">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
@@ -2303,6 +2303,12 @@
                                 <action selector="onBurger:" destination="YN0-vG-j3O" id="nu3-Mq-VPU"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="DcV-Vs-FIA">
+                            <color key="tintColor" red="0.31098992879999998" green="1" blue="0.61186604499999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="3to-dA-i5V" kind="push" id="anL-oj-mij"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="updateLabel" destination="3Xw-no-QJ6" id="fxR-JO-y84"/>
@@ -2436,6 +2442,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HfR-Qk-q3E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2154" y="843"/>
+        </scene>
+        <!--App Video Tutorial-->
+        <scene sceneID="cXR-9a-IVE">
+            <objects>
+                <viewController id="3to-dA-i5V" customClass="VideoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KrP-QN-C2Q">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="QsR-pe-eaY">
+                                <rect key="frame" x="0.0" y="78" width="320" height="330"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" title="App Video Tutorial" id="KAa-JL-tLB"/>
+                    <connections>
+                        <outlet property="webView" destination="QsR-pe-eaY" id="bwb-8X-PHu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MoQ-FT-NJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3127" y="306"/>
         </scene>
         <!--Eula View Controller-->
         <scene sceneID="pUp-ak-jCs">
