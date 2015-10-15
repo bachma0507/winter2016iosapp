@@ -136,7 +136,9 @@ int iNotificationCounter=0;
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
     //UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarflatgrey"];
     //[[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
         
         
             }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E1BF8877-8714-4F4D-8ABE-7DE550866CA7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Winter2016IOSApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EDA37BD47B987253F4D77CE84BC7D43FD671165C</key>
+		<string>https://github.com/bachma0507/winter2016iosapp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Winter2016IOSApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EDA37BD47B987253F4D77CE84BC7D43FD671165C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bachma0507/winter2016iosapp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EDA37BD47B987253F4D77CE84BC7D43FD671165C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EDA37BD47B987253F4D77CE84BC7D43FD671165C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Winter2016IOSApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

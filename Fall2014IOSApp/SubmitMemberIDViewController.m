@@ -91,14 +91,11 @@
             
         } else {
             
-            
-            
             NSString *post =[[NSString alloc] initWithFormat:@"sess=CN-WINTER-FL-0116&custcd=%@",[self.txtUsername text]];
             
             NSLog(@"PostData: %@",post);
             
             NSString * webURL = [[NSString alloc] initWithFormat:@"https://webservice.bicsi.org/json/reply/MobFunctions?sess=CN-WINTER-FL-0116&custcd=%@", [self.txtUsername text]];
-            
             
             NSURL *url=[NSURL URLWithString:webURL];
             
@@ -115,8 +112,7 @@
             [request setHTTPBody:postData];
             
             
-            //NSError *error = [[NSError alloc] init];
-            NSError * error = [NSError errorWithDomain:@"oops" code:200 userInfo:nil];
+            NSError * error = [NSError errorWithDomain:@"oops!" code:200 userInfo:nil];
             NSHTTPURLResponse *response = nil;
             NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             
@@ -136,8 +132,6 @@
                 
             }
             
-            
-            
             else{ ////NESTED ELSE NUMBER 1 BEGINS
                 
                 NSLog(@"Response code: %ld", (long)[response statusCode]);
@@ -147,38 +141,16 @@
                     NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
                     NSLog(@"Response ==> %@", responseData);
                     
-                    
-                    
                     //TRUNCATE FRONT AND END OF JSON. ALSO JSON STATEMENT AND CHANGE SESSIONDATE DATE FORMAT
                     NSString * dataStr = [[NSString alloc] initWithData: urlData encoding:NSUTF8StringEncoding];
                     NSString *newDataStr = [dataStr substringWithRange:NSMakeRange(13, [dataStr length]-13)];
                     NSString *truncDataStr = [newDataStr substringToIndex:[ newDataStr length]-1 ];
                     
-                    
-                    
                     NSLog(@"After truncated from end: %@", truncDataStr);
                     
                     NSData* truncData = [truncDataStr dataUsingEncoding:NSUTF8StringEncoding];
                     
-                    
-                    
                     json = [NSJSONSerialization JSONObjectWithData:truncData options:kNilOptions error:nil];
-                    
-                    //                if([(NSString *) [json objectAtIndex:0] isEqualToString:@"error_message"]){
-                    //
-                    //                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                    //                                                                        message:@"No records found!"
-                    //                                                                       delegate:self
-                    //                                                              cancelButtonTitle:@"Ok"
-                    //                                                              otherButtonTitles:nil, nil];
-                    //
-                    //                    [alertView show];
-                    //
-                    //
-                    //                }
-                    //
-                    //                else{
-                    
                     
                     if (json.count == 0) {
                         NSLog(@"JSON COUNT IS 0");
@@ -200,7 +172,6 @@
                         for (int i = 0; i < json.count; i++) {
                             //create functions object
                             NSString * fFunctioncd = [[json objectAtIndex:i] objectForKey:@"FUNCTIONCD"];
-                            
                             
                             Functions * myFunctions = [[Functions alloc]initWithFunctionCD:fFunctioncd];
                             
@@ -256,9 +227,7 @@
                             
                             [newManagedObject setValue:sessionTimeStr forKey:@"sessiontime"];
                             [newManagedObject setValue:[object valueForKey:@"location"] forKey:@"location"];
-                            
                             [newManagedObject setValue:[object valueForKey:@"startTime"] forKey:@"starttime"];
-                            //[newManagedObject setValue:newDeviceID forKey:@"deviceowner"];
                             [newManagedObject setValue:@"Yes" forKey:@"agenda"];
                             
                             NSString * value = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"sessionName"]];
@@ -295,26 +264,14 @@
                             
                         }
                         
-                        //                success = [jsonData[@"success"] integerValue];
-                        //                NSLog(@"Success: %ld",(long)success);
-                        //
-                        //                if(success == 1)
-                        //                {
-                        //                    NSLog(@"Login SUCCESS");
-                        //                    [keychainItem setObject:[self.txtPassword text] forKey:(__bridge id)(kSecValueData)];
-                        //                    [keychainItem setObject:[self.txtUsername text] forKey:(__bridge id)(kSecAttrAccount)];
-                        //                } else {
-                        //
-                        //                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                        //                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
-                        
                         
                     } ////NESTED ELSE NUMBER 2 ENDS
                     
                 } else {
-                    //if (error) NSLog(@"Error: %@", error);
+                    
                     [self alertStatus:@"Connection Failed" :@"Sign in Failed!" :0];
                 }
+                
             }///NESTED ELSE NUMBER 1 ENDS
             
         }
@@ -328,12 +285,32 @@
 
 - (IBAction)loginClicked:(id)sender {
     
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    HUD.labelText = @"Importing data...";
-    //HUD.detailsLabelText = @"Just relax";
-    HUD.mode = MBProgressHUDAnimationFade;
-    [self.view addSubview:HUD];
-    [HUD showWhileExecuting:@selector(fetchMemberFunctions) onTarget:self withObject:nil animated:YES];
+//    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+//    HUD.labelText = @"Importing data...";
+//    //HUD.detailsLabelText = @"Just relax";
+//    HUD.mode = MBProgressHUDAnimationFade;
+//    [self.view addSubview:HUD];
+//    [HUD showWhileExecuting:@selector(fetchMemberFunctions) onTarget:self withObject:nil animated:YES];
+    
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.mode = MBProgressHUDModeAnnularDeterminate;
+//    hud.labelText = @"Importing data...";
+//    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+//        [self fetchMemberFunctions]; // Do something...
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        });
+//    });
+    
+    //[MBProgressHUD showHUDAddedTo: self.view animated: YES];
+    //hud.mode = MBProgressHUDAnimationFade;
+    //hud.labelText = @"Importing data...";
+    //[self.view addSubview:hud];
+    //[self fetchMemberFunctions];
+    
+    [MBProgressHUD showHUDAddedTo: self.view animated: YES];
+    [self fetchMemberFunctions];
+    [MBProgressHUD hideHUDForView: self.view animated: YES];
     
     
 //    BOOL success;
