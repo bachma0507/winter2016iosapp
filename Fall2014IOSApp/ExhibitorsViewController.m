@@ -268,6 +268,18 @@
     }
 }
 
+- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    
+    if(indexPath.row % 2 == 0){
+        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+        cell.backgroundColor = altCellColor;
+    }
+    else{
+        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+    }
+}
+
 //-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 //    
 //    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.

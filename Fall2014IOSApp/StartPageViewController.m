@@ -774,9 +774,11 @@
                     NSArray *toRecipents = [NSArray arrayWithObject:@"support@bicsi.org"];
                     
                     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+                    [mc.navigationBar setTintColor:[UIColor blackColor]];
                     mc.mailComposeDelegate = self;
                     [mc setSubject:emailTitle];
                     [mc setMessageBody:messageBody isHTML:NO];
+                    
                     [mc setToRecipients:toRecipents];
                     
                     // Present mail view controller on screen
