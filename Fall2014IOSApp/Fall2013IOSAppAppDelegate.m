@@ -137,7 +137,8 @@ int iNotificationCounter=0;
     //UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarflatgrey"];
     //[[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
+        //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:192 green:197 blue:197 alpha:1.0]];
 
         
         

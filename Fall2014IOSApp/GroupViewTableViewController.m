@@ -34,13 +34,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //[nv.navigationBar setBarTintColor:[UIColor grayColor]];
+    
+    //[nv.navigationBar setTintColor:[UIColor blackColor]];
+    
     //self.title = @"Group";
     //---------------------------------------------------------------------------------------------------------------------------------------------
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"New Room" style:UIBarButtonItemStyleBordered target:self action:@selector(actionNew)];
+    //self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     //---------------------------------------------------------------------------------------------------------------------------------------------
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
+    //self.navigationItem.backBarButtonItem.tintColor = [UIColor greenColor];
     
 //    //---------------------------------------------------------------------------------------------------------------------------------------------
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(btnClick)];

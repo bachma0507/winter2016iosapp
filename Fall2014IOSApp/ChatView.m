@@ -48,8 +48,10 @@
     [super viewDidLoad];
     //self.title = @"Chat";
     
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
+    //label.backgroundColor = [UIColor greenColor];
     label.font = [UIFont boldSystemFontOfSize:20.0];
     //label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     label.textAlignment = NSTextAlignmentCenter;
