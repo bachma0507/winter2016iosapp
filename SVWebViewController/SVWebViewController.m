@@ -290,15 +290,74 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self updateToolbarItems];
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray]; [self.view addSubview:spinner];
+    
+    spinner.tag = 1;
+    spinner.center = self.view.center;
+    [spinner startAnimating];
 }
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
+    
     self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [self updateToolbarItems];
+    
+    UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:1];
+    [tmpimg removeFromSuperview];
+    
+    
+    NSCachedURLResponse *urlResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:webView.request];
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) urlResponse.response;
+    NSInteger statusCode = httpResponse.statusCode;
+    if (statusCode > 399) {
+        NSError *error = [NSError errorWithDomain:@"HTTP Error" code:httpResponse.statusCode userInfo:@{@"response":@"Information Not Found"}];
+        
+        // Forward the error to webView:didFailLoadWithError: or other
+        
+        NSLog(@"Error code: %@", error);
+        
+        NSString *message = @"No information found for this meeting.";
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+                                                           message:message
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Ok"
+                                                 otherButtonTitles:nil,nil];
+        alertView.tag = 1;
+        [alertView show];
+        
+    }
+    //else {
+        // No HTTP error
+    //}
+
 }
+
+-(void)backBtnClick
+{
+    //write your code to prepare popview
+    //[self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
+    if (alertView.tag ==1) {
+        
+        if (buttonIndex == 0) {
+            
+            //[self backBtnClick];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+            
+        }
+    }
+}
+
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

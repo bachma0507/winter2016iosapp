@@ -29,5 +29,6 @@
 
 
 - (IBAction)takeSurvey:(id)sender;
+- (IBAction)viewPresentation:(id)sender;
 
 @end

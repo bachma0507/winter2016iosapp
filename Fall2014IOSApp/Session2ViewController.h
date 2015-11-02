@@ -69,6 +69,7 @@
 - (IBAction)agendaButtonPressed:(id)sender;
 - (IBAction)AddEvent:(id)sender;
 - (IBAction)takePoll:(id)sender;
+- (IBAction)viewPresentations:(id)sender;
 
 
 @end

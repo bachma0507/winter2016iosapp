@@ -88,5 +88,6 @@
 - (IBAction)takeSurvey:(id)sender;
 - (IBAction)AddEvent:(id)sender;
 - (IBAction)takePoll:(id)sender;
+- (IBAction)viewPresentation:(id)sender;
 
 @end

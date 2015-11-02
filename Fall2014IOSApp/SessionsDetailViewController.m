@@ -750,6 +750,34 @@
     
 }
 
+- (IBAction)viewPresentation:(id)sender {
+    
+    NSString * sessIDStr = [[NSString alloc]initWithFormat:@"%@",self.mySessions.sessionID];
+    
+    if ([sessIDStr hasPrefix:@"COM"] || [sessIDStr hasPrefix:@"EH"] || [sessIDStr hasPrefix:@"BREAK"] || [sessIDStr hasPrefix:@"ATT"] || [sessIDStr hasPrefix:@"BIC"] || [sessIDStr hasPrefix:@"CRED"] || [sessIDStr hasPrefix:@"EX"] || [sessIDStr hasPrefix:@"GS_CALL"] || [sessIDStr hasPrefix:@"GUE"] || [sessIDStr hasPrefix:@"CONF"]) {
+        NSString *message = @"Presentation not found for this meeting.";
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+                                                           message:message
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Ok"
+                                                 otherButtonTitles:nil,nil];
+        [alertView show];
+    }
+    
+    else{
+        
+        NSString * myURL = [NSString stringWithFormat:@"https://www.bicsi.org/uploadedfiles/bicsi_conferences/fall/2015/presentations/%@.pdf", mySessions.sessionID];
+        NSLog(myURL);
+        //    NSURL *url = [NSURL URLWithString:myURL];
+        //	[[UIApplication sharedApplication] openURL:url];
+        NSURL *URL = [NSURL URLWithString:myURL];
+        SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
+        [self.navigationController pushViewController:webViewController animated:YES];
+        
+    }
+    
+}
+
 
 
 @end

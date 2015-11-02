@@ -67,4 +67,5 @@
 - (IBAction)takeSurvey:(id)sender;
 - (IBAction)agendaButtonPressed:(id)sender;
 - (IBAction)takePoll:(id)sender;
+- (IBAction)viewPrsentation:(id)sender;
 @end
