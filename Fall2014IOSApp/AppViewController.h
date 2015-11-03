@@ -27,7 +27,7 @@
 
 
 //- (IBAction)backButtonPressed:(id)sender;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
+//@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 - (IBAction)backButtonPressed:(id)sender;
 
 @end

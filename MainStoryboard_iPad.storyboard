@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xsZ-21-97U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xsZ-21-97U">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -98,17 +98,12 @@
                                     <outlet property="delegate" destination="bwS-LC-9Qw" id="Oob-si-8Ju"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="tvC-1c-WGC">
-                                <rect key="frame" x="374" y="468" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.63137254899999995" green="0.73333333329999995" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="" id="cie-8u-56y"/>
                     <connections>
-                        <outlet property="activity" destination="tvC-1c-WGC" id="PH4-dW-reV"/>
                         <outlet property="back" destination="ZWd-Wx-d9x" id="RQn-rH-HPW"/>
                         <outlet property="webView" destination="vWd-9a-Rod" id="dgE-2k-nos"/>
                     </connections>
@@ -257,7 +252,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="uO4-eV-TGK" detailTextLabel="Npe-ZW-3Uy" rowHeight="94" style="IBUITableViewCellStyleSubtitle" id="wmT-oD-f1k" customClass="SessionsMainViewCell">
-                                        <rect key="frame" x="0.0" y="130" width="768" height="94"/>
+                                        <rect key="frame" x="0.0" y="66" width="768" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wmT-oD-f1k" id="Edu-YO-b8F">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="93"/>
@@ -1110,7 +1105,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExhibitHallCell" rowHeight="64" id="wXu-RY-2xt" customClass="ExhibitHallScheduleCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="64"/>
+                                <rect key="frame" x="0.0" y="22" width="768" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wXu-RY-2xt" id="I9A-B4-V54">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
@@ -1237,7 +1232,7 @@
                                 <color key="backgroundColor" red="0.062745098040000002" green="0.1137254902" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96470588235294119" green="0.65490196078431373" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.4549019608" green="0.64705882349999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Find Area Activities" id="LKc-Kd-HtF"/>
@@ -1317,7 +1312,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="124" id="qJx-1C-A2L" customClass="AllNotesCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="124"/>
+                                <rect key="frame" x="0.0" y="22" width="768" height="124"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qJx-1C-A2L" id="grX-4E-slX">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="124"/>
@@ -1614,6 +1609,17 @@
                                     <action selector="togglePopoverSurvey:" destination="g2i-OV-Jim" eventType="touchUpInside" id="byb-Fg-uAu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2Tq-z9-mCw">
+                                <rect key="frame" x="294" y="566" width="180" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Presentation" backgroundImage="button-orange.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewPresentation:" destination="g2i-OV-Jim" eventType="touchUpInside" id="3pH-xm-8zq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4549019608" green="0.64705882349999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1868,6 +1874,17 @@
                                     <action selector="togglePopover:" destination="soe-OX-YCn" eventType="touchUpInside" id="LG0-6X-Kkh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tl8-Wb-axy">
+                                <rect key="frame" x="294" y="842" width="180" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Presentations" backgroundImage="button-orange.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewPrsentation:" destination="soe-OX-YCn" eventType="touchUpInside" id="qxe-QE-Cs4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4549019608" green="0.64705882349999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -2001,6 +2018,17 @@
                                 </state>
                                 <connections>
                                     <action selector="togglePopover:" destination="6rM-fV-jvP" eventType="touchUpInside" id="5v2-U0-UUZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kjW-KW-IIw">
+                                <rect key="frame" x="294" y="846" width="180" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Presentations" backgroundImage="button-orange.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewPresentations:" destination="6rM-fV-jvP" eventType="touchUpInside" id="DAe-H9-igK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2193,7 +2221,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExhibitorsCell" textLabel="bl2-zb-Bc8" detailTextLabel="B1b-bH-Oem" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="oTq-Hi-hgL" customClass="ExhibitorViewCell">
-                                        <rect key="frame" x="0.0" y="130" width="768" height="74"/>
+                                        <rect key="frame" x="0.0" y="66" width="768" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oTq-Hi-hgL" id="fxJ-0U-8Ac">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="73"/>
@@ -2404,7 +2432,7 @@
                                 <color key="separatorColor" red="1" green="0.74901960779999999" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="MZ2-iO-lAN" detailTextLabel="q31-sd-LNf" rowHeight="54" style="IBUITableViewCellStyleSubtitle" id="0Ha-W1-Xpn">
-                                        <rect key="frame" x="0.0" y="114" width="768" height="54"/>
+                                        <rect key="frame" x="0.0" y="50" width="768" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ha-W1-Xpn" id="JRW-Po-AyD">
                                             <rect key="frame" x="0.0" y="0.0" width="682" height="53"/>
@@ -2725,6 +2753,17 @@
                                 </state>
                                 <connections>
                                     <action selector="togglePopover:" destination="bdb-bd-S2F" eventType="touchUpInside" id="CV8-v3-dcX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T6U-pd-aEg">
+                                <rect key="frame" x="306" y="853" width="180" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Presentations" backgroundImage="button-orange.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewPresentation:" destination="bdb-bd-S2F" eventType="touchUpInside" id="3gY-1c-Z3L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -3418,11 +3457,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xdd-lt-WaI"/>
-        <segue reference="llJ-MJ-Tf6"/>
+        <segue reference="x9l-yO-e2N"/>
+        <segue reference="fPP-35-TOg"/>
+        <segue reference="uaS-LK-lnw"/>
         <segue reference="SFt-NY-1lL"/>
         <segue reference="Ysf-Ju-HKO"/>
-        <segue reference="eyd-89-hvr"/>
-        <segue reference="zdp-PR-IH3"/>
-        <segue reference="x9l-yO-e2N"/>
+        <segue reference="llJ-MJ-Tf6"/>
     </inferredMetricsTieBreakers>
 </document>

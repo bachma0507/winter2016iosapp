@@ -622,10 +622,6 @@
                                     <outlet property="delegate" destination="SV7-3r-Ka7" id="iLc-vc-caC"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="KYm-hN-nxV">
-                                <rect key="frame" x="150" y="174" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -660,7 +656,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activity" destination="KYm-hN-nxV" id="wUE-XD-X7w"/>
                         <outlet property="back" destination="k7Q-8q-UNt" id="HtJ-Ck-wAh"/>
                         <outlet property="webView" destination="moE-UW-9XX" id="34n-AZ-KGw"/>
                     </connections>

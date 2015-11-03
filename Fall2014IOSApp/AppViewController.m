@@ -15,7 +15,7 @@
 @implementation AppViewController
 @synthesize webView;
 @synthesize back;
-@synthesize activity;
+//@synthesize activity;
 //@synthesize adImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,13 +61,13 @@
 {
 //	back.enabled = NO;
     back.enabled = NO;
-    [activity startAnimating];
+    //[activity startAnimating];
 //	
 }
 //
 - (void)webViewDidFinishLoad:(UIWebView *)thisWebView
 {
-    [activity stopAnimating];
+    //[activity stopAnimating];
 //    activity.hidden = TRUE;
 //	
 //	if(thisWebView.canGoBack == YES)
