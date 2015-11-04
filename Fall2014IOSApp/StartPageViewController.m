@@ -49,16 +49,16 @@
     //[formatter release];
     NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
     
-    if (self.is24h) {
-        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times and restart the app.";
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
-                                                           message:message
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Settings"
-                                                 otherButtonTitles:nil,nil];
-        alertView.tag = 0;
-        [alertView show];
-    }
+//    if (self.is24h) {
+//        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times and restart the app.";
+//        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+//                                                           message:message
+//                                                          delegate:self
+//                                                 cancelButtonTitle:@"Settings"
+//                                                 otherButtonTitles:nil,nil];
+//        alertView.tag = 0;
+//        [alertView show];
+//    }
     
     self.optionIndices = [NSMutableIndexSet indexSetWithIndex:1];
     

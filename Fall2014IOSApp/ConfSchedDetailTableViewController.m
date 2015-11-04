@@ -10,6 +10,7 @@
 #import "Fall2013IOSAppAppDelegate.h"
 #import <CoreData/CoreData.h>
 #import "SessionsDetailViewController.h"
+#import "NSDate+TimeStyle.h"
 
 
 @interface ConfSchedDetailTableViewController ()
@@ -67,34 +68,6 @@
     
     [self refreshTable];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    /*NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateStyle:NSDateFormatterNoStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    NSString *dateString = [formatter stringFromDate:[NSDate date]];
-    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
-    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
-    self.is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
-    //[formatter release];
-    NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
-    
-    if (self.is24h) {
-        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times.";
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
-                                                           message:message
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Ok"
-                                                 otherButtonTitles:nil,nil];
-        //alertView.tag = 1;
-        [alertView show];
-    }*/
-    
     
 }
 
@@ -104,18 +77,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-//{
-//    
-//    if(indexPath.row % 2 == 0){
-//        //UIColor *altCellColor = [UIColor colorWithRed:235/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
-//        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:235/255.0 blue:253/255.0 alpha:1.0];
-//        cell.backgroundColor = altCellColor;
-//    }
-//    else{
-//        cell.backgroundColor = [UIColor whiteColor];
-//    }
-//}
+
 
 #pragma mark - Table view data source
 
@@ -130,6 +92,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
+
     return self.myObjects.count;
 }
 
@@ -179,112 +142,21 @@
         [cell.starUnSel setImage:myImage2];
     }
     
-    
-    
     NSDate * sTime = [object valueForKey:@"startTime"];
     NSDate * eTime = [object valueForKey:@"endTime"];
-    
-    /*if (!self.is24h) {
-        
-        NSDateFormatter *sdf = [[NSDateFormatter alloc]init];
-        //NSLocale *slocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        //[sdf setLocale:slocale];
-        [sdf setDateFormat:@"hh:mm a"];
-        NSString *sTimeStr = [sdf stringFromDate:sTime];
-        NSLog(@"Start %@", sTimeStr);
-        
-        NSDateFormatter *edf = [[NSDateFormatter alloc]init];
-        //NSLocale *elocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        //[edf setLocale:elocale];
-        [edf setDateFormat:@"hh:mm a"];
-        
-        NSString *eTimeStr = [sdf stringFromDate:eTime];
-        NSLog(@"End %@", eTimeStr);
-        
-        NSString * sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", sTimeStr, eTimeStr];
-        
-        cell.sessionTime.text = sessionTime;
-        cell.sessionTime.textColor = [UIColor whiteColor];
-        cell.itscecs.hidden = YES;
-        cell.sessionStatus.hidden = YES;
-        
-    }
-    
-    if (self.is24h) {*/
-        
-    /*NSDateFormatter *sdf = [[NSDateFormatter alloc]init];
-    [NSLocale autoupdatingCurrentLocale];
-    //NSLocale *slocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    NSLocale *slocale = [NSLocale currentLocale];
-    [sdf setLocale:slocale];
-    [sdf setDateStyle:NSDateFormatterNoStyle];
-    [sdf setTimeStyle:NSDateFormatterShortStyle];
-    [sdf setDateFormat:@"hh:mm a"];
-    //[sdf setTimeZone:[NSTimeZone localTimeZone]];
-    NSString *sTimeStr = [sdf stringFromDate:sTime];
-    NSLog(@"Start %@", sTimeStr);*/
-    ///////////
-    // get the locale
-    
-    
-/*    NSDateComponents* start = [[NSDateComponents alloc]init];
-//    start.year = 2014;
-//    start.month = 3;
-//    start.day = 31;
-    start.hour = 15;
-    start.minute = 30;
-    
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    
-    NSDate* startDate = [calendar dateFromComponents:start];
-    
-    NSDateComponents* end = [[NSDateComponents alloc]init];
-//    end.year = 2014;
-//    end.month = 3;
-//    end.day = 31;
-    end.hour = 16;
-    end.minute = 30;
-    
-    NSDate* endDate = [calendar dateFromComponents:end];*/
-    
-    
-    [NSLocale autoupdatingCurrentLocale];
-    NSLocale *theLocale = [NSLocale currentLocale];
+
     
     // set the formatter like this
     NSDateFormatter *sdf = [[NSDateFormatter alloc] init];
-    [sdf setLocale:theLocale];
     [sdf setDateStyle:NSDateFormatterNoStyle];
     [sdf setTimeStyle:NSDateFormatterShortStyle];
     
-    NSString *sTimeStr = [sdf stringFromDate:sTime];
-    //NSLog(@"Start %@", sTimeStr);
-    
-    [NSLocale autoupdatingCurrentLocale];
-    NSLocale *theLocaleE = [NSLocale currentLocale];
-    
     // set the formatter like this
     NSDateFormatter *edf = [[NSDateFormatter alloc] init];
-    [edf setLocale:theLocaleE];
     [edf setDateStyle:NSDateFormatterNoStyle];
     [edf setTimeStyle:NSDateFormatterShortStyle];
     
-    NSString *eTimeStr = [edf stringFromDate:eTime];
-    //NSLog(@"End %@", eTimeStr);
-    ////////////
-    /*NSDateFormatter *edf = [[NSDateFormatter alloc]init];
-    [NSLocale autoupdatingCurrentLocale];
-    //NSLocale *elocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    NSLocale *elocale = [NSLocale currentLocale];
-    [edf setLocale:elocale];
-    [edf setDateStyle:NSDateFormatterNoStyle];
-    [edf setTimeStyle:NSDateFormatterShortStyle];
-    [edf setDateFormat:@"hh:mm a"];
-    //[edf setTimeZone:[NSTimeZone localTimeZone]];
-    NSString *eTimeStr = [edf stringFromDate:eTime];
-    NSLog(@"End %@", eTimeStr);*/
-    
-    NSString * sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", sTimeStr, eTimeStr];
+    NSString * sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", [NSDate stringFromTime:sTime], [NSDate stringFromTime:eTime]];
     
     cell.sessionTime.text = sessionTime;
     cell.sessionTime.textColor = [UIColor whiteColor];
@@ -319,18 +191,6 @@
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//    SessionsDetailViewController *aViewController = [[SessionsDetailViewController alloc] initWithNibName:@"SessionsDetailViewController" bundle:nil];
-//    UIPopoverController *popoverController = [[UIPopoverController alloc]
-//                                              initWithContentViewController:aViewController];
-//    
-//    popoverController.popoverContentSize = CGSizeMake(320, 416);
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    [popoverController presentPopoverFromRect:cell.bounds inView:cell.contentView
-//                     permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-//}
 
 -(void)refreshTable{
     
@@ -445,44 +305,6 @@
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

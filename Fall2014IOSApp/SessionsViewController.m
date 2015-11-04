@@ -16,6 +16,7 @@
 #import "Fall2013IOSAppAppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import "SVWebViewController.h"
+#import "NSDate+TimeStyle.h"
 
 @interface SessionsViewController () <MFMessageComposeViewControllerDelegate>
 @property (nonatomic, strong) NSMutableArray *mySessionnotes;

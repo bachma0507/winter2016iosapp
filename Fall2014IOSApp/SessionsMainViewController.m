@@ -323,27 +323,47 @@
         
         NSLog(@"Session Date is: %@", stringDate);
         
-        NSDateFormatter *timeFormatter1 = [[NSDateFormatter alloc] init];
-        [timeFormatter1 setDateFormat:@"hh:mm a"];
-        
+//        NSDateFormatter *timeFormatter1 = [[NSDateFormatter alloc] init];
+//        [timeFormatter1 setDateFormat:@"hh:mm a"];
+//        
         NSDate *time1 = (NSDate*) [object valueForKey:@"startTime"];
-        
-        NSString *stringStartTime = [timeFormatter1 stringFromDate:time1];
-        
-        NSDateFormatter *timeFormatter2 = [[NSDateFormatter alloc] init];
-        [timeFormatter2 setDateFormat:@"hh:mm a"];
-        
+//        
+//        NSString *stringStartTime = [timeFormatter1 stringFromDate:time1];
+//        
+//        NSDateFormatter *timeFormatter2 = [[NSDateFormatter alloc] init];
+//        [timeFormatter2 setDateFormat:@"hh:mm a"];
+//        
         NSDate *time2 = (NSDate*) [object valueForKey:@"endTime"];
+//        
+//        NSString *stringEndTime = [timeFormatter2 stringFromDate:time2];
         
-        NSString *stringEndTime = [timeFormatter2 stringFromDate:time2];
+        [NSLocale autoupdatingCurrentLocale];
+        NSLocale *theLocale = [NSLocale currentLocale];
+        
+        // set the formatter like this
+        NSDateFormatter *sdf = [[NSDateFormatter alloc] init];
+        [sdf setLocale:theLocale];
+        [sdf setDateStyle:NSDateFormatterNoStyle];
+        [sdf setTimeStyle:NSDateFormatterShortStyle];
+        
+        NSString *stringStartTime = [sdf stringFromDate:time1];
+        //NSLog(@"Start %@", sTimeStr);
+        
+        [NSLocale autoupdatingCurrentLocale];
+        NSLocale *theLocaleE = [NSLocale currentLocale];
+        
+        // set the formatter like this
+        NSDateFormatter *edf = [[NSDateFormatter alloc] init];
+        [edf setLocale:theLocaleE];
+        [edf setDateStyle:NSDateFormatterNoStyle];
+        [edf setTimeStyle:NSDateFormatterShortStyle];
+        
+        NSString *stringEndTime = [edf stringFromDate:time2];
+
         
         NSString *sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", stringStartTime,stringEndTime];
         cell.detailTextLabel.text = sessionTime;
-        //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:10.0];
-        //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:10.0];
         cell.detailTextLabel.textColor = [UIColor whiteColor];
-        //cell.textLabel.font = [UIFont systemFontOfSize:11.0];
-        //cell.textLabel.textColor = [UIColor brownColor];
         
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;

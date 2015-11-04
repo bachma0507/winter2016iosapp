@@ -82,7 +82,6 @@
 		4C2D69FD174541100053BCC0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2D69FC174541100053BCC0 /* CoreGraphics.framework */; };
 		4C2D6A03174541100053BCC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D6A01174541100053BCC0 /* InfoPlist.strings */; };
 		4C2D6A05174541100053BCC0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6A04174541100053BCC0 /* main.m */; };
-		4C2D6A09174541100053BCC0 /* Fall2013IOSAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6A08174541100053BCC0 /* Fall2013IOSAppAppDelegate.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4C2D6A18174541100053BCC0 /* Fall2013IOSAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6A17174541100053BCC0 /* Fall2013IOSAppViewController.m */; };
 		4C2D6A35174697D80053BCC0 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6A34174697D80053BCC0 /* AppViewController.m */; };
 		4C2D6A3817469DE00053BCC0 /* notificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6A3717469DE00053BCC0 /* notificationViewController.m */; };
@@ -178,7 +177,6 @@
 		4C69E60B18086E8F00FEE035 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C69E60A18086E8F00FEE035 /* QuartzCore.framework */; };
 		4C6A496A17D0BDD9003941C7 /* ConfSchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A496917D0BDD9003941C7 /* ConfSchedTableViewController.m */; };
 		4C6A496D17D0BE55003941C7 /* ConfSched.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A496C17D0BE55003941C7 /* ConfSched.m */; };
-		4C6A497017D0CB92003941C7 /* ConfSchedDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A496F17D0CB92003941C7 /* ConfSchedDetailTableViewController.m */; };
 		4C6AE8B81BCEB2E6000590F5 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6AE8B71BCEB2E5000590F5 /* VideoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4C6AE8BB1BCEC3C5000590F5 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6AE8BA1BCEC3C5000590F5 /* YTPlayerView.m */; settings = {ASSET_TAGS = (); }; };
 		4C6AE8BE1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = 4C6AE8BD1BCEC3D1000590F5 /* YTPlayerView-iframe-player.html */; settings = {ASSET_TAGS = (); }; };
@@ -399,6 +397,9 @@
 		4CA334E11AADDEC000D09FAE /* W15_exhibithall_floorplan_icon_iphone2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA334DF1AADDEC000D09FAE /* W15_exhibithall_floorplan_icon_iphone2.png */; };
 		4CA605491772108300EC36C2 /* ExhibitHallScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA605481772108300EC36C2 /* ExhibitHallScheduleViewController.m */; };
 		4CA6054C1772126A00EC36C2 /* ExhibitHallScheduleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6054B1772126A00EC36C2 /* ExhibitHallScheduleCell.m */; };
+		4CA637E71BEA5A2E0068BA25 /* Fall2013IOSAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA637E61BEA5A2E0068BA25 /* Fall2013IOSAppAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		4CA637E91BEA5A4B0068BA25 /* ConfSchedDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA637E81BEA5A4B0068BA25 /* ConfSchedDetailTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4CA637EB1BEA8A900068BA25 /* NSDate+TimeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA637EA1BEA8A900068BA25 /* NSDate+TimeStyle.m */; settings = {ASSET_TAGS = (); }; };
 		4CA7023D175FCB0600820E7B /* PlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7023C175FCB0600820E7B /* PlistViewController.m */; };
 		4CA8A0E017ACA54E006957DB /* home_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA8A0DC17ACA54E006957DB /* home_icon.png */; };
 		4CA8A0E117ACA54E006957DB /* home_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA8A0DD17ACA54E006957DB /* home_icon@2x.png */; };
@@ -699,7 +700,6 @@
 		4C2D6A02174541100053BCC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C2D6A04174541100053BCC0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C2D6A06174541100053BCC0 /* Winter2016IOSApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Winter2016IOSApp-Prefix.pch"; sourceTree = "<group>"; };
-		4C2D6A08174541100053BCC0 /* Fall2013IOSAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Fall2013IOSAppAppDelegate.m; path = Fall2014IOSApp/Fall2013IOSAppAppDelegate.m; sourceTree = "<group>"; };
 		4C2D6A16174541100053BCC0 /* Fall2013IOSAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fall2013IOSAppViewController.h; sourceTree = "<group>"; };
 		4C2D6A17174541100053BCC0 /* Fall2013IOSAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fall2013IOSAppViewController.m; sourceTree = "<group>"; };
 		4C2D6A33174697D80053BCC0 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
@@ -852,7 +852,6 @@
 		4C6A496B17D0BE55003941C7 /* ConfSched.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfSched.h; sourceTree = "<group>"; };
 		4C6A496C17D0BE55003941C7 /* ConfSched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfSched.m; sourceTree = "<group>"; };
 		4C6A496E17D0CB92003941C7 /* ConfSchedDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfSchedDetailTableViewController.h; sourceTree = "<group>"; };
-		4C6A496F17D0CB92003941C7 /* ConfSchedDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfSchedDetailTableViewController.m; sourceTree = "<group>"; };
 		4C6AE8B61BCEB2E5000590F5 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		4C6AE8B71BCEB2E5000590F5 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		4C6AE8B91BCEC3C5000590F5 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
@@ -1143,6 +1142,10 @@
 		4CA605481772108300EC36C2 /* ExhibitHallScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitHallScheduleViewController.m; sourceTree = "<group>"; };
 		4CA6054A1772126A00EC36C2 /* ExhibitHallScheduleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitHallScheduleCell.h; sourceTree = "<group>"; };
 		4CA6054B1772126A00EC36C2 /* ExhibitHallScheduleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitHallScheduleCell.m; sourceTree = "<group>"; };
+		4CA637E31BEA5A170068BA25 /* NSDate+TimeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeStyle.h"; sourceTree = "<group>"; };
+		4CA637E61BEA5A2E0068BA25 /* Fall2013IOSAppAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall2013IOSAppAppDelegate.m; sourceTree = "<group>"; };
+		4CA637E81BEA5A4B0068BA25 /* ConfSchedDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfSchedDetailTableViewController.m; sourceTree = "<group>"; };
+		4CA637EA1BEA8A900068BA25 /* NSDate+TimeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeStyle.m"; sourceTree = "<group>"; };
 		4CA7023B175FCB0600820E7B /* PlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistViewController.h; sourceTree = "<group>"; };
 		4CA7023C175FCB0600820E7B /* PlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistViewController.m; sourceTree = "<group>"; };
 		4CA8A0DC17ACA54E006957DB /* home_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_icon.png; sourceTree = "<group>"; };
@@ -1863,8 +1866,8 @@
 		4C48759D176CED9E00059E21 /* AppDelegates */ = {
 			isa = PBXGroup;
 			children = (
+				4CA637E61BEA5A2E0068BA25 /* Fall2013IOSAppAppDelegate.m */,
 				4CE7B2D818A743DD0034A25C /* Fall2013IOSAppAppDelegate.h */,
-				4C2D6A08174541100053BCC0 /* Fall2013IOSAppAppDelegate.m */,
 			);
 			name = AppDelegates;
 			sourceTree = "<group>";
@@ -1883,6 +1886,8 @@
 		4C48759F176CEDE200059E21 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4CA637EA1BEA8A900068BA25 /* NSDate+TimeStyle.m */,
+				4CA637E31BEA5A170068BA25 /* NSDate+TimeStyle.h */,
 				4C6AE8B91BCEC3C5000590F5 /* YTPlayerView.h */,
 				4C6AE8BA1BCEC3C5000590F5 /* YTPlayerView.m */,
 				4CAF0D9919EDFCBB00961A3A /* NSString+MD5.h */,
@@ -2750,10 +2755,10 @@
 		4CCB78E41843B85900D9D1C6 /* ConferenceSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				4CA637E81BEA5A4B0068BA25 /* ConfSchedDetailTableViewController.m */,
 				4C6A496817D0BDD9003941C7 /* ConfSchedTableViewController.h */,
 				4C6A496917D0BDD9003941C7 /* ConfSchedTableViewController.m */,
 				4C6A496E17D0CB92003941C7 /* ConfSchedDetailTableViewController.h */,
-				4C6A496F17D0CB92003941C7 /* ConfSchedDetailTableViewController.m */,
 				4C28488017D2BB5600F6C6B2 /* confSchedDetailViewCell.h */,
 				4C28488117D2BB5600F6C6B2 /* confSchedDetailViewCell.m */,
 			);
@@ -3461,7 +3466,6 @@
 				4CC0ADFE19E9E48E00C42CCF /* GroupViewTableViewController.m in Sources */,
 				4CCFD9701A00950D00464E3D /* ExhibitorViewCell.m in Sources */,
 				4CD8E07D1937E42F00A4326C /* OAAttachment.m in Sources */,
-				4C2D6A09174541100053BCC0 /* Fall2013IOSAppAppDelegate.m in Sources */,
 				4C9B1E3719E343F3007E0F51 /* ChatView.m in Sources */,
 				4C2D6A18174541100053BCC0 /* Fall2013IOSAppViewController.m in Sources */,
 				4C2D6A35174697D80053BCC0 /* AppViewController.m in Sources */,
@@ -3553,6 +3557,7 @@
 				4C088C5A177F667500CFBC96 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				4C088C5B177F667500CFBC96 /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				4C088C5C177F667500CFBC96 /* NSNumber+MagicalDataImport.m in Sources */,
+				4CA637E91BEA5A4B0068BA25 /* ConfSchedDetailTableViewController.m in Sources */,
 				4CC0ADED19E72BC600C42CCF /* ChatGallery.m in Sources */,
 				4C088C5D177F667500CFBC96 /* NSObject+MagicalDataImport.m in Sources */,
 				4CD8E07E1937E42F00A4326C /* OACall.m in Sources */,
@@ -3582,6 +3587,7 @@
 				4C326EB81963407B006D4B76 /* NightViewController.m in Sources */,
 				4C088C68177F667500CFBC96 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				4C9B1D9A19E31F4B007E0F51 /* UIButton+AFNetworking.m in Sources */,
+				4CA637E71BEA5A2E0068BA25 /* Fall2013IOSAppAppDelegate.m in Sources */,
 				4C9B1D9419E31F4B007E0F51 /* AFURLRequestSerialization.m in Sources */,
 				4CD8E0811937E42F00A4326C /* OAHMAC_SHA1SignatureProvider.m in Sources */,
 				4C088C69177F667500CFBC96 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
@@ -3632,6 +3638,7 @@
 				4CAE7661179B1F6D004FF2FE /* PagerViewController.m in Sources */,
 				4C3C390718219B2600927FFD /* GooglePlacesViewController.m in Sources */,
 				4CAE7664179B206D004FF2FE /* CustomPagerViewController.m in Sources */,
+				4CA637EB1BEA8A900068BA25 /* NSDate+TimeStyle.m in Sources */,
 				4CD8E0891937E42F00A4326C /* OATokenManager.m in Sources */,
 				4CAE7667179D86F1004FF2FE /* AllNotesCell.m in Sources */,
 				4C24FD5C179F56DC006C017E /* AgendaDetailViewController.m in Sources */,
@@ -3665,7 +3672,6 @@
 				4C453BB3185CE10600D57388 /* Html.m in Sources */,
 				4C63591419913EFB00AE4D9B /* SubmitMemberIDViewController.m in Sources */,
 				4C9B1E2A19E34387007E0F51 /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
-				4C6A497017D0CB92003941C7 /* ConfSchedDetailTableViewController.m in Sources */,
 				4C9B1E2819E34387007E0F51 /* JSQMessagesInputToolbar.m in Sources */,
 				4CCEF9F617D281620024E854 /* ProgramPDFViewController.m in Sources */,
 				4CD8E0821937E42F00A4326C /* OAMutableURLRequest.m in Sources */,

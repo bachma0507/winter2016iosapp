@@ -16,6 +16,7 @@
 #import "StartPageViewController.h"
 #import <AdSupport/AdSupport.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "NSDate+TimeStyle.h"
 //#import "iRate.h"
 //#import <FYX/FYX.h>
 
@@ -1612,15 +1613,9 @@ int iNotificationCounter=0;
                         [object setValue:mySessions.sessionDesc forKey:@"sessionDesc"];
                         [object setValue:mySessions.sessionID forKey:@"sessionID"];
                         
-                        NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                        [df setDateFormat:@"hh:mm a"];
-                        NSDate *startTime = [df dateFromString: mySessions.startTime];
-                        [object setValue:startTime forKey:@"startTime"];
-                        
-                        NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
-                        [df2 setDateFormat:@"hh:mm a"];
-                        NSDate *endTime = [df dateFromString: mySessions.endTime];
-                        [object setValue:endTime forKey:@"endTime"];
+
+                        [object setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
+                        [object setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                         
                         NSString * myLocation3 = [[NSString alloc] initWithFormat:@"%@",mySessions.location];
                         [object setValue:myLocation3 forKey:@"location"];
@@ -1682,14 +1677,9 @@ int iNotificationCounter=0;
                         //[newManagedObject setValue:mySessions.startTime forKey:@"startTime"];
                         
                         NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                        [df setDateFormat:@"hh:mm a"];
-                        NSDate *startTime = [df dateFromString: mySessions.startTime];
-                        [newManagedObject setValue:startTime forKey:@"startTime"];
-                        
-                        NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
-                        [df2 setDateFormat:@"hh:mm a"];
-                        NSDate *endTime = [df dateFromString: mySessions.endTime];
-                        [newManagedObject setValue:endTime forKey:@"endTime"];
+                    
+                        [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
+                        [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                         
                         NSString * myLocation3 = [[NSString alloc] initWithFormat:@"%@",mySessions.location];
                         [newManagedObject setValue:myLocation3 forKey:@"location"];
