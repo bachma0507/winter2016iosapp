@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xsZ-21-97U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="xsZ-21-97U">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Notifications-->
@@ -529,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1Y-zs-rqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="-2226"/>
+            <point key="canvasLocation" x="335" y="-1610"/>
         </scene>
         <!--Surveys View Controller-->
         <scene sceneID="y3m-cx-B9J">
@@ -875,6 +875,12 @@
                                 <action selector="onBurger:" destination="d0P-H5-Pga" id="j1V-nj-20H"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="n17-Cc-4BE">
+                            <color key="tintColor" red="0.31098992879999998" green="1" blue="0.61186604499999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="Yzn-Mt-PnO" kind="push" id="1ey-Vh-E8s"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="updateLabel" destination="YO6-sl-BIM" id="wAI-lJ-62u"/>
@@ -889,7 +895,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcM-ru-DVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-152" y="-2591"/>
+            <point key="canvasLocation" x="-644" y="-2555"/>
         </scene>
         <!--Contact Us-->
         <scene sceneID="Xaf-P2-GsH">
@@ -1244,6 +1250,31 @@
             </objects>
             <point key="canvasLocation" x="-1607" y="-1307"/>
         </scene>
+        <!--App Video Highlights-->
+        <scene sceneID="2AL-ni-aUI">
+            <objects>
+                <viewController id="Yzn-Mt-PnO" customClass="VideoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D2h-TY-TGo">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="89I-Q6-0Kh">
+                                <rect key="frame" x="0.0" y="159" width="768" height="583"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="App Video Highlights" id="4TW-i8-gV5"/>
+                    <connections>
+                        <outlet property="webView" destination="89I-Q6-0Kh" id="4NY-eu-ny7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m4S-Bb-u8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="-2555"/>
+        </scene>
         <!--Presentations (PDF)-->
         <scene sceneID="S2H-oP-XQd">
             <objects>
@@ -1300,7 +1331,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="662" y="-2913"/>
+            <point key="canvasLocation" x="918" y="-2913"/>
         </scene>
         <!--My Notes-->
         <scene sceneID="W0D-oK-p0A">
@@ -1363,7 +1394,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="84" id="hUi-iw-Hdp" customClass="AgendaCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="84"/>
+                                <rect key="frame" x="0.0" y="22" width="768" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hUi-iw-Hdp" id="qdd-VQ-fde">
                                     <rect key="frame" x="0.0" y="0.0" width="682" height="84"/>
@@ -1771,48 +1802,48 @@
             <objects>
                 <viewController id="soe-OX-YCn" customClass="SessionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ej-2C-XU5">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="Session1Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t9l-lQ-Txn">
-                                <rect key="frame" x="20" y="39" width="695" height="40"/>
+                                <rect key="frame" x="20" y="41" width="695" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.4549019608" green="0.64705882349999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session1DateLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AXc-3G-r7j">
-                                <rect key="frame" x="20" y="134" width="270" height="26"/>
+                                <rect key="frame" x="20" y="141" width="270" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session1TimeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oZZ-5b-nf4">
-                                <rect key="frame" x="463" y="139" width="235" height="21"/>
+                                <rect key="frame" x="463" y="146" width="235" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="Snp-J4-DQk">
-                                <rect key="frame" x="20" y="207" width="728" height="426"/>
+                                <rect key="frame" x="20" y="225" width="728" height="426"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speaker:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qpM-P9-VKi">
-                                <rect key="frame" x="20" y="714" width="82" height="21"/>
+                                <rect key="frame" x="20" y="751" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SpeakerNameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UjE-Ph-Kd0">
-                                <rect key="frame" x="144" y="714" width="478" height="21"/>
+                                <rect key="frame" x="144" y="751" width="478" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gIo-wk-fSC">
-                                <rect key="frame" x="65" y="911" width="180" height="44"/>
+                                <rect key="frame" x="65" y="959" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add to Agenda" backgroundImage="button-orange.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1823,7 +1854,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1ad-93-n2t">
-                                <rect key="frame" x="490" y="911" width="180" height="44"/>
+                                <rect key="frame" x="490" y="959" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add to Calendar" backgroundImage="button-orange.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1834,19 +1865,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TJY-km-xMP">
-                                <rect key="frame" x="20" y="661" width="93" height="21"/>
+                                <rect key="frame" x="20" y="695" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="locationLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tTl-gH-SK1">
-                                <rect key="frame" x="129" y="661" width="438" height="21"/>
+                                <rect key="frame" x="129" y="695" width="438" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="8oH-dQ-gRM">
-                                <rect key="frame" x="328" y="766" width="110" height="56"/>
+                                <rect key="frame" x="328" y="807" width="110" height="56"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Respond to On-screen Poll" backgroundImage="updatedata_button.png">
@@ -1857,7 +1888,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UaF-f1-SEx">
-                                <rect key="frame" x="65" y="766" width="180" height="44"/>
+                                <rect key="frame" x="65" y="806" width="180" height="44"/>
                                 <state key="normal" title="Survey" backgroundImage="button-orange.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1866,7 +1897,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bAU-VB-svy">
-                                <rect key="frame" x="490" y="766" width="180" height="44"/>
+                                <rect key="frame" x="490" y="806" width="180" height="44"/>
                                 <state key="normal" title="Notes" backgroundImage="button-orange.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1875,7 +1906,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tl8-Wb-axy">
-                                <rect key="frame" x="294" y="842" width="180" height="44"/>
+                                <rect key="frame" x="294" y="886" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Presentations" backgroundImage="button-orange.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1909,55 +1940,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ouv-bs-b4J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4033" y="-1332"/>
+            <point key="canvasLocation" x="4124" y="-1349"/>
         </scene>
         <!--Session2 View Controller-->
         <scene sceneID="WEf-GI-kcM">
             <objects>
                 <viewController id="6rM-fV-jvP" customClass="Session2ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Emy-0e-hkV">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" text="Session2Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tSo-bG-kaC">
-                                <rect key="frame" x="20" y="35" width="695" height="40"/>
+                                <rect key="frame" x="20" y="37" width="695" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.1333333333" green="0.08235294118" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session2DateLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jQE-gn-N4v">
-                                <rect key="frame" x="9" y="114" width="270" height="26"/>
+                                <rect key="frame" x="9" y="120" width="270" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session2TimeLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CAZ-xY-mat">
-                                <rect key="frame" x="480" y="116" width="235" height="21"/>
+                                <rect key="frame" x="480" y="122" width="235" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="hOn-z6-ETq">
-                                <rect key="frame" x="20" y="206" width="728" height="426"/>
+                                <rect key="frame" x="20" y="224" width="728" height="426"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speakers:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="av9-6D-ieF">
-                                <rect key="frame" x="20" y="712" width="82" height="21"/>
+                                <rect key="frame" x="20" y="749" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SpeakerNameLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Ef-v5-voR">
-                                <rect key="frame" x="134" y="712" width="478" height="21"/>
+                                <rect key="frame" x="134" y="749" width="478" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sXA-w5-hjI">
-                                <rect key="frame" x="65" y="911" width="180" height="44"/>
+                                <rect key="frame" x="65" y="959" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add to Agenda" backgroundImage="button-orange.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1968,7 +1999,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I7G-qh-DcX">
-                                <rect key="frame" x="490" y="911" width="180" height="44"/>
+                                <rect key="frame" x="490" y="959" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add to Calendar" backgroundImage="button-orange.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1979,19 +2010,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bl7-gZ-NAg">
-                                <rect key="frame" x="20" y="673" width="89" height="21"/>
+                                <rect key="frame" x="20" y="708" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Krj-2X-tp3">
-                                <rect key="frame" x="134" y="673" width="580" height="21"/>
+                                <rect key="frame" x="134" y="708" width="580" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.11764705882352941" green="0.14509803921568626" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="yND-bq-3GI">
-                                <rect key="frame" x="318" y="766" width="110" height="56"/>
+                                <rect key="frame" x="318" y="807" width="110" height="56"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Respond to On-screen Poll" backgroundImage="updatedata_button.png">
@@ -2002,7 +2033,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Uja-yP-Zvh">
-                                <rect key="frame" x="65" y="766" width="180" height="44"/>
+                                <rect key="frame" x="65" y="806" width="180" height="44"/>
                                 <state key="normal" title="Survey" backgroundImage="button-orange.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2011,7 +2042,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OrL-sL-vVw">
-                                <rect key="frame" x="490" y="766" width="180" height="44"/>
+                                <rect key="frame" x="490" y="806" width="180" height="44"/>
                                 <state key="normal" title="Notes" backgroundImage="button-orange.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2021,7 +2052,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kjW-KW-IIw">
-                                <rect key="frame" x="294" y="846" width="180" height="44"/>
+                                <rect key="frame" x="294" y="891" width="180" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Presentations" backgroundImage="button-orange.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2559,9 +2590,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="soe-OX-YCn" kind="push" identifier="sessionInfo" id="GbB-Vc-mTv"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Session2Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aYd-e2-ewa">
                                 <rect key="frame" x="381" y="853" width="169" height="21"/>
@@ -2591,9 +2619,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="6rM-fV-jvP" kind="push" identifier="session2Info" id="XN2-JT-sjB"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.4549019608" green="0.64705882349999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3022,7 +3047,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="64" id="eWn-Pv-JNV" customClass="MyFavoritesCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="64"/>
+                                <rect key="frame" x="0.0" y="22" width="768" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eWn-Pv-JNV" id="GTR-fc-M7q">
                                     <rect key="frame" x="0.0" y="0.0" width="682" height="64"/>
@@ -3456,12 +3481,12 @@
         <image name="updatedata_button.png" width="222" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xdd-lt-WaI"/>
-        <segue reference="x9l-yO-e2N"/>
-        <segue reference="fPP-35-TOg"/>
-        <segue reference="uaS-LK-lnw"/>
-        <segue reference="SFt-NY-1lL"/>
-        <segue reference="Ysf-Ju-HKO"/>
         <segue reference="llJ-MJ-Tf6"/>
+        <segue reference="x9l-yO-e2N"/>
+        <segue reference="Ysf-Ju-HKO"/>
+        <segue reference="SFt-NY-1lL"/>
+        <segue reference="xdd-lt-WaI"/>
+        <segue reference="dNQ-6z-78T"/>
+        <segue reference="B1M-CE-Msm"/>
     </inferredMetricsTieBreakers>
 </document>

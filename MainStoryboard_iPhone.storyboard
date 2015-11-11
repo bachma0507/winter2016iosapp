@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HQR-0g-mm0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HQR-0g-mm0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Presentations-->
@@ -2452,7 +2452,7 @@
             </objects>
             <point key="canvasLocation" x="2154" y="843"/>
         </scene>
-        <!--App Video Tutorial-->
+        <!--App Video Highlights-->
         <scene sceneID="cXR-9a-IVE">
             <objects>
                 <viewController id="3to-dA-i5V" customClass="VideoViewController" sceneMemberID="viewController">
@@ -2467,14 +2467,14 @@
                             </webView>
                         </subviews>
                     </view>
-                    <navigationItem key="navigationItem" title="App Video Tutorial" id="KAa-JL-tLB"/>
+                    <navigationItem key="navigationItem" title="App Video Highlights" id="KAa-JL-tLB"/>
                     <connections>
                         <outlet property="webView" destination="QsR-pe-eaY" id="bwb-8X-PHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MoQ-FT-NJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3127" y="306"/>
+            <point key="canvasLocation" x="-3101" y="312"/>
         </scene>
         <!--Eula View Controller-->
         <scene sceneID="pUp-ak-jCs">
