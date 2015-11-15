@@ -38,17 +38,17 @@
 }
 
 
-- (NSManagedObjectContext *)managedObjectContext
-{
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    
-    if ([delegate performSelector:@selector(managedObjectContext)])
-    {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (NSManagedObjectContext *)managedObjectContext
+//{
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    
+//    if ([delegate performSelector:@selector(managedObjectContext)])
+//    {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 
 - (void)viewDidLoad
@@ -85,7 +85,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessions" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessions" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     
     [fetchRequest setEntity:entity];
     
@@ -96,7 +96,7 @@
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     
     if (!myResults || !myResults.count) {
@@ -438,7 +438,7 @@
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessions" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessions" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     
     [fetchRequest setEntity:entity];
     
@@ -449,7 +449,7 @@
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor1, sortDescriptor2, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
         
         UIRefreshControl *refreshControl = [[UIRefreshControl alloc]

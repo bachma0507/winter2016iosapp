@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "exhibitors.h"
 #import "ExhibitorNotesViewController.h"
-#import <CoreData/CoreData.h>
+#import "CoreDataHelper.h"
+
+//#import <CoreData/CoreData.h>
 
 @interface ExhibitorsDetailViewController : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;

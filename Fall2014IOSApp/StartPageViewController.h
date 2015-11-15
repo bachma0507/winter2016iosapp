@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+//#import <CoreData/CoreData.h>
+#import "CoreDataHelper.h"
 #import "RNFrostedSidebar.h"
 #import "exhibitors.h"
 #import "Speakers.h"
@@ -40,17 +41,17 @@
 @property (strong, nonatomic) NSArray *objects;
 //@property (strong, nonatomic) NSString *updated;
 
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+//@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+//@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) IBOutlet UILabel *updateLabel;
 @property BOOL is24h;
 
 - (IBAction)buttonPressed:(id)sender;
 
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+//- (void)saveContext;
+//- (NSURL *)applicationDocumentsDirectory;
 -(void)updateAllData;
 
 

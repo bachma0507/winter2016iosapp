@@ -24,14 +24,14 @@
 @synthesize json, functionsArray, objects;
 
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -177,7 +177,7 @@
                             
                             [functionsArray addObject:myFunctions];
                             
-                            NSManagedObjectContext *context2 = [self managedObjectContext];
+                            NSManagedObjectContext *context2 = [[CoreDataHelper sharedHelper] context];
                             
                             NSFetchRequest *fetchRequest2 = [[NSFetchRequest alloc] init];
                             
@@ -186,7 +186,7 @@
                             
                             [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@", myFunctions.functioncd]];
                             
-                            NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+                            NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
                             
                             NSLog(@"MyFunctions.functioncd is : %@", myFunctions.functioncd);
                             
@@ -207,7 +207,7 @@
                                 success = YES;
                             }
                             
-                            NSManagedObjectContext *context = [self managedObjectContext];
+                            NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                             
                             NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Sessnotes" inManagedObjectContext:context];
                             

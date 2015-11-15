@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EHSchedule.h"
 #import "ExhibitHallScheduleCell.h"
+#import "CoreDataHelper.h"
 
 @interface ExhibitHallScheduleViewController : UITableViewController
 

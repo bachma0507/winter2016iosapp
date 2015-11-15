@@ -23,14 +23,14 @@
 @implementation ExhibitorsDetailViewController
 @synthesize myExhibitors, boothNumberLabel, nameLabel, urlLabel, myWebView, favoritesButton, exhibitorName, boothNumber, boothId, coId, eventId, activity, boothLabel, name, locationButton, url, phone, phoneLabel;
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -77,15 +77,15 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorites" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     //[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title != 'Todo with Image'"]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"boothnumber == %@ && favorite == 'Yes'",self.boothNumberLabel.text]];
     NSLog(@"MY BOOTH NUMBER IS: %@",self.boothNumberLabel.text);
     
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
-    //[self.managedObjectContext executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
+    //[[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
     //[self.refreshControl endRefreshing];
     self.objects = results;
     NSLog(@"Results Count is: %lu", (unsigned long)results.count);
@@ -201,7 +201,7 @@
 //        NSEntityDescription *entity2 = [NSEntityDescription entityForName:@"Exhibitors" inManagedObjectContext:context];
 //        [fetchRequest2 setEntity:entity2];
 //        [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@", nameLabel.text]];
-//        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+//        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
 //        self.objects = results2;
 //        NSLog(@"Results Count is: %lu", (unsigned long)results2.count);
 //        if (!results2 || !results2.count){//start nested if block
@@ -234,7 +234,7 @@
 //        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"deviceowner == %@ && favorite == 'Yes'",newDeviceID]];
 //        NSLog(@"MY DEVICE ID IS: %@",newDeviceID);
 //        
-//        NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//        NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
 //        
 //        
 //        self.objects = results;
@@ -262,7 +262,7 @@
 //        [fetchRequest2 setEntity:entity2];
 //
 //        [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@", nameLabel.text]];
-//        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+//        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
 //        
 //        self.objects = results2;
 //        NSLog(@"Results Count is: %lu", (unsigned long)results2.count);
@@ -308,7 +308,7 @@
     NSLog(@"MY DEVICE ID IS: %@",newDeviceID);
 
     
-    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
     
     if ([self.favoritesButton.currentTitle isEqual:@"Add to Favorites"]) {
         NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Favorites" inManagedObjectContext:context];
@@ -322,6 +322,7 @@
         
         NSError *error = nil;
         // Save the object to persistent store
+        //[[CoreDataHelper sharedHelper] saveContext];
         if (![context save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
@@ -336,7 +337,7 @@
         NSEntityDescription *entity2 = [NSEntityDescription entityForName:@"Exhibitors" inManagedObjectContext:context];
         [fetchRequest2 setEntity:entity2];
         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@", nameLabel.text]];
-        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
         self.objects = results2;
         NSLog(@"Results Count is: %lu", (unsigned long)results2.count);
         if (!results2 || !results2.count){//start nested if block
@@ -369,7 +370,7 @@
         [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"deviceowner == %@ && favorite == 'Yes'",newDeviceID]];
         NSLog(@"MY DEVICE ID IS: %@",newDeviceID);
         
-        NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
         
         
         self.objects = results;
@@ -397,7 +398,7 @@
         [fetchRequest2 setEntity:entity2];
         
         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@", nameLabel.text]];
-        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
         
         self.objects = results2;
         NSLog(@"Results Count is: %lu", (unsigned long)results2.count);

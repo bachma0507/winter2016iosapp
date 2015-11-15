@@ -10,6 +10,7 @@
 #import "CSchedule.h"
 #import "confSchedDetailViewCell.h"
 #import "Sessions.h"
+#import "CoreDataHelper.h"
 
 @interface ConfSchedDetailTableViewController : UITableViewController
 

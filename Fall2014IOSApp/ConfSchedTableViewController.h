@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CSchedule.h"
+#import "CoreDataHelper.h"
 
 @class ConfSchedTableViewController;
 

@@ -102,13 +102,13 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     //[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title != 'Todo with Image'"]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@ && deviceowner == %@ && agenda == 'Yes'",self.sessionId,newDeviceID]];
     NSLog(@"MY SESSION ID 2 IS: %@",self.sessionId);
     
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     //[self.managedObjectContext executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
         //[self.refreshControl endRefreshing];
@@ -154,7 +154,7 @@
     
     NSLog(@"MY SESSION ID IS: %@",self.sessionId2);
     
-    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
     
     if ([self.agendaButton.currentTitle isEqual:@"Add to Schedule"]) {
         NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Sessnotes" inManagedObjectContext:context];
@@ -191,7 +191,7 @@
         [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@ && deviceowner == %@ && agenda == 'Yes'",self.sessionId2,newDeviceID]];
         NSLog(@"MY SESSION ID 2 IS: %@",self.sessionId2);
         
-         NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+         NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
         
         
             self.objects = results;

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Functions.h"
-#import <CoreData/CoreData.h>
+//#import <CoreData/CoreData.h>
+#import "CoreDataHelper.h"
 
 
 @class MBProgressHUD;

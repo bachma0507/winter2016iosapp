@@ -19,14 +19,14 @@
 
 @implementation AllMyNotesViewController
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -147,7 +147,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"deviceowner == %@ && sessionname != null && notes != null", newDeviceID]];
@@ -160,7 +160,7 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+     NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     if (!results || !results.count) {
         
@@ -207,7 +207,7 @@
         
         NSManagedObject *object = [self.objects objectAtIndex:indexPath.row];
         
-        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
         
         [context deleteObject:[context objectWithID:[object objectID]]];
         

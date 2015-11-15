@@ -23,14 +23,14 @@
 @synthesize json;
 @synthesize exhibitHallArray, results, myTableView, objects;
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -83,7 +83,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ehschedule" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ehschedule" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     
     [fetchRequest setEntity:entity];
     
@@ -94,7 +94,7 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     if (!myResults || !myResults.count) {
         NSString *message = @"Either there is no data to display or an error updating data has occurred. Please go back to the Home screen and press the Update Data button at the bottom of the screen. If this error occurs after pressing the Update Data Button, then there is no data to display.";

@@ -20,14 +20,14 @@
 @implementation NotesViewController
 @synthesize sessionIDlabel, sessionNamelabel, notesTextField, sessionName, sessionId, sessionIDlabelText, sessionNamelabelText, statusLabel, location;
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,19 +63,19 @@
     NSLog(@"Truncated Device ID is: %@", newDeviceID);
     
     
-    //self.managedObjectContext = [[self.appDelegate coreDataStore] contextForCurrentThread];
+    //[[CoreDataHelper sharedHelper] context] = [[self.appDelegate coreDataStore] contextForCurrentThread];
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     //[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title != 'Todo with Image'"]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@ && deviceowner == %@",self.sessionId,newDeviceID]];
     
-     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+     NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
-    //[self.managedObjectContext executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
+    //[[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
         //[self.refreshControl endRefreshing];
         self.objects = results;
         if (!results || !results.count){
@@ -140,7 +140,7 @@
     NSString *deviceID = [[NSString alloc] initWithFormat:@"%@",id];
     NSString *newDeviceID = [deviceID substringWithRange:NSMakeRange(30, [deviceID length]-30)];
     
-    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -151,9 +151,9 @@
     
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@ && deviceowner == %@",self.sessionId,newDeviceID]];
     
-     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+     NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
-    //[self.managedObjectContext executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
+    //[[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
         self.objects = results;
         if (!results || !results.count)
         {//if block begin

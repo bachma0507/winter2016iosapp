@@ -107,13 +107,13 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     //[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title != 'Todo with Image'"]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@ && agenda == 'Yes'",self.sessionId]];
     NSLog(@"MY SESSION ID 1 IS: %@",self.sessionId);
     
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
 //    [self.managedObjectContext executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
 //        //[self.refreshControl endRefreshing];
@@ -249,7 +249,7 @@
     
     NSLog(@"MY SESSION ID 1 IS: %@",self.sessionId);
     
-     NSManagedObjectContext *context = [self managedObjectContext];
+     NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
     
     if ([self.agendaButton.currentTitle isEqual:@"Add to Schedule"]) {
         NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Sessnotes" inManagedObjectContext:context];
@@ -293,7 +293,7 @@
         NSEntityDescription *entity2 = [NSEntityDescription entityForName:@"Sessions" inManagedObjectContext:context];
         [fetchRequest2 setEntity:entity2];
         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@", self.sessionId]];
-        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
         self.objects = results2;
         NSLog(@"Results Count is: %lu", (unsigned long)results2.count);
         if (!results2 || !results2.count){//start nested if block
@@ -327,7 +327,7 @@
         [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@ && agenda == 'Yes'",self.sessionId]];
         NSLog(@"MY SESSION ID 1 IS: %@",self.sessionId);
         
-        NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
         
             self.objects = results;
             NSLog(@"Results Count is: %lu", (unsigned long)results.count);
@@ -356,7 +356,7 @@
         [fetchRequest2 setEntity:entity2];
         
         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@", self.sessionId]];
-        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
         
         self.objects = results2;
         NSLog(@"Results Count is: %lu", (unsigned long)results2.count);

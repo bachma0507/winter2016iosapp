@@ -149,6 +149,7 @@
 		4C547E3017A1777A00400428 /* PlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C547E2F17A1777800400428 /* PlistTableViewController.m */; };
 		4C576112178AF65600DB6824 /* view_website_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C576110178AF65600DB6824 /* view_website_icon.png */; };
 		4C576113178AF65600DB6824 /* view_website_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C576111178AF65600DB6824 /* view_website_icon@2x.png */; };
+		4C58E0211BF7E8DA003D3593 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C58E0201BF7E8DA003D3593 /* CoreDataHelper.m */; };
 		4C5A85681800926F00378976 /* navbarflatgrey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5A85671800926F00378976 /* navbarflatgrey2.png */; };
 		4C5AC7001A4B52EF0037906F /* overlay6-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AC6FF1A4B52EF0037906F /* overlay6-ipad@2x.png */; };
 		4C5AC7051A4B57300037906F /* overlay6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AC7011A4B57300037906F /* overlay6@2x.png */; };
@@ -809,6 +810,8 @@
 		4C547E2F17A1777800400428 /* PlistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistTableViewController.m; sourceTree = "<group>"; };
 		4C576110178AF65600DB6824 /* view_website_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_website_icon.png; sourceTree = "<group>"; };
 		4C576111178AF65600DB6824 /* view_website_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "view_website_icon@2x.png"; sourceTree = "<group>"; };
+		4C58E01F1BF7E8DA003D3593 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		4C58E0201BF7E8DA003D3593 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		4C5A85671800926F00378976 /* navbarflatgrey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbarflatgrey2.png; sourceTree = "<group>"; };
 		4C5AC6FF1A4B52EF0037906F /* overlay6-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay6-ipad@2x.png"; sourceTree = "<group>"; };
 		4C5AC7011A4B57300037906F /* overlay6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay6@2x.png"; sourceTree = "<group>"; };
@@ -1886,6 +1889,7 @@
 		4C48759F176CEDE200059E21 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C58E01E1BF7E8AA003D3593 /* CoreDataHelper */,
 				4CA637EA1BEA8A900068BA25 /* NSDate+TimeStyle.m */,
 				4CA637E31BEA5A170068BA25 /* NSDate+TimeStyle.h */,
 				4C6AE8B91BCEC3C5000590F5 /* YTPlayerView.h */,
@@ -1985,6 +1989,15 @@
 				4C4A7AB81BC8011700F0EC5F /* green~ipad.png */,
 			);
 			name = Winter_2016_images;
+			sourceTree = "<group>";
+		};
+		4C58E01E1BF7E8AA003D3593 /* CoreDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4C58E01F1BF7E8DA003D3593 /* CoreDataHelper.h */,
+				4C58E0201BF7E8DA003D3593 /* CoreDataHelper.m */,
+			);
+			name = CoreDataHelper;
 			sourceTree = "<group>";
 		};
 		4C657AA81AF29E6200A8A166 /* splitview */ = {
@@ -3548,6 +3561,7 @@
 				4C8A834E177B80B800022E03 /* ExhibitorsDetailViewController.m in Sources */,
 				4CD8E07F1937E42F00A4326C /* OAConsumer.m in Sources */,
 				4C6AE8B81BCEB2E6000590F5 /* VideoViewController.m in Sources */,
+				4C58E0211BF7E8DA003D3593 /* CoreDataHelper.m in Sources */,
 				4C3A0CF6177C6C1300DA1D7E /* ExamsViewController.m in Sources */,
 				4C088C59177F667500CFBC96 /* MagicalImportFunctions.m in Sources */,
 				4CC05AA5180C76DE0082A141 /* IpadLoginViewController.m in Sources */,

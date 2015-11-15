@@ -23,9 +23,22 @@
 
 @implementation Fall2013IOSAppAppDelegate
 
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+#define debug 1
+
+- (CoreDataHelper*)cdh {
+    if (debug==1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    if (!_coreDataHelper) {
+        _coreDataHelper = [CoreDataHelper new];
+        [_coreDataHelper setupCoreData];
+    }
+    return _coreDataHelper;
+}
+
+//@synthesize managedObjectModel = _managedObjectModel;
+//@synthesize managedObjectContext = _managedObjectContext;
+//@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize window;
 @synthesize json, exhibitorsArray, speakersArray, sessionsArray, sponsorsArray, cscheduleArray, exhibitHallArray, htmlArray;
 
@@ -343,7 +356,7 @@ int iNotificationCounter=0;
         //FETCH AND DELETE EXHIBITOR OBJECTS
         
 #pragma mark - Fetch and Delete Exhibitor Objects
-        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         
@@ -351,7 +364,7 @@ int iNotificationCounter=0;
         
         [fetchRequest setEntity:entity];
         
-        NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
         self.objects = myResults;
         if (!myResults || !myResults.count){
             NSLog(@"No Exhibitor objects found to be deleted!");
@@ -376,7 +389,7 @@ int iNotificationCounter=0;
         }
         //FETCH AND DELETE SPEAKER OBJECTS
         #pragma mark - Fetch and Delete Speaker Objects
-        NSManagedObjectContext *contextSpeakers = [self managedObjectContext];
+        NSManagedObjectContext *contextSpeakers = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestSpeakers = [[NSFetchRequest alloc] init];
         
@@ -384,7 +397,7 @@ int iNotificationCounter=0;
         
         [fetchRequestSpeakers setEntity:entitySpeakers];
         
-        NSArray *myResultsSpeakers = [self.managedObjectContext executeFetchRequest:fetchRequestSpeakers error:nil];
+        NSArray *myResultsSpeakers = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequestSpeakers error:nil];
         self.objects = myResultsSpeakers;
         if (!myResultsSpeakers || !myResultsSpeakers.count){
             NSLog(@"No Speaker objects found to be deleted!");
@@ -408,7 +421,7 @@ int iNotificationCounter=0;
         
         //FETCH AND DELETE SESSION OBJECTS
         #pragma mark - Fetch and Delete Session Objects
-        NSManagedObjectContext *contextSessions = [self managedObjectContext];
+        NSManagedObjectContext *contextSessions = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestSessions = [[NSFetchRequest alloc] init];
         
@@ -416,7 +429,7 @@ int iNotificationCounter=0;
         
         [fetchRequestSessions setEntity:entitySessions];
         
-        NSArray *myResultsSessions = [self.managedObjectContext executeFetchRequest:fetchRequestSessions error:nil];
+        NSArray *myResultsSessions = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequestSessions error:nil];
         self.objects = myResultsSessions;
         if (!myResultsSessions || !myResultsSessions.count){
             NSLog(@"No Session objects found to be deleted!");
@@ -447,7 +460,7 @@ int iNotificationCounter=0;
         
         //FETCH AND DELETE SPONSOR OBJECTS
         #pragma mark - Fetch and Delete Sponsor Objects
-        NSManagedObjectContext *contextSponsors = [self managedObjectContext];
+        NSManagedObjectContext *contextSponsors = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestSponsors = [[NSFetchRequest alloc] init];
         
@@ -455,7 +468,7 @@ int iNotificationCounter=0;
         
         [fetchRequestSponsors setEntity:entitySponsors];
         
-        NSArray *myResultsSponsors = [self.managedObjectContext executeFetchRequest:fetchRequestSponsors error:nil];
+        NSArray *myResultsSponsors = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequestSponsors error:nil];
         self.objects = myResultsSponsors;
         if (!myResultsSponsors || !myResultsSponsors.count){
             NSLog(@"No Sponsor objects found to be deleted!");
@@ -482,7 +495,7 @@ int iNotificationCounter=0;
         
         //FETCH AND DELETE CSCHEDULE OBJECTS
         #pragma mark - Fetch and Delete CSchedule Objects
-        NSManagedObjectContext *contextCschedule = [self managedObjectContext];
+        NSManagedObjectContext *contextCschedule = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestCschedule = [[NSFetchRequest alloc] init];
         
@@ -490,7 +503,7 @@ int iNotificationCounter=0;
         
         [fetchRequestCschedule setEntity:entityCschedule];
         
-        NSArray *myResultsCschedule = [self.managedObjectContext executeFetchRequest:fetchRequestCschedule error:nil];
+        NSArray *myResultsCschedule = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequestCschedule error:nil];
         self.objects = myResultsCschedule;
         if (!myResultsCschedule || !myResultsCschedule.count){
             NSLog(@"No CSchedule objects found to be deleted!");
@@ -515,7 +528,7 @@ int iNotificationCounter=0;
         
         //FETCH AND DELETE EHSCHEDULE OBJECTS
         #pragma mark - Fetch and Delete EHSchedule Objects
-        NSManagedObjectContext *contextEhschedule = [self managedObjectContext];
+        NSManagedObjectContext *contextEhschedule = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestEhschedule = [[NSFetchRequest alloc] init];
         
@@ -523,7 +536,7 @@ int iNotificationCounter=0;
         
         [fetchRequestEhschedule setEntity:entityEhschedule];
         
-        NSArray *myResultsEhschedule = [self.managedObjectContext executeFetchRequest:fetchRequestEhschedule error:nil];
+        NSArray *myResultsEhschedule = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequestEhschedule error:nil];
         self.objects = myResultsEhschedule;
         if (!myResultsEhschedule || !myResultsEhschedule.count){
             NSLog(@"No EHSchedule objects found to be deleted!");
@@ -545,7 +558,7 @@ int iNotificationCounter=0;
         //---------------------------------
         
         //FETCH AND DELETE HTML OBJECTS
-        NSManagedObjectContext *contextHtml = [self managedObjectContext];
+        NSManagedObjectContext *contextHtml = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestHtml = [[NSFetchRequest alloc] init];
         
@@ -553,7 +566,7 @@ int iNotificationCounter=0;
         
         [fetchRequestHtml setEntity:entityHtml];
         
-        NSArray *myResultsHtml = [self.managedObjectContext executeFetchRequest:fetchRequestHtml error:nil];
+        NSArray *myResultsHtml = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequestHtml error:nil];
         self.objects = myResultsHtml;
         if (!myResultsHtml || !myResultsHtml.count){
             NSLog(@"No Html objects found to be deleted!");
@@ -629,7 +642,7 @@ int iNotificationCounter=0;
                     //Add our exhibitors object to our exhibitorsArray
                     [exhibitorsArray addObject:myExhibitors];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -639,7 +652,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@ && boothLabel == %@",myExhibitors.name, myExhibitors.boothLabel]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     
@@ -652,7 +665,7 @@ int iNotificationCounter=0;
                         [fetchRequest2 setEntity:entity2];
                         
                         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@ && coId == %@",myExhibitors.name, myExhibitors.coId]];
-                        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+                        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
                         
                         self.objects = results2;
                         
@@ -792,7 +805,7 @@ int iNotificationCounter=0;
                     //Add our speakers object to our speakersArray
                     [speakersArray addObject:mySpeakers];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -802,7 +815,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"speakerLastName == %@",mySpeakers.speakerLastName]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -918,7 +931,7 @@ int iNotificationCounter=0;
                     //Add our speakers object to our speakersArray
                     [speakersArray addObject:mySpeakers];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -928,7 +941,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"speakerLastName == %@",mySpeakers.speakerLastName]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1040,7 +1053,7 @@ int iNotificationCounter=0;
                     //Add our speakers object to our speakersArray
                     [speakersArray addObject:mySpeakers];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1050,7 +1063,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"speakerLastName == %@",mySpeakers.speakerLastName]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1162,7 +1175,7 @@ int iNotificationCounter=0;
                     //Add our speakers object to our speakersArray
                     [speakersArray addObject:mySpeakers];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1172,7 +1185,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"speakerLastName == %@",mySpeakers.speakerLastName]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1283,7 +1296,7 @@ int iNotificationCounter=0;
                     //Add our speakers object to our speakersArray
                     [speakersArray addObject:mySpeakers];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1293,7 +1306,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"speakerLastName == %@",mySpeakers.speakerLastName]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1405,7 +1418,7 @@ int iNotificationCounter=0;
                     //Add our speakers object to our speakersArray
                     [speakersArray addObject:mySpeakers];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1415,7 +1428,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"speakerLastName == %@",mySpeakers.speakerLastName]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1555,7 +1568,7 @@ int iNotificationCounter=0;
                     [sessionsArray addObject:mySessions];
                     NSLog(@"Sessions array count: %lu", (unsigned long)sessionsArray.count);
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1565,7 +1578,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@",mySessions.sessionID]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     
@@ -1578,7 +1591,7 @@ int iNotificationCounter=0;
                         [fetchRequest2 setEntity:entity2];
                         
                         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@", mySessions.sessionID]];
-                        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+                        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
                         
                         self.objects = results2;
                         
@@ -1792,7 +1805,7 @@ int iNotificationCounter=0;
                     //Add our sessions object to our exhibitHallArray
                     [sponsorsArray addObject:mySponsors];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1802,7 +1815,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sponsorID == %@",mySponsors.sponsorID]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1888,7 +1901,7 @@ int iNotificationCounter=0;
                     //Add our exhibitors object to our exhibitorsArray
                     [cscheduleArray addObject:myCschedule];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1898,7 +1911,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myCschedule.ID]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -1985,7 +1998,7 @@ int iNotificationCounter=0;
                     //Add our exhibitors object to our exhibitorsArray
                     [exhibitHallArray addObject:myEhschedule];
                     
-                    NSManagedObjectContext *context = [self managedObjectContext];
+                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                     
                     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
                     
@@ -1995,7 +2008,7 @@ int iNotificationCounter=0;
                     
                     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myEhschedule.scheduleID]];
                     
-                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
                     
                     self.objects = myResults;
                     if (!myResults || !myResults.count){
@@ -2063,7 +2076,7 @@ int iNotificationCounter=0;
 //                    //Add our html object to our htmlArray
 //                    [htmlArray addObject:myHtml];
 //                    
-//                    NSManagedObjectContext *context = [self managedObjectContext];
+//                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
 //                    
 //                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 //                    
@@ -2073,7 +2086,7 @@ int iNotificationCounter=0;
 //                    
 //                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myHtml.ID]];
 //                    
-//                    NSArray *myResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
 //                    
 //                    self.objects = myResults;
 //                    if (!myResults || !myResults.count){
@@ -2117,7 +2130,7 @@ int iNotificationCounter=0;
 - (void)saveContext
 {
     NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    NSManagedObjectContext *managedObjectContext = [[CoreDataHelper sharedHelper] context];
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.
@@ -2135,7 +2148,7 @@ int iNotificationCounter=0;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     //NSManagedObjectContext *managedObjectContext = [self.coreDataStore contextForCurrentThread];
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSManagedObjectContext *managedObjectContext = [[CoreDataHelper sharedHelper] context];
     
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:managedObjectContext];
@@ -2152,75 +2165,75 @@ int iNotificationCounter=0;
 
 #pragma mark - Core Data Objects and methods
 
--(NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
-}
-
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"bicsi" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bicsi.sqlite"];
-    
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _persistentStoreCoordinator;
-}
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
+//-(NSManagedObjectContext *)managedObjectContext
+//{
+//    if (_managedObjectContext != nil) {
+//        return _managedObjectContext;
+//    }
+//    
+//    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+//    if (coordinator != nil) {
+//        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+//        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+//    }
+//    return _managedObjectContext;
+//}
+//
+//- (NSManagedObjectModel *)managedObjectModel
+//{
+//    if (_managedObjectModel != nil) {
+//        return _managedObjectModel;
+//    }
+//    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"bicsi" withExtension:@"momd"];
+//    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+//    return _managedObjectModel;
+//}
+//
+//- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+//{
+//    if (_persistentStoreCoordinator != nil) {
+//        return _persistentStoreCoordinator;
+//    }
+//    
+//    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bicsi.sqlite"];
+//    
+//    NSError *error = nil;
+//    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+//    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+//        /*
+//         Replace this implementation with code to handle the error appropriately.
+//         
+//         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//         
+//         Typical reasons for an error here include:
+//         * The persistent store is not accessible;
+//         * The schema for the persistent store is incompatible with current managed object model.
+//         Check the error message to determine what the actual problem was.
+//         
+//         
+//         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+//         
+//         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
+//         * Simply deleting the existing store:
+//         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
+//         
+//         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
+//         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
+//         
+//         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
+//         
+//         */
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort();
+//    }
+//    
+//    return _persistentStoreCoordinator;
+//}
+//
+//- (NSURL *)applicationDocumentsDirectory
+//{
+//    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+//}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -2233,6 +2246,7 @@ int iNotificationCounter=0;
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[self cdh] saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -2283,6 +2297,8 @@ int iNotificationCounter=0;
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [FBSession.activeSession close];
+    
+    [[self cdh] saveContext];
 }
 
 #pragma mark - Setup Push Methods
@@ -2532,12 +2548,12 @@ int iNotificationCounter=0;
 //    
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 //    // Edit the entity name as appropriate.
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Alerts" inManagedObjectContext:self.managedObjectContext];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Alerts" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
 //    [fetchRequest setEntity:entity];
 //    
-//    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
 //    
-//    //[self.managedObjectContext executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
+//    //[[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest onSuccess:^(NSArray *results) {
 //    //[self.refreshControl endRefreshing];
 //    self.objects = results;
 //    

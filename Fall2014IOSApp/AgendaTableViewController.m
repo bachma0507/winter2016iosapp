@@ -22,15 +22,15 @@
 @implementation AgendaTableViewController
 @synthesize sessionName, sessionId, location;
 
-
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
+//
+//- (NSManagedObjectContext *)managedObjectContext {
+//    NSManagedObjectContext *context = nil;
+//    id delegate = [[UIApplication sharedApplication] delegate];
+//    if ([delegate performSelector:@selector(managedObjectContext)]) {
+//        context = [delegate managedObjectContext];
+//    }
+//    return context;
+//}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -168,7 +168,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     
     //[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"deviceowner == %@ && agenda == 'Yes'", newDeviceID]];
@@ -183,7 +183,7 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+     NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     if (!results || !results.count) {
         
@@ -282,7 +282,7 @@
         
         sessionId = [object valueForKey:@"sessionID"];
         
-        NSManagedObjectContext *context = [self managedObjectContext];
+        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
         
         [context deleteObject:[context objectWithID:[object objectID]]];
         
@@ -304,7 +304,7 @@
         [fetchRequest2 setEntity:entity2];
         
         [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"sessionID == %@", sessionId]];
-        NSArray *results2 = [self.managedObjectContext executeFetchRequest:fetchRequest2 error:nil];
+        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
         self.objects2 = results2;
         NSLog(@"Results Count is: %lu", (unsigned long)results2.count);
         if (!results2 || !results2.count){//start nested if block
@@ -373,7 +373,7 @@
     [super viewDidAppear:animated];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sessnotes" inManagedObjectContext:[[CoreDataHelper sharedHelper] context]];
     [fetchRequest setEntity:entity];
     
     //[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"deviceowner == %@ && agenda == 'Yes'", newDeviceID]];
@@ -388,7 +388,7 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSArray *results = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     [self.refreshControl endRefreshing];
     self.objects = results;

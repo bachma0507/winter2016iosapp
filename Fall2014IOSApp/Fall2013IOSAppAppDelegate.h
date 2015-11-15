@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //#import <PushIOManager/PushIOManager.h>
-#import <CoreData/CoreData.h>
+//#import <CoreData/CoreData.h>
 #import "Crittercism.h"
 #import "exhibitors.h"
 #import "Speakers.h"
@@ -18,6 +18,7 @@
 #import "EHSchedule.h"
 #import "Html.h"
 #import <SpeechKit/SpeechKit.h>
+#import "CoreDataHelper.h"
 //#import <FYX/FYX.h>
 //#import <FYX/FYXVisitManager.h>
 //#import <FYX/FYXTransmitter.h>
@@ -47,9 +48,11 @@
 @property (nonatomic, strong) NSMutableArray * htmlArray;
 @property (strong, nonatomic) NSArray *objects;
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+//@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+//@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (nonatomic, strong, readonly) CoreDataHelper *coreDataHelper;
 
 @property (strong, nonatomic) CLLocationManager *customLocationManager;
 @property (strong, nonatomic) CLLocation *currentUserLocation;
@@ -59,8 +62,8 @@
 - (void)setupSpeechKitConnection;
 
 - (void)startupAnimationDone:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+//- (void)saveContext;
+//- (NSURL *)applicationDocumentsDirectory;
 -(void)updateAllData;
 
 @end
