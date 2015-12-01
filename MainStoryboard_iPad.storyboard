@@ -1250,7 +1250,7 @@
             </objects>
             <point key="canvasLocation" x="-1607" y="-1307"/>
         </scene>
-        <!--App Video Highlights-->
+        <!--App Highlights-->
         <scene sceneID="2AL-ni-aUI">
             <objects>
                 <viewController id="Yzn-Mt-PnO" customClass="VideoViewController" sceneMemberID="viewController">
@@ -1266,7 +1266,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="App Video Highlights" id="4TW-i8-gV5"/>
+                    <navigationItem key="navigationItem" title="App Highlights" id="4TW-i8-gV5"/>
                     <connections>
                         <outlet property="webView" destination="89I-Q6-0Kh" id="4NY-eu-ny7"/>
                     </connections>
@@ -2252,7 +2252,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExhibitorsCell" textLabel="bl2-zb-Bc8" detailTextLabel="B1b-bH-Oem" rowHeight="74" style="IBUITableViewCellStyleSubtitle" id="oTq-Hi-hgL" customClass="ExhibitorViewCell">
-                                        <rect key="frame" x="0.0" y="66" width="768" height="74"/>
+                                        <rect key="frame" x="0.0" y="130" width="768" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oTq-Hi-hgL" id="fxJ-0U-8Ac">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="73"/>

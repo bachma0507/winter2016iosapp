@@ -2452,7 +2452,7 @@
             </objects>
             <point key="canvasLocation" x="2154" y="843"/>
         </scene>
-        <!--App Video Highlights-->
+        <!--App Highlights-->
         <scene sceneID="cXR-9a-IVE">
             <objects>
                 <viewController id="3to-dA-i5V" customClass="VideoViewController" sceneMemberID="viewController">
@@ -2467,7 +2467,7 @@
                             </webView>
                         </subviews>
                     </view>
-                    <navigationItem key="navigationItem" title="App Video Highlights" id="KAa-JL-tLB"/>
+                    <navigationItem key="navigationItem" title="App Highlights" id="KAa-JL-tLB"/>
                     <connections>
                         <outlet property="webView" destination="QsR-pe-eaY" id="bwb-8X-PHu"/>
                     </connections>
