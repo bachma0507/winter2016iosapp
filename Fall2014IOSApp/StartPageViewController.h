@@ -23,6 +23,7 @@
 #import "FloorMapsViewController.h"
 #import "ComMeetingsMainViewController.h"
 #import "SurveysViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @class MBProgressHUD;
 @class Reachability;
@@ -45,10 +46,13 @@
 //@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+//@property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
+
 @property (strong, nonatomic) IBOutlet UILabel *updateLabel;
 @property BOOL is24h;
 
 - (IBAction)buttonPressed:(id)sender;
+//- (IBAction)playButtonPressed:(id)sender;
 
 //- (void)saveContext;
 //- (NSURL *)applicationDocumentsDirectory;

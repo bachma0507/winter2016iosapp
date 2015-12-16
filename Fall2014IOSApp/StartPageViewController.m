@@ -338,6 +338,39 @@
     NSLog(@"You updated the updatetime object from the UPDATE DATA button!");
 }
 
+//- (IBAction)playButtonPressed:(id)sender {
+//    
+//    NSURL *url = [NSURL URLWithString:
+//                  @"https://www.speedyreference.com/bicsi/video/BicsiWinterApp2016.mp4"];
+//    
+//    _moviePlayer =  [[MPMoviePlayerController alloc]
+//                     initWithContentURL:url];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(moviePlayBackDidFinish:)
+//                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+//                                               object:_moviePlayer];
+//    
+//    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
+//    _moviePlayer.shouldAutoplay = YES;
+//    [self.view addSubview:_moviePlayer.view];
+//    [_moviePlayer setFullscreen:YES animated:YES];
+//}
+//
+//- (void) moviePlayBackDidFinish:(NSNotification*)notification {
+//    MPMoviePlayerController *player = [notification object];
+//    [[NSNotificationCenter defaultCenter]
+//     removeObserver:self
+//     name:MPMoviePlayerPlaybackDidFinishNotification
+//     object:player];
+//    
+//    if ([player
+//         respondsToSelector:@selector(setFullscreen:animated:)])
+//    {
+//        [player.view removeFromSuperview];
+//    }
+//}
+
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
