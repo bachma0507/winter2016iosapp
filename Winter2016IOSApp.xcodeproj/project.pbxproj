@@ -200,6 +200,7 @@
 		4C644E651CBD2BB80026AFBC /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C644E4F1CBD2BB80026AFBC /* OAToken.m */; };
 		4C644E661CBD2BB80026AFBC /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C644E511CBD2BB80026AFBC /* OATokenManager.m */; };
 		4C644E671CBD2BB80026AFBC /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4C644E531CBD2BB80026AFBC /* README */; };
+		4C644E6A1CBD341E0026AFBC /* WallImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C644E691CBD341E0026AFBC /* WallImageObject.m */; };
 		4C6456C818EC95280011D002 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6456C718EC95280011D002 /* CoreBluetooth.framework */; };
 		4C657AB41AF2A5D100A8A166 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C657AB31AF2A5D100A8A166 /* DetailViewController.m */; };
 		4C657AB71AF2A5E400A8A166 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C657AB61AF2A5E400A8A166 /* MasterViewController.m */; };
@@ -1074,6 +1075,8 @@
 		4C644E511CBD2BB80026AFBC /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		4C644E521CBD2BB80026AFBC /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
 		4C644E531CBD2BB80026AFBC /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4C644E681CBD341E0026AFBC /* WallImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallImageObject.h; sourceTree = "<group>"; };
+		4C644E691CBD341E0026AFBC /* WallImageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallImageObject.m; sourceTree = "<group>"; };
 		4C6456C718EC95280011D002 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4C657AB21AF2A5D100A8A166 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4C657AB31AF2A5D100A8A166 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -2109,6 +2112,8 @@
 		4C48759F176CEDE200059E21 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C644E681CBD341E0026AFBC /* WallImageObject.h */,
+				4C644E691CBD341E0026AFBC /* WallImageObject.m */,
 				4C58E01E1BF7E8AA003D3593 /* CoreDataHelper */,
 				4CA637EA1BEA8A900068BA25 /* NSDate+TimeStyle.m */,
 				4CA637E31BEA5A170068BA25 /* NSDate+TimeStyle.h */,
@@ -4118,6 +4123,7 @@
 				4C9B1E2019E34387007E0F51 /* JSQMessage.m in Sources */,
 				4CC5646618CC36B80033B05A /* FloorMapsViewController.m in Sources */,
 				4C9B1E1F19E34387007E0F51 /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
+				4C644E6A1CBD341E0026AFBC /* WallImageObject.m in Sources */,
 				4CACEAC21776B5D400E90BD8 /* MBProgressHUD.m in Sources */,
 				4C644E5A1CBD2BB80026AFBC /* OAAttachment.m in Sources */,
 				4C1F7B321777872800BC66B3 /* ContactUsViewController.m in Sources */,

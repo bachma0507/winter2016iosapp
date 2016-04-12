@@ -10,15 +10,18 @@
 #import "Reachability.h"
 #import "RNCachingURLProtocol.h"
 #import "Fall2013IOSAppViewController.h"
-#import <Parse/Parse.h>
+//#import <Parse/Parse.h>
 #import <FacebookSDK/FBsession.h>
 #import "MBProgressHUD.h"
 #import "StartPageViewController.h"
 #import <AdSupport/AdSupport.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "NSDate+TimeStyle.h"
+
+#import "Backendless.h"
 //#import "iRate.h"
 //#import <FYX/FYX.h>
+
 
 
 @implementation Fall2013IOSAppAppDelegate
@@ -77,18 +80,24 @@ int iNotificationCounter=0;
 {
     
     
+    [backendless initApp:@"76A9F704-30A1-B509-FF98-9FD7549C0100" secret:@"DAC5475D-A770-E3C6-FF80-3EF3983D6A00" version:@"v1"];
+    
+    // If you plan to use Backendless Media Service, uncomment the following line (iOS ONLY!)
+    // backendless.mediaService = [MediaService new];
+    return YES;
+    
     self.customLocationManager = [[CLLocationManager alloc] init];
     self.customLocationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     self.customLocationManager.delegate = self;
     [self.customLocationManager startUpdatingLocation];
     
-//    [FYX setAppId:@"d17301d893728e50c4540b408387df0989ddf83147ad8f3617c61f8a281944d1" appSecret:@"7bb2bf821f6f71a9c37117fa7cab66e02ac353fa83c80163184aa33dc3d7ece0" callbackUrl:@"orgbicsicanada2014app://authcode"];
-//    
-//    [FYX startService:self];
-//    
-//    self.visitManager = [FYXVisitManager new];
-//    self.visitManager.delegate = self;
-//    [self.visitManager start];
+    //    [FYX setAppId:@"d17301d893728e50c4540b408387df0989ddf83147ad8f3617c61f8a281944d1" appSecret:@"7bb2bf821f6f71a9c37117fa7cab66e02ac353fa83c80163184aa33dc3d7ece0" callbackUrl:@"orgbicsicanada2014app://authcode"];
+    //
+    //    [FYX startService:self];
+    //
+    //    self.visitManager = [FYXVisitManager new];
+    //    self.visitManager.delegate = self;
+    //    [self.visitManager start];
     
     // Setup TestFlight
     
@@ -97,12 +106,12 @@ int iNotificationCounter=0;
     // Use this option to notifiy beta users of any updates
     
     
-    [Parse setApplicationId:@"jnsv9lO2crT74EbL2mdx17qn47e3dlyMtEVQ9E9s"
-                  clientKey:@"pLEmmQhpJ9g9A12KM97Q3n00f9KMpK8QITL8faI0"];
+    //[Parse setApplicationId:@"jnsv9lO2crT74EbL2mdx17qn47e3dlyMtEVQ9E9s"
+    //clientKey:@"pLEmmQhpJ9g9A12KM97Q3n00f9KMpK8QITL8faI0"];
     
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    //[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-   
+    
     [Crittercism enableWithAppID:@"5608ae1fd224ac0a00ed3e4a"];
     
     [PFFacebookUtils initializeFacebook];
@@ -118,8 +127,8 @@ int iNotificationCounter=0;
     //[[PushIOManager sharedInstance] setDelegate:self];
     //[[PushIOManager sharedInstance] didFinishLaunchingWithOptions:launchOptions];
     
-//    // Requests a device token from Apple
-//    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert     | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+    //    // Requests a device token from Apple
+    //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert     | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
     // Register for Push Notitications, if running iOS 8
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -138,7 +147,7 @@ int iNotificationCounter=0;
     }
     
     
-   //[[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
+    //[[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
     
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarflatblue"];
@@ -148,24 +157,24 @@ int iNotificationCounter=0;
     }
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-    //UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarflatgrey"];
-    //[[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3
-    [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
+        //UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarflatgrey"];
+        //[[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+        //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x3
+        [[UINavigationBar appearance] setTintColor:[UIColor cyanColor]];
         //[[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:192 green:197 blue:197 alpha:1.0]];
-
         
         
-            }
+        
+    }
     
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-//    // Change the appearance of back button
-    UIImage *backButtonImage = [[UIImage imageNamed:@"backbutton.png"]
-                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
-
+        //    // Change the appearance of back button
+        UIImage *backButtonImage = [[UIImage imageNamed:@"backbutton.png"]
+                                    resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 6)];
+        
         [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
-//    
+    //
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabBarBackground"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     
@@ -181,51 +190,51 @@ int iNotificationCounter=0;
     
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], UITextAttributeTextColor,
-                                                    
+                                                           
                                                            //[UIColor colorWithRed:193/255.0 green:70/255.0 blue:162/255.0 alpha:1.0], UITextAttributeTextColor,
                                                            [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,
                                                            [NSValue valueWithUIOffset:UIOffsetMake(0, 0)],UITextAttributeTextShadowOffset,
                                                            //[UIFont fontWithName:@"HelveticaNeue-CondensedBlack"
                                                            [UIFont fontWithName:@"Arial"size:20.0], UITextAttributeFont, nil]];
-
     
     
-//    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-//        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-//        UITabBar *tabBar = tabBarController.tabBar;
-//        UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-//        UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-//        UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-//        UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
-//        UITabBarItem *tabBarItem5 = [tabBar.items objectAtIndex:4];
-//        
-//        
-//        
-//        tabBarItem1.title = @"Home";
-//        tabBarItem2.title = @"Alerts";
-//        tabBarItem3.title = @"Social";
-//        tabBarItem4.title = @"My BICSI";
-//        tabBarItem5.title = @"Gallery";
-//        
-//        
-//        
-//        [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_tab_icon_unselected.png"]];
-//        [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"news_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"news_tab_icon_unselected.png"]];
-//        [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"social_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"social_tab_icon_unselected.png"]];
-//        [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"mybicsi_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"mybicsi_tab_icon_unselected.png"]];
-//        [tabBarItem5 setFinishedSelectedImage:[UIImage imageNamed:@"gallery_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"gallery_tab_icon_unselected.png"]];
-//        
-//
-//    }
+    
+    //    if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
+    //        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    //        UITabBar *tabBar = tabBarController.tabBar;
+    //        UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    //        UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    //        UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    //        UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    //        UITabBarItem *tabBarItem5 = [tabBar.items objectAtIndex:4];
+    //
+    //
+    //
+    //        tabBarItem1.title = @"Home";
+    //        tabBarItem2.title = @"Alerts";
+    //        tabBarItem3.title = @"Social";
+    //        tabBarItem4.title = @"My BICSI";
+    //        tabBarItem5.title = @"Gallery";
+    //
+    //
+    //
+    //        [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_tab_icon_unselected.png"]];
+    //        [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"news_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"news_tab_icon_unselected.png"]];
+    //        [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"social_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"social_tab_icon_unselected.png"]];
+    //        [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"mybicsi_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"mybicsi_tab_icon_unselected.png"]];
+    //        [tabBarItem5 setFinishedSelectedImage:[UIImage imageNamed:@"gallery_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"gallery_tab_icon_unselected.png"]];
+    //
+    //
+    //    }
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         // code here
         
         // Assign tab bar item with titles
-            UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-            UITabBar *tabBar = tabBarController.tabBar;
-            //[tabBarController.tabBar setBackgroundColor:[UIColor blackColor]];
-            //tabBarController.tabBar.translucent = NO;
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        UITabBar *tabBar = tabBarController.tabBar;
+        //[tabBarController.tabBar setBackgroundColor:[UIColor blackColor]];
+        //tabBarController.tabBar.translucent = NO;
         
         
         if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) /* Device is iPad */
@@ -237,35 +246,35 @@ int iNotificationCounter=0;
             UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
             UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
             UITabBarItem *tabBarItem5 = [tabBar.items objectAtIndex:4];
-        
-        //UITabBarItem *tabBarItem6 = [tabBar.items objectAtIndex:5];
-        
-        //
-        //
+            
+            //UITabBarItem *tabBarItem6 = [tabBar.items objectAtIndex:5];
+            
+            //
+            //
             tabBarItem1.selectedImage = [[UIImage imageNamed:@"home_tab_icon_selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem1.image = [[UIImage imageNamed:@"home_tab_icon_unselected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem1.title = @"Home";
-        
+            
             tabBarItem2.selectedImage = [[UIImage imageNamed:@"news_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem2.image = [[UIImage imageNamed:@"news_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem2.title = @"News & Alerts";
-        
+            
             tabBarItem3.selectedImage = [[UIImage imageNamed:@"social_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem3.image = [[UIImage imageNamed:@"social_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem3.title = @"Chat Rooms";
-        
+            
             tabBarItem4.selectedImage = [[UIImage imageNamed:@"mybicsi_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem4.image = [[UIImage imageNamed:@"mybicsi_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem4.title = @"My BICSI";
-        
+            
             tabBarItem5.selectedImage = [[UIImage imageNamed:@"gallery_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem5.image = [[UIImage imageNamed:@"gallery_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem5.title = @"Photo Gallery";
-        
             
-//        tabBarItem6.selectedImage = [[UIImage imageNamed:@"gallery_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//        tabBarItem6.image = [[UIImage imageNamed:@"gallery_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//        tabBarItem6.title = @"Photo Gallery";
+            
+            //        tabBarItem6.selectedImage = [[UIImage imageNamed:@"gallery_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+            //        tabBarItem6.image = [[UIImage imageNamed:@"gallery_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+            //        tabBarItem6.title = @"Photo Gallery";
         }
         else{
             UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
@@ -304,26 +313,26 @@ int iNotificationCounter=0;
     
     
     
-  
+    
     
     
     //maaj code 062313
-  //  /*NSTimer *time =*/ [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(refreshTable) userInfo:nil repeats:NO];
-
+    //  /*NSTimer *time =*/ [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(refreshTable) userInfo:nil repeats:NO];
+    
     //[window addSubview:viewController.view];
-//    [window makeKeyAndVisible];
-//    
-//    splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,window.frame.size.width,window.frame.size.height)];
-//    splashView.image = [UIImage imageNamed:@"LaunchImage"];
-//    [window addSubview:splashView];
-//    [window bringSubviewToFront:splashView];
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:1.0];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:window cache:YES];
-//    [UIView setAnimationDelegate:self];
-//    [UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:context:)];
-//    splashView.alpha = 0.0;
-//    [UIView commitAnimations];
+    //    [window makeKeyAndVisible];
+    //
+    //    splashView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,window.frame.size.width,window.frame.size.height)];
+    //    splashView.image = [UIImage imageNamed:@"LaunchImage"];
+    //    [window addSubview:splashView];
+    //    [window bringSubviewToFront:splashView];
+    //    [UIView beginAnimations:nil context:nil];
+    //    [UIView setAnimationDuration:1.0];
+    //    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:window cache:YES];
+    //    [UIView setAnimationDelegate:self];
+    //    [UIView setAnimationDidStopSelector:@selector(startupAnimationDone:finished:context:)];
+    //    splashView.alpha = 0.0;
+    //    [UIView commitAnimations];
     
     
     
@@ -388,7 +397,7 @@ int iNotificationCounter=0;
             }
         }
         //FETCH AND DELETE SPEAKER OBJECTS
-        #pragma mark - Fetch and Delete Speaker Objects
+#pragma mark - Fetch and Delete Speaker Objects
         NSManagedObjectContext *contextSpeakers = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestSpeakers = [[NSFetchRequest alloc] init];
@@ -420,7 +429,7 @@ int iNotificationCounter=0;
         //---------------------------------
         
         //FETCH AND DELETE SESSION OBJECTS
-        #pragma mark - Fetch and Delete Session Objects
+#pragma mark - Fetch and Delete Session Objects
         NSManagedObjectContext *contextSessions = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestSessions = [[NSFetchRequest alloc] init];
@@ -437,21 +446,21 @@ int iNotificationCounter=0;
         else{
             for (NSManagedObject *managedObject in myResultsSessions) {
                 if (![[managedObject valueForKey:@"planner"] isEqualToString:@"Yes"]) {
-                
-                
-                [contextSessions deleteObject:managedObject];
-                
                     
-                NSError *error = nil;
-                // Save the object to persistent store
-                if (![contextSessions save:&error]) {
-                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                    
+                    [contextSessions deleteObject:managedObject];
+                    
+                    
+                    NSError *error = nil;
+                    // Save the object to persistent store
+                    if (![contextSessions save:&error]) {
+                        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                    }
+                    NSLog(@"Session object deleted!");
+                    
                 }
-                NSLog(@"Session object deleted!");
-                
             }
         }
-    }
         
         //---------------------------------
         
@@ -459,7 +468,7 @@ int iNotificationCounter=0;
         //---------------------------------
         
         //FETCH AND DELETE SPONSOR OBJECTS
-        #pragma mark - Fetch and Delete Sponsor Objects
+#pragma mark - Fetch and Delete Sponsor Objects
         NSManagedObjectContext *contextSponsors = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestSponsors = [[NSFetchRequest alloc] init];
@@ -494,7 +503,7 @@ int iNotificationCounter=0;
         //---------------------------------
         
         //FETCH AND DELETE CSCHEDULE OBJECTS
-        #pragma mark - Fetch and Delete CSchedule Objects
+#pragma mark - Fetch and Delete CSchedule Objects
         NSManagedObjectContext *contextCschedule = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestCschedule = [[NSFetchRequest alloc] init];
@@ -527,7 +536,7 @@ int iNotificationCounter=0;
         //---------------------------------
         
         //FETCH AND DELETE EHSCHEDULE OBJECTS
-        #pragma mark - Fetch and Delete EHSchedule Objects
+#pragma mark - Fetch and Delete EHSchedule Objects
         NSManagedObjectContext *contextEhschedule = [[CoreDataHelper sharedHelper] context];
         
         NSFetchRequest *fetchRequestEhschedule = [[NSFetchRequest alloc] init];
@@ -554,7 +563,7 @@ int iNotificationCounter=0;
                 
             }
         }
-
+        
         //---------------------------------
         
         //FETCH AND DELETE HTML OBJECTS
@@ -589,7 +598,7 @@ int iNotificationCounter=0;
         
         
         //CREATE EXHIBITOR OBJECTS
-        #pragma mark - Create Exhibitor Objects
+#pragma mark - Create Exhibitor Objects
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
@@ -612,135 +621,135 @@ int iNotificationCounter=0;
             // response of the server without error will be handled here
             else if ([data length] > 0 && error == nil)
             {
-            //end of added code 092715
-            
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
+                //end of added code 092715
                 
                 
-                
-                json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                
-                //Set up our exhibitors array
-                exhibitorsArray = [[NSMutableArray alloc] init];
-                
-                for (int i = 0; i < json.count; i++) {
-                    //create exhibitors object
-                    NSString * blabel = [[json objectAtIndex:i] objectForKey:@"BoothLabel"];
-                    NSString * bName = [[json objectAtIndex:i] objectForKey:@"Name"];
-                    NSString * bURL = [[json objectAtIndex:i] objectForKey:@"HyperLnkFldVal"];
-                    NSString * bboothId = [[json objectAtIndex:i] objectForKey:@"BoothID"];
-                    NSString * bmapId = [[json objectAtIndex:i] objectForKey:@"MapID"];
-                    NSString * bcoId = [[json objectAtIndex:i] objectForKey:@"CoID"];
-                    NSString * beventId = [[json objectAtIndex:i] objectForKey:@"EventID"];
-                    NSString * bphone = [[json objectAtIndex:i] objectForKey:@"Phone"];
+                dispatch_async(dispatch_get_main_queue(), ^{
                     
                     
-                    exhibitors * myExhibitors = [[exhibitors alloc] initWithBoothName: bName andboothLabel: blabel andBoothURL: bURL andMapId: bmapId andCoId:bcoId andEventId: beventId andBoothId: bboothId andPhone: bphone];
                     
+                    json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                     
-                    //Add our exhibitors object to our exhibitorsArray
-                    [exhibitorsArray addObject:myExhibitors];
+                    //Set up our exhibitors array
+                    exhibitorsArray = [[NSMutableArray alloc] init];
                     
-                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
-                    
-                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-                    
-                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Exhibitors" inManagedObjectContext:context];
-                    
-                    [fetchRequest setEntity:entity];
-                    
-                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@ && boothLabel == %@",myExhibitors.name, myExhibitors.boothLabel]];
-                    
-                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
-                    
-                    self.objects = myResults;
-                    
-                    NSLog(@"EXHIBITOR MYRESULTS COUNT = %lu", myResults.count);
-                    
-                    if (myResults.count >= 1) {
-                        NSFetchRequest *fetchRequest2 = [[NSFetchRequest alloc] init];
+                    for (int i = 0; i < json.count; i++) {
+                        //create exhibitors object
+                        NSString * blabel = [[json objectAtIndex:i] objectForKey:@"BoothLabel"];
+                        NSString * bName = [[json objectAtIndex:i] objectForKey:@"Name"];
+                        NSString * bURL = [[json objectAtIndex:i] objectForKey:@"HyperLnkFldVal"];
+                        NSString * bboothId = [[json objectAtIndex:i] objectForKey:@"BoothID"];
+                        NSString * bmapId = [[json objectAtIndex:i] objectForKey:@"MapID"];
+                        NSString * bcoId = [[json objectAtIndex:i] objectForKey:@"CoID"];
+                        NSString * beventId = [[json objectAtIndex:i] objectForKey:@"EventID"];
+                        NSString * bphone = [[json objectAtIndex:i] objectForKey:@"Phone"];
                         
-                        NSEntityDescription *entity2 = [NSEntityDescription entityForName:@"Exhibitors" inManagedObjectContext:context];
-                        [fetchRequest2 setEntity:entity2];
                         
-                        [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@ && coId == %@",myExhibitors.name, myExhibitors.coId]];
-                        NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
+                        exhibitors * myExhibitors = [[exhibitors alloc] initWithBoothName: bName andboothLabel: blabel andBoothURL: bURL andMapId: bmapId andCoId:bcoId andEventId: beventId andBoothId: bboothId andPhone: bphone];
                         
-                        self.objects = results2;
                         
-                        NSManagedObject *object = [results2 objectAtIndex:0];
-						
-						[object setValue:myExhibitors.name forKey:@"name"];
+                        //Add our exhibitors object to our exhibitorsArray
+                        [exhibitorsArray addObject:myExhibitors];
                         
-                        [object setValue:myExhibitors.boothLabel forKey:@"boothLabel"];
-                        NSString * myCoId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.coId];
-                        [object setValue:myCoId forKey:@"coId"];
-                        NSString * myMapId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.mapId];
-                        [object setValue:myMapId forKey:@"mapId"];
-                        NSString * myBoothId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.boothId];
-                        [object setValue:myBoothId forKey:@"boothId"];
-                        NSString * myEventId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.eventId];
-                        [object setValue:myEventId forKey:@"eventId"];
-                        NSString * myPhone = [[NSString alloc] initWithFormat:@"%@",myExhibitors.phone];
-                        [object setValue:myPhone forKey:@"phone"];
-                        NSString * myURL = [[NSString alloc] initWithFormat:@"%@",myExhibitors.url];
-                        [object setValue:myURL forKey:@"url"];
+                        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                         
-                        NSError *error = nil;
-                        // Save the object to persistent store
-                        if (![context save:&error]) {
-                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+                        
+                        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Exhibitors" inManagedObjectContext:context];
+                        
+                        [fetchRequest setEntity:entity];
+                        
+                        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"name == %@ && boothLabel == %@",myExhibitors.name, myExhibitors.boothLabel]];
+                        
+                        NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+                        
+                        self.objects = myResults;
+                        
+                        NSLog(@"EXHIBITOR MYRESULTS COUNT = %lu", myResults.count);
+                        
+                        if (myResults.count >= 1) {
+                            NSFetchRequest *fetchRequest2 = [[NSFetchRequest alloc] init];
                             
+                            NSEntityDescription *entity2 = [NSEntityDescription entityForName:@"Exhibitors" inManagedObjectContext:context];
+                            [fetchRequest2 setEntity:entity2];
+                            
+                            [fetchRequest2 setPredicate:[NSPredicate predicateWithFormat:@"name == %@ && coId == %@",myExhibitors.name, myExhibitors.coId]];
+                            NSArray *results2 = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest2 error:nil];
+                            
+                            self.objects = results2;
+                            
+                            NSManagedObject *object = [results2 objectAtIndex:0];
+                            
+                            [object setValue:myExhibitors.name forKey:@"name"];
+                            
+                            [object setValue:myExhibitors.boothLabel forKey:@"boothLabel"];
+                            NSString * myCoId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.coId];
+                            [object setValue:myCoId forKey:@"coId"];
+                            NSString * myMapId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.mapId];
+                            [object setValue:myMapId forKey:@"mapId"];
+                            NSString * myBoothId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.boothId];
+                            [object setValue:myBoothId forKey:@"boothId"];
+                            NSString * myEventId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.eventId];
+                            [object setValue:myEventId forKey:@"eventId"];
+                            NSString * myPhone = [[NSString alloc] initWithFormat:@"%@",myExhibitors.phone];
+                            [object setValue:myPhone forKey:@"phone"];
+                            NSString * myURL = [[NSString alloc] initWithFormat:@"%@",myExhibitors.url];
+                            [object setValue:myURL forKey:@"url"];
+                            
+                            NSError *error = nil;
+                            // Save the object to persistent store
+                            if (![context save:&error]) {
+                                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                                
+                            }
+                            NSLog(@"You updated an object in Exhibitors");
                         }
-                        NSLog(@"You updated an object in Exhibitors");
+                        
+                        
+                        
+                        if (!myResults || !myResults.count){
+                            
+                            NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibitors" inManagedObjectContext:context];
+                            
+                            [newManagedObject setValue:myExhibitors.name forKey:@"name"];
+                            
+                            [newManagedObject setValue:myExhibitors.boothLabel forKey:@"boothLabel"];
+                            NSString * myCoId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.coId];
+                            [newManagedObject setValue:myCoId forKey:@"coId"];
+                            NSString * myMapId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.mapId];
+                            [newManagedObject setValue:myMapId forKey:@"mapId"];
+                            NSString * myBoothId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.boothId];
+                            [newManagedObject setValue:myBoothId forKey:@"boothId"];
+                            NSString * myEventId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.eventId];
+                            [newManagedObject setValue:myEventId forKey:@"eventId"];
+                            NSString * myPhone = [[NSString alloc] initWithFormat:@"%@",myExhibitors.phone];
+                            [newManagedObject setValue:myPhone forKey:@"phone"];
+                            NSString * myURL = [[NSString alloc] initWithFormat:@"%@",myExhibitors.url];
+                            [newManagedObject setValue:myURL forKey:@"url"];
+                            
+                            
+                            
+                            NSError *error = nil;
+                            // Save the object to persistent store
+                            if (![context save:&error]) {
+                                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                            }
+                            NSLog(@"You created a new Exhibitor object!");
+                        }
+                        
+                        
                     }
                     
                     
                     
-                    if (!myResults || !myResults.count){
-                        
-                        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Exhibitors" inManagedObjectContext:context];
-                        
-                        [newManagedObject setValue:myExhibitors.name forKey:@"name"];
-                        
-                        [newManagedObject setValue:myExhibitors.boothLabel forKey:@"boothLabel"];
-                        NSString * myCoId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.coId];
-                        [newManagedObject setValue:myCoId forKey:@"coId"];
-                        NSString * myMapId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.mapId];
-                        [newManagedObject setValue:myMapId forKey:@"mapId"];
-                        NSString * myBoothId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.boothId];
-                        [newManagedObject setValue:myBoothId forKey:@"boothId"];
-                        NSString * myEventId = [[NSString alloc] initWithFormat:@"%@",myExhibitors.eventId];
-                        [newManagedObject setValue:myEventId forKey:@"eventId"];
-                        NSString * myPhone = [[NSString alloc] initWithFormat:@"%@",myExhibitors.phone];
-                        [newManagedObject setValue:myPhone forKey:@"phone"];
-                        NSString * myURL = [[NSString alloc] initWithFormat:@"%@",myExhibitors.url];
-                        [newManagedObject setValue:myURL forKey:@"url"];
-                        
-                        
-                        
-                        NSError *error = nil;
-                        // Save the object to persistent store
-                        if (![context save:&error]) {
-                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-                        }
-                        NSLog(@"You created a new Exhibitor object!");
-                    }
-                    
-                    
-                }
-                
-            
-                
-            });
+                });
             }//If ends for code added 092715 to handle exceptions
         });
         
         
         
         //CREATE SPEAKER1 OBJECTS
-        #pragma mark - Create Speaker1 Objects
+#pragma mark - Create Speaker1 Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             //NSHTTPURLResponse *response = nil;
@@ -749,7 +758,7 @@ int iNotificationCounter=0;
             NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-WINTER-FL-0116"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-
+            
             
             
             NSData * data = [NSData dataWithContentsOfURL:url];
@@ -786,17 +795,17 @@ int iNotificationCounter=0;
                     //NSString * sSession1Time = [[json objectAtIndex:i] objectForKey:@"session1Time"];
                     NSString * sSession1Desc = [[json objectAtIndex:i] objectForKey:@"functiondescription"];
                     //NSString * sSession2 = [[json objectAtIndex:i] objectForKey:@"session2"];
-//                    NSString * sSession2Date = [[json objectAtIndex:i] objectForKey:@"session2Date"];
-//                    NSString * sSession2Time = [[json objectAtIndex:i] objectForKey:@"session2Time"];
-//                    NSString * sSession2Desc = [[json objectAtIndex:i] objectForKey:@"session2Desc"];
+                    //                    NSString * sSession2Date = [[json objectAtIndex:i] objectForKey:@"session2Date"];
+                    //                    NSString * sSession2Time = [[json objectAtIndex:i] objectForKey:@"session2Time"];
+                    //                    NSString * sSession2Desc = [[json objectAtIndex:i] objectForKey:@"session2Desc"];
                     NSString * sSessionID = [[json objectAtIndex:i] objectForKey:@"FUNCTIONCD"];
                     //NSString * sSessionID2 = [[json objectAtIndex:i] objectForKey:@"sessionID2"];
                     NSString * sStartTime = [[json objectAtIndex:i] objectForKey:@"functionStartTime"];
                     NSString * sEndTime = [[json objectAtIndex:i] objectForKey:@"functionEndTime"];
                     NSString * sLocation = [[json objectAtIndex:i] objectForKey:@"LOCATIONNAME"];
-//                    NSString * sSess2StartTime = [[json objectAtIndex:i] objectForKey:@"sess2StartTime"];
-//                    NSString * sSess2EndTime = [[json objectAtIndex:i] objectForKey:@"sess2EndTime"];
-//                    NSString * sLocation2 = [[json objectAtIndex:i] objectForKey:@"location2"];
+                    //                    NSString * sSess2StartTime = [[json objectAtIndex:i] objectForKey:@"sess2StartTime"];
+                    //                    NSString * sSess2EndTime = [[json objectAtIndex:i] objectForKey:@"sess2EndTime"];
+                    //                    NSString * sLocation2 = [[json objectAtIndex:i] objectForKey:@"location2"];
                     
                     
                     Speakers * mySpeakers = [[Speakers alloc] initWithSpeakerName: sName andSpeakerLastName: sLastname andSpeakerCompany: sCompany andSpeakerCity: sCity andSpeakerState: sState andSpeakerCountry: sCountry andSession1: sSession1 andSession1Date: sSession1Date andSession1Desc: sSession1Desc andSessionID:sSessionID andStartTime: sStartTime andEndTime: sEndTime andLocation: sLocation];
@@ -834,25 +843,25 @@ int iNotificationCounter=0;
                         [newManagedObject setValue:mySpeakers.session1Date forKey:@"session1Date"];
                         //[newManagedObject setValue:mySpeakers.session1Time forKey:@"session1Time"];
                         [newManagedObject setValue:mySpeakers.session1Desc forKey:@"session1Desc"];
-//                        [newManagedObject setValue:mySpeakers.session2 forKey:@"session2"];
-//                        [newManagedObject setValue:mySpeakers.session2Date forKey:@"session2Date"];
-//                        [newManagedObject setValue:mySpeakers.session2Time forKey:@"session2Time"];
-//                        [newManagedObject setValue:mySpeakers.session2Desc forKey:@"session2Desc"];
+                        //                        [newManagedObject setValue:mySpeakers.session2 forKey:@"session2"];
+                        //                        [newManagedObject setValue:mySpeakers.session2Date forKey:@"session2Date"];
+                        //                        [newManagedObject setValue:mySpeakers.session2Time forKey:@"session2Time"];
+                        //                        [newManagedObject setValue:mySpeakers.session2Desc forKey:@"session2Desc"];
                         [newManagedObject setValue:mySpeakers.startTime forKey:@"startTime"];
                         [newManagedObject setValue:mySpeakers.endTime forKey:@"endTime"];
-//                        [newManagedObject setValue:mySpeakers.speakerWebsite forKey:@"speakerWebsite"];
-//                        [newManagedObject setValue:mySpeakers.speakerPic forKey:@"speakerPic"];
+                        //                        [newManagedObject setValue:mySpeakers.speakerWebsite forKey:@"speakerWebsite"];
+                        //                        [newManagedObject setValue:mySpeakers.speakerPic forKey:@"speakerPic"];
                         NSString * myLocation = [[NSString alloc] initWithFormat:@"%@",mySpeakers.location];
                         [newManagedObject setValue:myLocation forKey:@"location"];
-//                        NSString * mySess2StartTime = [[NSString alloc] initWithFormat:@"%@",mySpeakers.sess2StartTime];
-//                        [newManagedObject setValue:mySess2StartTime forKey:@"sess2StartTime"];
-//                        NSString * mySess2EndTime = [[NSString alloc] initWithFormat:@"%@",mySpeakers.sess2EndTime];
-//                        [newManagedObject setValue:mySess2EndTime forKey:@"sess2EndTime"];
-//                        NSString * myLocation2 = [[NSString alloc] initWithFormat:@"%@",mySpeakers.location2];
-//                        [newManagedObject setValue:myLocation2 forKey:@"location2"];
+                        //                        NSString * mySess2StartTime = [[NSString alloc] initWithFormat:@"%@",mySpeakers.sess2StartTime];
+                        //                        [newManagedObject setValue:mySess2StartTime forKey:@"sess2StartTime"];
+                        //                        NSString * mySess2EndTime = [[NSString alloc] initWithFormat:@"%@",mySpeakers.sess2EndTime];
+                        //                        [newManagedObject setValue:mySess2EndTime forKey:@"sess2EndTime"];
+                        //                        NSString * myLocation2 = [[NSString alloc] initWithFormat:@"%@",mySpeakers.location2];
+                        //                        [newManagedObject setValue:myLocation2 forKey:@"location2"];
                         [newManagedObject setValue:mySpeakers.sessionID forKey:@"sessionID"];
-//                        NSString * mySessionID2 = [[NSString alloc] initWithFormat:@"%@",mySpeakers.sessionID2];
-//                        [newManagedObject setValue:mySessionID2 forKey:@"sessionID2"];
+                        //                        NSString * mySessionID2 = [[NSString alloc] initWithFormat:@"%@",mySpeakers.sessionID2];
+                        //                        [newManagedObject setValue:mySessionID2 forKey:@"sessionID2"];
                         
                         
                         
@@ -878,7 +887,7 @@ int iNotificationCounter=0;
         //-------------------------
         
         //CREATE SPEAKER2 OBJECTS
-        #pragma mark - Create Speaker2 Objects
+#pragma mark - Create Speaker2 Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             //NSHTTPURLResponse *response = nil;
@@ -887,7 +896,7 @@ int iNotificationCounter=0;
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/test.json"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-
+            
             
             NSData * data = [NSData dataWithContentsOfURL:url];
             
@@ -979,19 +988,19 @@ int iNotificationCounter=0;
                 }
                 
             });
-                
-//            }//END OF IF RESPONSE STATUSCODE
-//            else{
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                    message:@"Connection to database failed."
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:@"Ok"
-//                                                          otherButtonTitles:nil, nil];
-//                //alertView.tag = 1;
-//                [alertView show];
-//                
-//            }
-
+            
+            //            }//END OF IF RESPONSE STATUSCODE
+            //            else{
+            //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+            //                                                                    message:@"Connection to database failed."
+            //                                                                   delegate:self
+            //                                                          cancelButtonTitle:@"Ok"
+            //                                                          otherButtonTitles:nil, nil];
+            //                //alertView.tag = 1;
+            //                [alertView show];
+            //
+            //            }
+            
         });
         
         
@@ -1000,7 +1009,7 @@ int iNotificationCounter=0;
         //-------------------------
         
         //CREATE SPEAKER3 OBJECTS
-        #pragma mark - Create Speaker3 Objects
+#pragma mark - Create Speaker3 Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             //NSHTTPURLResponse *response = nil;
@@ -1009,7 +1018,7 @@ int iNotificationCounter=0;
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/test.json"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-
+            
             
             NSData * data = [NSData dataWithContentsOfURL:url];
             
@@ -1101,19 +1110,19 @@ int iNotificationCounter=0;
                 }
                 
             });
-                
-//            }//END OF IF RESPONSE STATUSCODE
-//            else{
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                    message:@"Connection to database failed."
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:@"Ok"
-//                                                          otherButtonTitles:nil, nil];
-//                //alertView.tag = 1;
-//                [alertView show];
-//                
-//            }
-
+            
+            //            }//END OF IF RESPONSE STATUSCODE
+            //            else{
+            //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+            //                                                                    message:@"Connection to database failed."
+            //                                                                   delegate:self
+            //                                                          cancelButtonTitle:@"Ok"
+            //                                                          otherButtonTitles:nil, nil];
+            //                //alertView.tag = 1;
+            //                [alertView show];
+            //
+            //            }
+            
         });
         
         
@@ -1122,7 +1131,7 @@ int iNotificationCounter=0;
         //-------------------------
         
         //CREATE SPEAKER4 OBJECTS
-        #pragma mark - Create Speaker4 Objects
+#pragma mark - Create Speaker4 Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             //NSHTTPURLResponse *response = nil;
@@ -1131,7 +1140,7 @@ int iNotificationCounter=0;
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/test.json"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-
+            
             
             NSData * data = [NSData dataWithContentsOfURL:url];
             
@@ -1223,19 +1232,19 @@ int iNotificationCounter=0;
                 }
                 
             });
-                
-//            }//END OF IF RESPONSE STATUSCODE
-//            else{
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                    message:@"Connection to database failed."
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:@"Ok"
-//                                                          otherButtonTitles:nil, nil];
-//                //alertView.tag = 1;
-//                [alertView show];
-//                
-//            }
-
+            
+            //            }//END OF IF RESPONSE STATUSCODE
+            //            else{
+            //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+            //                                                                    message:@"Connection to database failed."
+            //                                                                   delegate:self
+            //                                                          cancelButtonTitle:@"Ok"
+            //                                                          otherButtonTitles:nil, nil];
+            //                //alertView.tag = 1;
+            //                [alertView show];
+            //
+            //            }
+            
         });
         
         
@@ -1244,7 +1253,7 @@ int iNotificationCounter=0;
         //-------------------------
         
         //CREATE SPEAKER5 OBJECTS
-        #pragma mark - Create Speaker5 Objects
+#pragma mark - Create Speaker5 Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             //NSHTTPURLResponse *response = nil;
@@ -1253,7 +1262,7 @@ int iNotificationCounter=0;
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/test.json"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-
+            
             
             NSData * data = [NSData dataWithContentsOfURL:url];
             
@@ -1344,19 +1353,19 @@ int iNotificationCounter=0;
                 }
                 
             });
-                
-//            }//END OF IF RESPONSE STATUSCODE
-//            else{
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                    message:@"Connection to database failed."
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:@"Ok"
-//                                                          otherButtonTitles:nil, nil];
-//                //alertView.tag = 1;
-//                [alertView show];
-//                
-//            }
-
+            
+            //            }//END OF IF RESPONSE STATUSCODE
+            //            else{
+            //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+            //                                                                    message:@"Connection to database failed."
+            //                                                                   delegate:self
+            //                                                          cancelButtonTitle:@"Ok"
+            //                                                          otherButtonTitles:nil, nil];
+            //                //alertView.tag = 1;
+            //                [alertView show];
+            //
+            //            }
+            
         });
         
         
@@ -1365,7 +1374,7 @@ int iNotificationCounter=0;
         //-------------------------
         
         //CREATE SPEAKER6 OBJECTS
-        #pragma mark - Create Speaker6 Objects
+#pragma mark - Create Speaker6 Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             //NSHTTPURLResponse *response = nil;
@@ -1374,7 +1383,7 @@ int iNotificationCounter=0;
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/test.json"];
             
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-
+            
             
             NSData * data = [NSData dataWithContentsOfURL:url];
             
@@ -1466,29 +1475,29 @@ int iNotificationCounter=0;
                 }
                 
             });
-                
-//            }//END OF IF RESPONSE STATUSCODE
-//            else{
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                    message:@"Connection to database failed."
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:@"Ok"
-//                                                          otherButtonTitles:nil, nil];
-//                //alertView.tag = 1;
-//                [alertView show];
-//                
-//            }
-
+            
+            //            }//END OF IF RESPONSE STATUSCODE
+            //            else{
+            //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+            //                                                                    message:@"Connection to database failed."
+            //                                                                   delegate:self
+            //                                                          cancelButtonTitle:@"Ok"
+            //                                                          otherButtonTitles:nil, nil];
+            //                //alertView.tag = 1;
+            //                [alertView show];
+            //
+            //            }
+            
         });
         
         
         
         
         //-------------------------
-
+        
         
         //CREATE SESSION OBJECTS
-        #pragma mark - Create Session Objects
+#pragma mark - Create Session Objects
         
         //@try {
         
@@ -1503,7 +1512,7 @@ int iNotificationCounter=0;
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/testtrunc3.json"];
             //NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/bicsi/test.json"];
             //if ([response statusCode] >= 200 && [response statusCode] < 300){//BEGIN IF RESPONSE STATUSCODE
-                
+            
             
             
             NSData * data = [NSData dataWithContentsOfURL:url];
@@ -1515,8 +1524,8 @@ int iNotificationCounter=0;
             NSString *truncDataStr = [newDataStr substringToIndex:[ newDataStr length]-1 ];
             
             
-//            NSLog(@"After truncated from front: %@", newDataStr);
-//            NSLog(@"After truncated from end: %@", truncDataStr);
+            //            NSLog(@"After truncated from front: %@", newDataStr);
+            //            NSLog(@"After truncated from end: %@", truncDataStr);
             
             NSData* truncData = [truncDataStr dataUsingEncoding:NSUTF8StringEncoding];
             ///////////////
@@ -1626,7 +1635,7 @@ int iNotificationCounter=0;
                         [object setValue:mySessions.sessionDesc forKey:@"sessionDesc"];
                         [object setValue:mySessions.sessionID forKey:@"sessionID"];
                         
-
+                        
                         [object setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
                         [object setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                         
@@ -1659,10 +1668,10 @@ int iNotificationCounter=0;
                         NSDate *stDate = [dft dateFromString: mySessions.sessionDate];
                         [newManagedObject setValue:stDate forKey:@"sessionDate"];
                         
-//                        NSDateFormatter *dfy = [[NSDateFormatter alloc] init];
-//                        [dfy setDateFormat:@"MMM d yyyy"];
-//                        NSDate *sessDate = [dfy dateFromString: mySessions.sessionDate];
-//                        [newManagedObject setValue:sessDate forKey:@"sessionDate"];
+                        //                        NSDateFormatter *dfy = [[NSDateFormatter alloc] init];
+                        //                        [dfy setDateFormat:@"MMM d yyyy"];
+                        //                        NSDate *sessDate = [dfy dateFromString: mySessions.sessionDate];
+                        //                        [newManagedObject setValue:sessDate forKey:@"sessionDate"];
                         
                         
                         [newManagedObject setValue:mySessions.sessionSpeaker1 forKey:@"sessionSpeaker1"];
@@ -1683,14 +1692,14 @@ int iNotificationCounter=0;
                         [newManagedObject setValue:mySessions.sessionSpeaker4lastname forKey:@"sessionSpeaker4lastname"];
                         [newManagedObject setValue:mySessions.sessionSpeaker5lastname forKey:@"sessionSpeaker5lastname"];
                         [newManagedObject setValue:mySessions.sessionSpeaker6lastname forKey:@"sessionSpeaker6lastname"];
-
+                        
                         
                         [newManagedObject setValue:mySessions.sessionDesc forKey:@"sessionDesc"];
                         [newManagedObject setValue:mySessions.sessionID forKey:@"sessionID"];
                         //[newManagedObject setValue:mySessions.startTime forKey:@"startTime"];
                         
                         NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                    
+                        
                         [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
                         [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                         
@@ -1711,55 +1720,55 @@ int iNotificationCounter=0;
                     }
                     
                     
-                
-                
+                    
+                    
                 }
                 
                 
             });
-//            }//END OF IF RESPONSE STATUSCODE
-//            else{
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                    message:@"Connection to database failed."
-//                                                                   delegate:self
-//                                                          cancelButtonTitle:@"Ok"
-//                                                          otherButtonTitles:nil, nil];
-//                //alertView.tag = 1;
-//                [alertView show];
-//
-//            }
+            //            }//END OF IF RESPONSE STATUSCODE
+            //            else{
+            //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+            //                                                                    message:@"Connection to database failed."
+            //                                                                   delegate:self
+            //                                                          cancelButtonTitle:@"Ok"
+            //                                                          otherButtonTitles:nil, nil];
+            //                //alertView.tag = 1;
+            //                [alertView show];
+            //
+            //            }
         });
         
-//        }
-//        @catch (NSException * e) {
-//            NSLog(@"Exception: %@", e);
-//            //[self alertStatus:@"Sign in Failed." :@"Error!" :0];
-//            
-//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
-//                                                                message:@"Oops! There seems to be an issue accessing the database. Please try again."
-//                                                               delegate:self
-//                                                      cancelButtonTitle:@"Ok"
-//                                                      otherButtonTitles:nil, nil];
-//            //alertView.tag = 1;
-//            [alertView show];
-//
-//        }
+        //        }
+        //        @catch (NSException * e) {
+        //            NSLog(@"Exception: %@", e);
+        //            //[self alertStatus:@"Sign in Failed." :@"Error!" :0];
+        //
+        //            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR"
+        //                                                                message:@"Oops! There seems to be an issue accessing the database. Please try again."
+        //                                                               delegate:self
+        //                                                      cancelButtonTitle:@"Ok"
+        //                                                      otherButtonTitles:nil, nil];
+        //            //alertView.tag = 1;
+        //            [alertView show];
+        //
+        //        }
         
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        [formatter setDateFormat:@"MMM d yyyy"];
-//        NSString* string=@"Sep 28 2014";
-//        NSDate *dat = [formatter dateFromString:string];
-//        
-//        NSString *dateString = [formatter stringFromDate:dat];
-//        
-//        NSLog(@"The formatted date is:%@", dateString);
+        //        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        //        [formatter setDateFormat:@"MMM d yyyy"];
+        //        NSString* string=@"Sep 28 2014";
+        //        NSDate *dat = [formatter dateFromString:string];
+        //
+        //        NSString *dateString = [formatter stringFromDate:dat];
+        //
+        //        NSLog(@"The formatted date is:%@", dateString);
         
         //[formatter setDateFormat:@"dd MM yyyy"];
         
         //-------------------------
         
         //CREATE SPONSOR OBJECTS
-        #pragma mark - Create Sponsor Objects
+#pragma mark - Create Sponsor Objects
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
             NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/sponsorsW16.php"];
@@ -1782,72 +1791,72 @@ int iNotificationCounter=0;
             else if ([data length] > 0 && error == nil)
             {
                 //end of added code 092715
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
                 
-                json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                //Set up our sponsors array
-                sponsorsArray = [[NSMutableArray alloc] init];
-                
-                for (int i = 0; i < json.count; i++) {
-                    //create session object
-                    NSString * sID = [[json objectAtIndex:i] objectForKey:@"id"];
-                    NSString * sLevel = [[json objectAtIndex:i] objectForKey:@"sponsorLevel"];
-                    NSString * sSpecial = [[json objectAtIndex:i] objectForKey:@"sponsorSpecial"];
-                    NSString * sName = [[json objectAtIndex:i] objectForKey:@"sponsorName"];
-                    NSString * bNumber = [[json objectAtIndex:i] objectForKey:@"boothNumber"];
-                    NSString * sWebsite = [[json objectAtIndex:i] objectForKey:@"sponsorWebsite"];
-                    NSString * sImage = [[json objectAtIndex:i] objectForKey:@"sponsorImage"];
-                    NSString * sSeries = [[json objectAtIndex:i] objectForKey:@"series"];
+                dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    Sponsors   * mySponsors = [[Sponsors alloc] initWithSponsorID: sID andSponsorLevel: sLevel andSponsorSpecial: sSpecial andSponsorName: sName andBoothnumber: bNumber andSponsorWebsite:sWebsite andSponsorImage:sImage andSeries:sSeries];
+                    json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                    //Set up our sponsors array
+                    sponsorsArray = [[NSMutableArray alloc] init];
                     
-                    //Add our sessions object to our exhibitHallArray
-                    [sponsorsArray addObject:mySponsors];
-                    
-                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
-                    
-                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-                    
-                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sponsors" inManagedObjectContext:context];
-                    
-                    [fetchRequest setEntity:entity];
-                    
-                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sponsorID == %@",mySponsors.sponsorID]];
-                    
-                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
-                    
-                    self.objects = myResults;
-                    if (!myResults || !myResults.count){
+                    for (int i = 0; i < json.count; i++) {
+                        //create session object
+                        NSString * sID = [[json objectAtIndex:i] objectForKey:@"id"];
+                        NSString * sLevel = [[json objectAtIndex:i] objectForKey:@"sponsorLevel"];
+                        NSString * sSpecial = [[json objectAtIndex:i] objectForKey:@"sponsorSpecial"];
+                        NSString * sName = [[json objectAtIndex:i] objectForKey:@"sponsorName"];
+                        NSString * bNumber = [[json objectAtIndex:i] objectForKey:@"boothNumber"];
+                        NSString * sWebsite = [[json objectAtIndex:i] objectForKey:@"sponsorWebsite"];
+                        NSString * sImage = [[json objectAtIndex:i] objectForKey:@"sponsorImage"];
+                        NSString * sSeries = [[json objectAtIndex:i] objectForKey:@"series"];
                         
-                        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Sponsors" inManagedObjectContext:context];
+                        Sponsors   * mySponsors = [[Sponsors alloc] initWithSponsorID: sID andSponsorLevel: sLevel andSponsorSpecial: sSpecial andSponsorName: sName andBoothnumber: bNumber andSponsorWebsite:sWebsite andSponsorImage:sImage andSeries:sSeries];
                         
-                        [newManagedObject setValue:mySponsors.sponsorName forKey:@"sponsorName"];
-                        //NSString * sIdStr = [[NSString alloc]initWithFormat:@"%@", mySponsors.sponsorID];
+                        //Add our sessions object to our exhibitHallArray
+                        [sponsorsArray addObject:mySponsors];
                         
-                        [newManagedObject setValue:mySponsors.sponsorID forKey:@"sponsorID"];
-                        [newManagedObject setValue:mySponsors.sponsorLevel forKey:@"sponsorLevel"];
-                        [newManagedObject setValue:mySponsors.sponsorSpecial forKey:@"sponsorSpecial"];
-                        [newManagedObject setValue:mySponsors.sponsorImage forKey:@"sponsorImage"];
-                        [newManagedObject setValue:mySponsors.sponsorWebsite forKey:@"sponsorWebsite"];
-                        [newManagedObject setValue:mySponsors.boothNumber forKey:@"boothNumber"];
-                        [newManagedObject setValue:mySponsors.series forKey:@"series"];
+                        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
                         
-                        NSError *error = nil;
-                        // Save the object to persistent store
-                        if (![context save:&error]) {
-                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+                        
+                        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sponsors" inManagedObjectContext:context];
+                        
+                        [fetchRequest setEntity:entity];
+                        
+                        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"sponsorID == %@",mySponsors.sponsorID]];
+                        
+                        NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+                        
+                        self.objects = myResults;
+                        if (!myResults || !myResults.count){
+                            
+                            NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Sponsors" inManagedObjectContext:context];
+                            
+                            [newManagedObject setValue:mySponsors.sponsorName forKey:@"sponsorName"];
+                            //NSString * sIdStr = [[NSString alloc]initWithFormat:@"%@", mySponsors.sponsorID];
+                            
+                            [newManagedObject setValue:mySponsors.sponsorID forKey:@"sponsorID"];
+                            [newManagedObject setValue:mySponsors.sponsorLevel forKey:@"sponsorLevel"];
+                            [newManagedObject setValue:mySponsors.sponsorSpecial forKey:@"sponsorSpecial"];
+                            [newManagedObject setValue:mySponsors.sponsorImage forKey:@"sponsorImage"];
+                            [newManagedObject setValue:mySponsors.sponsorWebsite forKey:@"sponsorWebsite"];
+                            [newManagedObject setValue:mySponsors.boothNumber forKey:@"boothNumber"];
+                            [newManagedObject setValue:mySponsors.series forKey:@"series"];
+                            
+                            NSError *error = nil;
+                            // Save the object to persistent store
+                            if (![context save:&error]) {
+                                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                            }
+                            NSLog(@"You created a new Sponsor object!");
                         }
-                        NSLog(@"You created a new Sponsor object!");
+                        
+                        
+                        
+                        
                     }
                     
                     
-                    
-                    
-                }
-                
-                
-            });
+                });
             }
         });
         
@@ -1855,7 +1864,7 @@ int iNotificationCounter=0;
         //    //-------------------------
         
         //CREATE CSCHEDULE OBJECTS
-        #pragma mark - Create CSchedule Objects
+#pragma mark - Create CSchedule Objects
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
@@ -1879,79 +1888,79 @@ int iNotificationCounter=0;
             else if ([data length] > 0 && error == nil)
             {
                 //end of added code 092715
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
                 
-                json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                
-                //Set up our cschedule array
-                cscheduleArray = [[NSMutableArray alloc] init];
-                
-                for (int i = 0; i < json.count; i++) {
-                    //create cschedule object
-                    NSString * sID = [[json objectAtIndex:i] objectForKey:@"id"];
-                    NSString * sDate = [[json objectAtIndex:i] objectForKey:@"date"];
-                    NSString * sDay = [[json objectAtIndex:i] objectForKey:@"day"];
-                    NSString * sTrueDate = [[json objectAtIndex:i] objectForKey:@"trueDate"];
+                dispatch_async(dispatch_get_main_queue(), ^{
                     
+                    json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                     
-                    CSchedule * myCschedule = [[CSchedule alloc] initWithID: sID andDate: sDate andDay: sDay andTrueDate: sTrueDate];
+                    //Set up our cschedule array
+                    cscheduleArray = [[NSMutableArray alloc] init];
                     
-                    
-                    //Add our exhibitors object to our exhibitorsArray
-                    [cscheduleArray addObject:myCschedule];
-                    
-                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
-                    
-                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-                    
-                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Cschedule" inManagedObjectContext:context];
-                    
-                    [fetchRequest setEntity:entity];
-                    
-                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myCschedule.ID]];
-                    
-                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
-                    
-                    self.objects = myResults;
-                    if (!myResults || !myResults.count){
-                        
-                        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Cschedule" inManagedObjectContext:context];
-                        
-                        [newManagedObject setValue:myCschedule.ID forKey:@"id"];
-                        
-                        [newManagedObject setValue:myCschedule.day forKey:@"day"];
-                        
-                        [newManagedObject setValue:myCschedule.date forKey:@"date"];
-                        
-                        NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                        [df setDateFormat:@"MMM dd yyyy"];
-                        NSDate *csDate = [df dateFromString: myCschedule.trueDate];
-                        [newManagedObject setValue:csDate forKey:@"trueDate"];
+                    for (int i = 0; i < json.count; i++) {
+                        //create cschedule object
+                        NSString * sID = [[json objectAtIndex:i] objectForKey:@"id"];
+                        NSString * sDate = [[json objectAtIndex:i] objectForKey:@"date"];
+                        NSString * sDay = [[json objectAtIndex:i] objectForKey:@"day"];
+                        NSString * sTrueDate = [[json objectAtIndex:i] objectForKey:@"trueDate"];
                         
                         
+                        CSchedule * myCschedule = [[CSchedule alloc] initWithID: sID andDate: sDate andDay: sDay andTrueDate: sTrueDate];
                         
-                        NSError *error = nil;
-                        // Save the object to persistent store
-                        if (![context save:&error]) {
-                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                        
+                        //Add our exhibitors object to our exhibitorsArray
+                        [cscheduleArray addObject:myCschedule];
+                        
+                        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
+                        
+                        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+                        
+                        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Cschedule" inManagedObjectContext:context];
+                        
+                        [fetchRequest setEntity:entity];
+                        
+                        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myCschedule.ID]];
+                        
+                        NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+                        
+                        self.objects = myResults;
+                        if (!myResults || !myResults.count){
+                            
+                            NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Cschedule" inManagedObjectContext:context];
+                            
+                            [newManagedObject setValue:myCschedule.ID forKey:@"id"];
+                            
+                            [newManagedObject setValue:myCschedule.day forKey:@"day"];
+                            
+                            [newManagedObject setValue:myCschedule.date forKey:@"date"];
+                            
+                            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                            [df setDateFormat:@"MMM dd yyyy"];
+                            NSDate *csDate = [df dateFromString: myCschedule.trueDate];
+                            [newManagedObject setValue:csDate forKey:@"trueDate"];
+                            
+                            
+                            
+                            NSError *error = nil;
+                            // Save the object to persistent store
+                            if (![context save:&error]) {
+                                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                            }
+                            NSLog(@"You created a new Cschedule object!");
                         }
-                        NSLog(@"You created a new Cschedule object!");
+                        
+                        
                     }
                     
                     
-                }
-                
-                
-                
-            });
+                    
+                });
             }
         });
-
+        
         //    //-------------------------
         
         //CREATE EHSCHEDULE OBJECTS
-        #pragma mark - Create EHSchedule Objects
+#pragma mark - Create EHSchedule Objects
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
@@ -1975,147 +1984,147 @@ int iNotificationCounter=0;
             else if ([data length] > 0 && error == nil)
             {
                 //end of added code 092715
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
                 
-                json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-                
-                //Set up our ehschedule array
-                exhibitHallArray = [[NSMutableArray alloc] init];
-                
-                for (int i = 0; i < json.count; i++) {
-                    //create cschedule object
-                    NSString * sID = [[json objectAtIndex:i] objectForKey:@"id"];
-                    NSString * sDate = [[json objectAtIndex:i] objectForKey:@"scheduleDate"];
-                    NSString * sName = [[json objectAtIndex:i] objectForKey:@"sessionName"];
-                    NSString * sTime = [[json objectAtIndex:i] objectForKey:@"sessionTime"];
-                    NSString * sStartTime = [[json objectAtIndex:i] objectForKey:@"startTime"];
+                dispatch_async(dispatch_get_main_queue(), ^{
                     
+                    json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                     
-                    EHSchedule * myEhschedule = [[EHSchedule alloc] initWithScheduleID: sID andScheduleDate:sDate andSessionName: sName andSessionTime: sTime andStartTime: sStartTime];
+                    //Set up our ehschedule array
+                    exhibitHallArray = [[NSMutableArray alloc] init];
                     
-                    
-                    //Add our exhibitors object to our exhibitorsArray
-                    [exhibitHallArray addObject:myEhschedule];
-                    
-                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
-                    
-                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-                    
-                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ehschedule" inManagedObjectContext:context];
-                    
-                    [fetchRequest setEntity:entity];
-                    
-                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myEhschedule.scheduleID]];
-                    
-                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
-                    
-                    self.objects = myResults;
-                    if (!myResults || !myResults.count){
-                        
-                        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Ehschedule" inManagedObjectContext:context];
-                        
-                        [newManagedObject setValue:myEhschedule.scheduleID forKey:@"id"];
-                        
-                        [newManagedObject setValue:myEhschedule.sessionName forKey:@"sessionName"];
-                        
-                        [newManagedObject setValue:myEhschedule.sessionTime forKey:@"sessionTime"];
-                        
-                        [newManagedObject setValue:myEhschedule.scheduleDate forKey:@"scheduleDate"];
-                        
-                        NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                        [df setDateFormat:@"hh:mm a"];
-                        NSDate *ehStartTime = [df dateFromString: myEhschedule.startTime];
-                        [newManagedObject setValue:ehStartTime forKey:@"startTime"];
+                    for (int i = 0; i < json.count; i++) {
+                        //create cschedule object
+                        NSString * sID = [[json objectAtIndex:i] objectForKey:@"id"];
+                        NSString * sDate = [[json objectAtIndex:i] objectForKey:@"scheduleDate"];
+                        NSString * sName = [[json objectAtIndex:i] objectForKey:@"sessionName"];
+                        NSString * sTime = [[json objectAtIndex:i] objectForKey:@"sessionTime"];
+                        NSString * sStartTime = [[json objectAtIndex:i] objectForKey:@"startTime"];
                         
                         
+                        EHSchedule * myEhschedule = [[EHSchedule alloc] initWithScheduleID: sID andScheduleDate:sDate andSessionName: sName andSessionTime: sTime andStartTime: sStartTime];
                         
-                        NSError *error = nil;
-                        // Save the object to persistent store
-                        if (![context save:&error]) {
-                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                        
+                        //Add our exhibitors object to our exhibitorsArray
+                        [exhibitHallArray addObject:myEhschedule];
+                        
+                        NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
+                        
+                        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+                        
+                        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ehschedule" inManagedObjectContext:context];
+                        
+                        [fetchRequest setEntity:entity];
+                        
+                        [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myEhschedule.scheduleID]];
+                        
+                        NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+                        
+                        self.objects = myResults;
+                        if (!myResults || !myResults.count){
+                            
+                            NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Ehschedule" inManagedObjectContext:context];
+                            
+                            [newManagedObject setValue:myEhschedule.scheduleID forKey:@"id"];
+                            
+                            [newManagedObject setValue:myEhschedule.sessionName forKey:@"sessionName"];
+                            
+                            [newManagedObject setValue:myEhschedule.sessionTime forKey:@"sessionTime"];
+                            
+                            [newManagedObject setValue:myEhschedule.scheduleDate forKey:@"scheduleDate"];
+                            
+                            NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                            [df setDateFormat:@"hh:mm a"];
+                            NSDate *ehStartTime = [df dateFromString: myEhschedule.startTime];
+                            [newManagedObject setValue:ehStartTime forKey:@"startTime"];
+                            
+                            
+                            
+                            NSError *error = nil;
+                            // Save the object to persistent store
+                            if (![context save:&error]) {
+                                NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                            }
+                            NSLog(@"You created a new Cschedule object!");
                         }
-                        NSLog(@"You created a new Cschedule object!");
+                        
+                        
                     }
                     
                     
-                }
-                
-                
-                
-            });
+                    
+                });
             }
         });
-
+        
         //    //-------------------------
         
         //CREATE HTML OBJECTS
         
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-//            
-//            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/html.php"];
-//            NSData * data = [NSData dataWithContentsOfURL:url];
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                
-//                json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-//                
-//                //Set up our Html array
-//                htmlArray = [[NSMutableArray alloc] init];
-//                
-//                for (int i = 0; i < json.count; i++) {
-//                    //create Html object
-//                    NSString * hID = [[json objectAtIndex:i] objectForKey:@"id"];
-//                    NSString * hName = [[json objectAtIndex:i] objectForKey:@"name"];
-//                    NSString * hUrl = [[json objectAtIndex:i] objectForKey:@"url"];
-//                    
-//                    
-//                    Html * myHtml = [[Html alloc] initWithID: hID andName:hName andUrl: hUrl];
-//                    
-//                    
-//                    //Add our html object to our htmlArray
-//                    [htmlArray addObject:myHtml];
-//                    
-//                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
-//                    
-//                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//                    
-//                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Html" inManagedObjectContext:context];
-//                    
-//                    [fetchRequest setEntity:entity];
-//                    
-//                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myHtml.ID]];
-//                    
-//                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
-//                    
-//                    self.objects = myResults;
-//                    if (!myResults || !myResults.count){
-//                        
-//                        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Html" inManagedObjectContext:context];
-//                        
-//                        [newManagedObject setValue:myHtml.ID forKey:@"id"];
-//                        
-//                        [newManagedObject setValue:myHtml.name forKey:@"name"];
-//                        
-//                        [newManagedObject setValue:myHtml.url forKey:@"url"];
-//                        
-//                        NSError *error = nil;
-//                        // Save the object to persistent store
-//                        if (![context save:&error]) {
-//                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-//                        }
-//                        NSLog(@"You created a new Html object!");
-//                    }
-//                    
-//                    
-//                }
-//                
-//                
-//                
-//            });
-//        });
-
-   
+        //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        //
+        //            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/html.php"];
+        //            NSData * data = [NSData dataWithContentsOfURL:url];
+        //
+        //            dispatch_async(dispatch_get_main_queue(), ^{
+        //
+        //                json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        //
+        //                //Set up our Html array
+        //                htmlArray = [[NSMutableArray alloc] init];
+        //
+        //                for (int i = 0; i < json.count; i++) {
+        //                    //create Html object
+        //                    NSString * hID = [[json objectAtIndex:i] objectForKey:@"id"];
+        //                    NSString * hName = [[json objectAtIndex:i] objectForKey:@"name"];
+        //                    NSString * hUrl = [[json objectAtIndex:i] objectForKey:@"url"];
+        //
+        //
+        //                    Html * myHtml = [[Html alloc] initWithID: hID andName:hName andUrl: hUrl];
+        //
+        //
+        //                    //Add our html object to our htmlArray
+        //                    [htmlArray addObject:myHtml];
+        //
+        //                    NSManagedObjectContext *context = [[CoreDataHelper sharedHelper] context];
+        //
+        //                    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        //
+        //                    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Html" inManagedObjectContext:context];
+        //
+        //                    [fetchRequest setEntity:entity];
+        //
+        //                    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id == %@",myHtml.ID]];
+        //
+        //                    NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+        //
+        //                    self.objects = myResults;
+        //                    if (!myResults || !myResults.count){
+        //
+        //                        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Html" inManagedObjectContext:context];
+        //
+        //                        [newManagedObject setValue:myHtml.ID forKey:@"id"];
+        //
+        //                        [newManagedObject setValue:myHtml.name forKey:@"name"];
+        //
+        //                        [newManagedObject setValue:myHtml.url forKey:@"url"];
+        //
+        //                        NSError *error = nil;
+        //                        // Save the object to persistent store
+        //                        if (![context save:&error]) {
+        //                            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        //                        }
+        //                        NSLog(@"You created a new Html object!");
+        //                    }
+        //
+        //
+        //                }
+        //
+        //
+        //
+        //            });
+        //        });
+        
+        
         
         
     }//END REACHABILITY ELSE
@@ -2170,7 +2179,7 @@ int iNotificationCounter=0;
 //    if (_managedObjectContext != nil) {
 //        return _managedObjectContext;
 //    }
-//    
+//
 //    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
 //    if (coordinator != nil) {
 //        _managedObjectContext = [[NSManagedObjectContext alloc] init];
@@ -2194,39 +2203,39 @@ int iNotificationCounter=0;
 //    if (_persistentStoreCoordinator != nil) {
 //        return _persistentStoreCoordinator;
 //    }
-//    
+//
 //    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"bicsi.sqlite"];
-//    
+//
 //    NSError *error = nil;
 //    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
 //    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
 //        /*
 //         Replace this implementation with code to handle the error appropriately.
-//         
+//
 //         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//         
+//
 //         Typical reasons for an error here include:
 //         * The persistent store is not accessible;
 //         * The schema for the persistent store is incompatible with current managed object model.
 //         Check the error message to determine what the actual problem was.
-//         
-//         
+//
+//
 //         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-//         
+//
 //         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
 //         * Simply deleting the existing store:
 //         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-//         
+//
 //         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
 //         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-//         
+//
 //         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-//         
+//
 //         */
 //        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 //        abort();
 //    }
-//    
+//
 //    return _persistentStoreCoordinator;
 //}
 //
@@ -2244,7 +2253,7 @@ int iNotificationCounter=0;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[self cdh] saveContext];
 }
@@ -2285,7 +2294,7 @@ int iNotificationCounter=0;
         }
             
     }
-
+    
     
     application.applicationIconBadgeNumber = 0;
     
@@ -2303,19 +2312,19 @@ int iNotificationCounter=0;
 
 #pragma mark - Setup Push Methods
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
-(NSData *)deviceToken
-{
-    //[[PushIOManager sharedInstance] didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-    
-    
-    // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    currentInstallation.channels = @[ @"global" ];
-    [currentInstallation saveInBackground];
-    
-}
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
+//(NSData *)deviceToken
+//{
+//    //[[PushIOManager sharedInstance] didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+//
+//
+//    // Store the deviceToken in the current installation and save it to Parse.
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    [currentInstallation setDeviceTokenFromData:deviceToken];
+//    currentInstallation.channels = @[ @"global" ];
+//    [currentInstallation saveInBackground];
+//
+//}
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
@@ -2336,7 +2345,7 @@ int iNotificationCounter=0;
     tabBarItem2.badgeValue = [NSString stringWithFormat:@"%d",iNotificationCounter];
     //-------------------------------------//
     //Parse handle
-    [PFPush handlePush:userInfo];
+    //[PFPush handlePush:userInfo];
     
     //[[PushIOManager sharedInstance] didReceiveRemoteNotification:userInfo];
     
@@ -2347,7 +2356,7 @@ int iNotificationCounter=0;
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
-        [alertView show];
+    [alertView show];
     
     
     //Save to plist
@@ -2360,15 +2369,15 @@ int iNotificationCounter=0;
     //[clName addObject:now];
     
     
-	// get paths from root direcory
+    // get paths from root direcory
     NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
     // get documents path
     NSString *documentsPath = [paths objectAtIndex:0];
     // get the path to our Data/plist file
     NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"Data.plist"];
-	
-	// This writes the array to a plist file. If this file does not already exist, it creates a new one.
-	[clName writeToFile:plistPath atomically: TRUE];
+    
+    // This writes the array to a plist file. If this file does not already exist, it creates a new one.
+    [clName writeToFile:plistPath atomically: TRUE];
     
     
     
@@ -2417,7 +2426,7 @@ int iNotificationCounter=0;
             break;
         }
     }
-
+    
 }
 
 - (void)serviceStarted
@@ -2476,8 +2485,8 @@ int iNotificationCounter=0;
 //- (void)didArrive:(FYXVisit *)visit;
 //{
 //    if ([visit.transmitter.name isEqualToString:@"BICSIBeacon1"]) {
-//        
-//        
+//
+//
 //        // this will be invoked when an authorized transmitter is sighted for the first time
 //        NSLog(@"I arrived at a Gimbal Beacon!!! %@", visit.transmitter.name);
 //        //

@@ -9,11 +9,13 @@
 #import "WallPicturesViewController.h"
 #import "UploadImageViewController.h"
 
-#import <Parse/Parse.h>
+//#import <Parse/Parse.h>
 
 #import "Constants.h"
 
 #import "MBProgressHUD.h"
+
+#import "Backendless.h"
 
 @interface WallPicturesViewController () {
     
@@ -61,21 +63,35 @@
 {
     [super viewDidLoad];
     
+    BackendlessUser *currentUser;
+    currentUser = backendless.userService.currentUser;
+    NSLog(@"The current user is: %@", currentUser);
     
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
     
-//    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    HUD.labelText = @"Loading photos...";
-//    //HUD.detailsLabelText = @"Just relax";
-//    HUD.mode = MBProgressHUDAnimationFade;
-//    //HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-//    [self.view addSubview:HUD];
-//    [HUD showWhileExecuting:@selector(getWallImages) onTarget:self withObject:nil animated:YES];
+    //    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //    HUD.labelText = @"Loading photos...";
+    //    //HUD.detailsLabelText = @"Just relax";
+    //    HUD.mode = MBProgressHUDAnimationFade;
+    //    //HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+    //    [self.view addSubview:HUD];
+    //    [HUD showWhileExecuting:@selector(getWallImages) onTarget:self withObject:nil animated:YES];
+    
     
     [actvity startAnimating];
 }
+
+//-(void)validUserTokenAsync {
+//    [backendless.userService isValidUserToken:
+//     ^(NSNumber *result) {
+//         NSLog(@"isValidUserToken (ASYNC): %@", [result boolValue]?@"YES":@"NO");
+//     }
+//                                        error:^(Fault *fault) {
+//                                            NSLog(@"login FAULT (ASYNC): %@", fault);
+//                                        }];
+//}
 
 - (void)viewDidUnload
 {
@@ -135,51 +151,51 @@
     //For every wall element, put a view in the scroll
     int originY = 10;
     
-    for (PFObject *wallObject in self.wallObjectsArray){
-        
-        
-        //Build the view with the image and the comments
-        UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(10, originY, self.view.frame.size.width - 20 , 300)];
-        
-        //Add the image
-        PFFile *image = (PFFile *)[wallObject objectForKey:KEY_IMAGE];
-        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
-        userImage.frame = CGRectMake(0, 0, wallImageView.frame.size.width, 300);
-        [wallImageView addSubview:userImage];
-        
-        //Add the info label (User and creation date)
-        NSDate *creationDate = wallObject.createdAt;
-        NSDateFormatter *df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"MMM dd yyyy hh:mm a"];
-        
-//        UITextField *infoText = [[UITextField alloc] initWithFrame:CGRectMake(0, 307, wallImageView.frame.size.width,15)];
-//        infoText.text = [NSString stringWithFormat:@"Pic ID:%@, Uploaded by: %@ on %@", wallObject.objectId,[wallObject objectForKey:KEY_USER], [df stringFromDate:creationDate]];
-//        infoText.font = [UIFont fontWithName:@"Arial-ItalicMT" size:9];
-//        infoText.textColor = [UIColor blackColor];
-//        infoText.backgroundColor = [UIColor clearColor];
-//        [wallImageView addSubview:infoText];
-        
-        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 307, wallImageView.frame.size.width,15)];
-        infoLabel.text = [NSString stringWithFormat:@"Pic ID:%@, Uploaded by: %@ on %@", wallObject.objectId,[wallObject objectForKey:KEY_USER], [df stringFromDate:creationDate]];
-        infoLabel.font = [UIFont fontWithName:@"Arial-ItalicMT" size:9];
-        infoLabel.textColor = [UIColor blackColor];
-        infoLabel.backgroundColor = [UIColor clearColor];
-        [wallImageView addSubview:infoLabel];
-        
-        //Add the comment
-        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 297, wallImageView.frame.size.width, 15)];
-        commentLabel.text = [wallObject objectForKey:KEY_COMMENT];
-        commentLabel.font = [UIFont fontWithName:@"ArialMT" size:11];
-        commentLabel.textColor = [UIColor blackColor];
-        commentLabel.backgroundColor = [UIColor clearColor];
-        [wallImageView addSubview:commentLabel];
-        
-        [self.wallScroll addSubview:wallImageView];
-        
-        
-        originY = originY + wallImageView.frame.size.width + 20;
-        
-    }
+    //    for (PFObject *wallObject in self.wallObjectsArray){
+    //
+    //
+    //        //Build the view with the image and the comments
+    //        UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(10, originY, self.view.frame.size.width - 20 , 300)];
+    //
+    //        //Add the image
+    //        PFFile *image = (PFFile *)[wallObject objectForKey:KEY_IMAGE];
+    //        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
+    //        userImage.frame = CGRectMake(0, 0, wallImageView.frame.size.width, 300);
+    //        [wallImageView addSubview:userImage];
+    //
+    //        //Add the info label (User and creation date)
+    //        NSDate *creationDate = wallObject.createdAt;
+    //        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    //        [df setDateFormat:@"MMM dd yyyy hh:mm a"];
+    //
+    ////        UITextField *infoText = [[UITextField alloc] initWithFrame:CGRectMake(0, 307, wallImageView.frame.size.width,15)];
+    ////        infoText.text = [NSString stringWithFormat:@"Pic ID:%@, Uploaded by: %@ on %@", wallObject.objectId,[wallObject objectForKey:KEY_USER], [df stringFromDate:creationDate]];
+    ////        infoText.font = [UIFont fontWithName:@"Arial-ItalicMT" size:9];
+    ////        infoText.textColor = [UIColor blackColor];
+    ////        infoText.backgroundColor = [UIColor clearColor];
+    ////        [wallImageView addSubview:infoText];
+    //
+    //        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 307, wallImageView.frame.size.width,15)];
+    //        infoLabel.text = [NSString stringWithFormat:@"Pic ID:%@, Uploaded by: %@ on %@", wallObject.objectId,[wallObject objectForKey:KEY_USER], [df stringFromDate:creationDate]];
+    //        infoLabel.font = [UIFont fontWithName:@"Arial-ItalicMT" size:9];
+    //        infoLabel.textColor = [UIColor blackColor];
+    //        infoLabel.backgroundColor = [UIColor clearColor];
+    //        [wallImageView addSubview:infoLabel];
+    //
+    //        //Add the comment
+    //        UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 297, wallImageView.frame.size.width, 15)];
+    //        commentLabel.text = [wallObject objectForKey:KEY_COMMENT];
+    //        commentLabel.font = [UIFont fontWithName:@"ArialMT" size:11];
+    //        commentLabel.textColor = [UIColor blackColor];
+    //        commentLabel.backgroundColor = [UIColor clearColor];
+    //        [wallImageView addSubview:commentLabel];
+    //
+    //        [self.wallScroll addSubview:wallImageView];
+    //
+    //
+    //        originY = originY + wallImageView.frame.size.width + 20;
+    //
+    //    }
     
     //Set the bounds of the scroll
     self.wallScroll.contentSize = CGSizeMake(self.wallScroll.frame.size.width, originY);
@@ -199,28 +215,29 @@
     //Prepare the query to get all the images in descending order
     //    PFQuery *query = [PFQuery queryWithClassName:WALL_OBJECT];
     //    [query orderByDescending:KEY_CREATION_DATE];
-    PFQuery *query = [PFQuery queryWithClassName:WALL_OBJECT];
-    [query orderByDescending:KEY_CREATION_DATE];
-    [query whereKey:KEY_STATUS equalTo:@"F14approved"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (!error) {
-            //Everything was correct, put the new objects and load the wall
-            self.wallObjectsArray = nil;
-            self.wallObjectsArray = [[NSArray alloc] initWithArray:objects];
-            
-            [self loadWallViews];
-            
-        } else {
-            //Remove the activity indicator
-            [self.activityIndicator stopAnimating];
-            [self.activityIndicator removeFromSuperview];
-            
-            //Show the error
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            [self showErrorView:errorString];
-        }
-    }];
+    /////
+    //    PFQuery *query = [PFQuery queryWithClassName:WALL_OBJECT];
+    //    [query orderByDescending:KEY_CREATION_DATE];
+    //    [query whereKey:KEY_STATUS equalTo:@"F14approved"];
+    //    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    //
+    //        if (!error) {
+    //            //Everything was correct, put the new objects and load the wall
+    //            self.wallObjectsArray = nil;
+    //            self.wallObjectsArray = [[NSArray alloc] initWithArray:objects];
+    //
+    //            [self loadWallViews];
+    //
+    //        } else {
+    //            //Remove the activity indicator
+    //            [self.activityIndicator stopAnimating];
+    //            [self.activityIndicator removeFromSuperview];
+    //
+    //            //Show the error
+    //            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+    //            [self showErrorView:errorString];
+    //        }
+    //    }];
     
 }
 

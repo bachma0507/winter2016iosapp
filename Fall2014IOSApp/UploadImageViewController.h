@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WallImageObject.h"
 
 @interface UploadImageViewController : UIViewController <UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 

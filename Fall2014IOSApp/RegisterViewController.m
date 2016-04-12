@@ -10,7 +10,9 @@
 
 #import "AppConstant.h"
 
-#import <Parse/Parse.h>
+//#import <Parse/Parse.h>
+
+#import "Backendless.h"
 
 @interface RegisterViewController ()
 
@@ -75,30 +77,64 @@
 -(IBAction)signUpUserPressed:(id)sender
 {
     
+    BackendlessUser *user = [BackendlessUser new];
     
-    PFUser *user = [PFUser user];
-    user.username = self.userRegisterTextField.text;
+    user.name = self.userRegisterTextField.text;
     user.password = self.passwordRegisterTextField.text;
     user.email = self.emailRegisterTextField.text;
-    user[PF_USER_EMAILCOPY] = self.emailRegisterTextField.text;
-    user[PF_USER_FULLNAME] = self.userRegisterTextField.text;
-    user[PF_USER_FULLNAME_LOWER] = [self.userRegisterTextField.text lowercaseString];
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            //The registration was succesful, go to the wall
-            //[self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
-            
-            
-        } else {
-            //Something bad has ocurred
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [errorAlertView show];
-        }
-    }];
+    [user setProperty:@"emailCopy" object:self.emailRegisterTextField.text];
+    [user setProperty:@"fullname" object:self.userRegisterTextField.text];
+    [user setProperty:@"fullname_lower" object:[self.userRegisterTextField.text lowercaseString]];
+    [user setProperty:@"username" object:self.userRegisterTextField.text];
+    
+    Responder *responder = [Responder responder:self
+                             selResponseHandler:@selector(responseHandler:)
+                                selErrorHandler:@selector(errorHandler:)];
+    [backendless.userService registering:user responder:responder];
     
     
+    
+    /*PFUser *user = [PFUser user];
+     user.username = self.userRegisterTextField.text;
+     user.password = self.passwordRegisterTextField.text;
+     user.email = self.emailRegisterTextField.text;
+     user[PF_USER_EMAILCOPY] = self.emailRegisterTextField.text;
+     user[PF_USER_FULLNAME] = self.userRegisterTextField.text;
+     user[PF_USER_FULLNAME_LOWER] = [self.userRegisterTextField.text lowercaseString];
+     
+     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+     if (!error) {
+     //The registration was succesful, go to the wall
+     //[self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+     
+     
+     } else {
+     //Something bad has ocurred
+     NSString *errorString = [[error userInfo] objectForKey:@"error"];
+     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+     [errorAlertView show];
+     }
+     }];*/
+    
+    
+}
+
+-(id)responseHandler:(id)response;
+{
+    BackendlessUser *user = (BackendlessUser *)response;
+    NSLog(@"user = %@", user);
+    [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+    return user;
+    
+}
+
+-(void)errorHandler:(Fault *)fault
+{
+    NSLog(@"FAULT = %@ <%@>", fault.message, fault.detail);
+    
+    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:fault.detail delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [errorAlertView show];
 }
 
 
