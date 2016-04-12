@@ -28,35 +28,35 @@
 
 @implementation NSString (OAURLEncodingAdditions)
 
-- (NSString *)oa_encodedURLString {
-	NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (CFStringRef)self,
-                                                                           NULL,                   // characters to leave unescaped (NULL = all escaped sequences are replaced)
-                                                                           CFSTR("?=&+"),          // legal URL characters to be escaped (NULL = all legal characters are replaced)
-                                                                           kCFStringEncodingUTF8); // encoding
-	return [result autorelease];
+- (NSString *)encodedURLString {
+    NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                             (CFStringRef)self,
+                                                                                             NULL,                   // characters to leave unescaped (NULL = all escaped sequences are replaced)
+                                                                                             CFSTR("?=&+"),          // legal URL characters to be escaped (NULL = all legal characters are replaced)
+                                                                                             kCFStringEncodingUTF8)); // encoding
+	return result;
 }
 
-- (NSString *)oa_encodedURLParameterString {
-    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (CFStringRef)self,
-                                                                           NULL,
-                                                                           CFSTR(":/=,!$&'()*+;[]@#?"),
-                                                                           kCFStringEncodingUTF8);
-	return [result autorelease];
+- (NSString *)encodedURLParameterString {
+    NSString *result = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                             (CFStringRef)self,
+                                                                                             NULL,
+                                                                                             CFSTR(":/=,!$&'()*+;[]@#?"),
+                                                                                             kCFStringEncodingUTF8));
+	return result;
 }
 
-- (NSString *)oa_decodedURLString {
-	NSString *result = (NSString*)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-																						  (CFStringRef)self,
-																						  CFSTR(""),
-																						  kCFStringEncodingUTF8);
+- (NSString *)decodedURLString {
+    NSString *result = (NSString*)CFBridgingRelease(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+                                                                                                            (CFStringRef)self,
+                                                                                                            CFSTR(""),
+                                                                                                            kCFStringEncodingUTF8));
 	
-	return [result autorelease];
+	return result;
 	
 }
 
--(NSString *)oa_removeQuotes
+-(NSString *)removeQuotes
 {
 	NSUInteger length = [self length];
 	NSString *ret = self;

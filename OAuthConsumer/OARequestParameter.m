@@ -38,20 +38,20 @@
     return self;
 }
 
-- (void)dealloc
-{
-	[name release];
-	[value release];
-	[super dealloc];
-}
+//- (void)dealloc
+//{
+//	[name release];
+//	[value release];
+//	[super dealloc];
+//}
 
 - (NSString *)URLEncodedName {
 	return self.name;
-//    return [self.name oa_encodedURLParameterString];
+//    return [self.name encodedURLParameterString];
 }
 
 - (NSString *)URLEncodedValue {
-    return [self.value oa_encodedURLParameterString];
+    return [self.value encodedURLParameterString];
 }
 
 - (NSString *)URLEncodedNameValuePair {
@@ -74,7 +74,7 @@
 
 + (id)requestParameter:(NSString *)aName value:(NSString *)aValue
 {
-	return [[[self alloc] initWithName:aName value:aValue] autorelease];
+	return [[self alloc] initWithName:aName value:aValue];
 }
 
 @end

@@ -29,6 +29,6 @@
 
 @interface NSURL (OABaseAdditions)
 
-- (NSString *)oa_URLStringWithoutQuery;
+- (NSString *)URLStringWithoutQuery;
 
 @end

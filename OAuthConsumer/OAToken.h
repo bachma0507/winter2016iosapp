@@ -31,7 +31,6 @@
 	NSString *secret;
 	NSString *session;
 	NSNumber *duration;
-	NSString *verifier;
 	NSMutableDictionary *attributes;
 	NSDate *created;
 	BOOL renewable;

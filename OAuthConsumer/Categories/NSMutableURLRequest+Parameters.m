@@ -29,18 +29,18 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
 
 @implementation NSMutableURLRequest (OAParameterAdditions)
 
-- (BOOL)oa_isMultipart {
+- (BOOL)isMultipart {
 	return [[self valueForHTTPHeaderField:@"Content-Type"] hasPrefix:@"multipart/form-data"];
 }
 
-- (NSArray *)oa_parameters {
+- (NSArray *)parameters {
     NSString *encodedParameters = nil;
     
-	if (![self oa_isMultipart]) {
-		if ([[self HTTPMethod] isEqualToString:@"GET"] || [[self HTTPMethod] isEqualToString:@"DELETE"] || NO == [[self valueForHTTPHeaderField:@"Content-Type"] isEqualToString:@"application/x-www-form-urlencoded"]) {
+	if (![self isMultipart]) {
+		if ([[self HTTPMethod] isEqualToString:@"GET"] || [[self HTTPMethod] isEqualToString:@"DELETE"]) {
 			encodedParameters = [[self URL] query];
 		} else {
-			encodedParameters = [[[NSString alloc] initWithData:[self HTTPBody] encoding:NSASCIIStringEncoding] autorelease];
+			encodedParameters = [[NSString alloc] initWithData:[self HTTPBody] encoding:NSASCIIStringEncoding];
 		}
 	}
     
@@ -56,15 +56,15 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
         OARequestParameter *parameter = [[OARequestParameter alloc] initWithName:[[encodedPairElements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                                                                            value:[[encodedPairElements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         [requestParameters addObject:parameter];
-		[parameter release];
+		//[parameter release];
     }
     
     return requestParameters;
 }
 
-- (void)setOa_parameters:(NSArray *)parameters
+- (void)setParameters:(NSArray *)parameters
 {
-	NSMutableArray *pairs = [[[NSMutableArray alloc] initWithCapacity:[parameters count]] autorelease];
+	NSMutableArray *pairs = [[NSMutableArray alloc] initWithCapacity:[parameters count]];
 	for (OARequestParameter *requestParameter in parameters) {
 		[pairs addObject:[requestParameter URLEncodedNameValuePair]];
 	}
@@ -72,24 +72,23 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
 	NSString *encodedParameterPairs = [pairs componentsJoinedByString:@"&"];
     
 	if ([[self HTTPMethod] isEqualToString:@"GET"] || [[self HTTPMethod] isEqualToString:@"DELETE"]) {
-		[self setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [[self URL] oa_URLStringWithoutQuery], encodedParameterPairs]]];
+		[self setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [[self URL] URLStringWithoutQuery], encodedParameterPairs]]];
 	} else {
 		// POST, PUT
-		[self oa_setHTTPBodyWithString:encodedParameterPairs];
+		[self setHTTPBodyWithString:encodedParameterPairs];
 		[self setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 	}
 }
 
-- (void)oa_setHTTPBodyWithString:(NSString *)body {
+- (void)setHTTPBodyWithString:(NSString *)body {
 	NSData *bodyData = [body dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-	[self setValue:[NSString stringWithFormat:@"%u", (unsigned)[bodyData length]]
-          forHTTPHeaderField:@"Content-Length"];
+	[self setValue:[NSString stringWithFormat:@"%d", [bodyData length]] forHTTPHeaderField:@"Content-Length"];
 	[self setHTTPBody:bodyData];
 }
 
-- (void)oa_attachFileWithName:(NSString *)name filename:(NSString*)filename contentType:(NSString *)contentType data:(NSData*)data {
+- (void)attachFileWithName:(NSString *)name filename:(NSString*)filename contentType:(NSString *)contentType data:(NSData*)data {
 
-	NSArray *parameters = [self oa_parameters];
+	NSArray *parameters = [self parameters];
 	[self setValue:[@"multipart/form-data; boundary=" stringByAppendingString:Boundary] forHTTPHeaderField:@"Content-type"];
 	
 	NSMutableData *bodyData = [NSMutableData new];
@@ -106,9 +105,9 @@ static NSString *Boundary = @"-----------------------------------0xCoCoaouTHeBou
 	[bodyData appendData:data];
 	
 	[bodyData appendData:[[[@"\r\n--" stringByAppendingString:Boundary] stringByAppendingString:@"--"] dataUsingEncoding:NSUTF8StringEncoding]];
-	[self setValue:[NSString stringWithFormat:@"%u", (unsigned)[bodyData length]] forHTTPHeaderField:@"Content-Length"];
+	[self setValue:[NSString stringWithFormat:@"%d", [bodyData length]] forHTTPHeaderField:@"Content-Length"];
 	[self setHTTPBody:bodyData];
-	[bodyData release];
+	//[bodyData release];
 }
 
 @end

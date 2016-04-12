@@ -36,18 +36,18 @@
 	return self;
 }
 
-- (void)dealloc {
-	[connection release];
-	[response release];
-	[responseData release];
-	[request release];
-	[super dealloc];
-}
+//- (void)dealloc {
+//	[connection release];
+//	[response release];
+//	[responseData release];
+//	[request release];
+//	[super dealloc];
+//}
 
 /* Protocol for async URL loading */
 - (void)connection:(NSURLConnection *)aConnection didReceiveResponse:(NSURLResponse *)aResponse {
-	[response release];
-	response = [aResponse retain];
+	//[response release];
+	response = aResponse;
 	[responseData setLength:0];
 }
 	
@@ -58,7 +58,7 @@
 															didSucceed:NO];
 
 	[delegate performSelector:didFailSelector withObject:ticket withObject:error];
-	[ticket release];
+	//[ticket release];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -72,12 +72,12 @@
 															didSucceed:[(NSHTTPURLResponse *)response statusCode] < 400];
 
 	[delegate performSelector:didFinishSelector withObject:ticket withObject:responseData];
-	[ticket release];
+	//[ticket release];
 }
 
 - (void)fetchDataWithRequest:(OAMutableURLRequest *)aRequest delegate:(id)aDelegate didFinishSelector:(SEL)finishSelector didFailSelector:(SEL)failSelector {
-	[request release];
-	request = [aRequest retain];
+	//[request release];
+	request = aRequest;
     delegate = aDelegate;
     didFinishSelector = finishSelector;
     didFailSelector = failSelector;

@@ -61,7 +61,7 @@
 		self.session = aSession;
 		self.duration = aDuration;
 		self.attributes = theAttributes;
-		created = [creation retain];
+		//created = [creation retain];
 		renewable = renew;
 		forRenewal = NO;
 	}
@@ -103,7 +103,7 @@
 			aDuration = [[self class] durationWithString:[elements objectAtIndex:1]];
 			creationDate = [NSDate date];
 		} else if ([[elements objectAtIndex:0] isEqualToString:@"oauth_token_attributes"]) {
-			attrs = [[self class] attributesWithString:[[elements objectAtIndex:1] oa_decodedURLString]];
+			attrs = [[self class] attributesWithString:[[elements objectAtIndex:1] decodedURLString]];
 		} else if ([[elements objectAtIndex:0] isEqualToString:@"oauth_token_renewable"]) {
 			NSString *lowerCase = [[elements objectAtIndex:1] lowercaseString];
 			if ([lowerCase isEqualToString:@"true"] || [lowerCase isEqualToString:@"t"]) {
@@ -127,7 +127,7 @@
       renewable = [[OAToken loadSetting:@"renewable" provider:provider prefix:prefix] boolValue];
 
       if (![self isValid]) {
-        [self autorelease];
+        //[self autorelease];
         return nil;
       }
   }
@@ -137,15 +137,15 @@
 
 #pragma mark dealloc
 
-- (void)dealloc {
-    self.key = nil;
-    self.secret = nil;
-	self.session = nil;
-    self.duration = nil;
-    self.verifier = nil;
-    self.attributes = nil;
-	[super dealloc];
-}
+//- (void)dealloc {
+//    self.key = nil;
+//    self.secret = nil;
+//	self.session = nil;
+//    self.duration = nil;
+//    self.verifier = nil;
+//    self.attributes = nil;
+//	//[super dealloc];
+//}
 
 #pragma mark settings
 
@@ -203,7 +203,7 @@
 }
 
 - (void)setAttributes:(NSDictionary *)theAttributes {
-	[attributes release];
+	//[attributes release];
 	if (theAttributes) {
 		attributes = [[NSMutableDictionary alloc] initWithDictionary:theAttributes];
 	}else {
@@ -226,7 +226,7 @@
 		[chunks addObject:[NSString stringWithFormat:@"%@:%@", aKey, [attributes objectForKey:aKey]]];
 	}
 	NSString *attrs = [chunks componentsJoinedByString:@";"];
-	[chunks release];
+	//[chunks release];
 	return attrs;
 }
 
@@ -242,7 +242,7 @@
 
 - (NSDictionary *)parameters
 {
-	NSMutableDictionary *params = [[[NSMutableDictionary alloc] init] autorelease];
+	NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
 	if (key) {
 		[params setObject:key forKey:@"oauth_token"];
@@ -314,7 +314,7 @@
 			
 + (NSNumber *)durationWithString:(NSString *)aDuration {
 	NSUInteger length = [aDuration length];
-	unichar c = (unichar) toupper([aDuration characterAtIndex:length - 1]);
+	unichar c = toupper([aDuration characterAtIndex:length - 1]);
 	int mult;
 	if (c >= '0' && c <= '9') {
 		return [NSNumber numberWithInt:[aDuration intValue]];
@@ -345,7 +345,7 @@
 		NSArray *elements = [pair componentsSeparatedByString:@":"];
 		[dct setObject:[elements objectAtIndex:1] forKey:[elements objectAtIndex:0]];
 	}
-	return [dct autorelease];
+	return dct;
 }
 
 #pragma mark description

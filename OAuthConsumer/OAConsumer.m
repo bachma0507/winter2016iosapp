@@ -39,11 +39,11 @@
 	return self;
 }
 
-- (void)dealloc {
-	[key release];
-	[secret release];
-	[super dealloc];
-}
+//- (void)dealloc {
+//	[key release];
+//	[secret release];
+//	[super dealloc];
+//}
 
 - (BOOL)isEqual:(id)object {
 	if ([object isKindOfClass:[self class]]) {

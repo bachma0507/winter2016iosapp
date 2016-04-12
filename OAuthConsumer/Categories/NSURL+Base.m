@@ -29,7 +29,7 @@
 
 @implementation NSURL (OABaseAdditions)
 
-- (NSString *)oa_URLStringWithoutQuery {
+- (NSString *)URLStringWithoutQuery {
     NSArray *parts = [[self absoluteString] componentsSeparatedByString:@"?"];
     return [parts objectAtIndex:0];
 }
