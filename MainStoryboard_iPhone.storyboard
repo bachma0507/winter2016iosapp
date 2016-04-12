@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HQR-0g-mm0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HQR-0g-mm0">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Presentations-->
@@ -999,11 +999,11 @@
             </objects>
             <point key="canvasLocation" x="515" y="-2614"/>
         </scene>
-        <!--Item-->
+        <!--Photo Gallery-->
         <scene sceneID="z6M-0O-uYb">
             <objects>
                 <navigationController storyboardIdentifier="BackToLoginId" definesPresentationContext="YES" id="MJf-nm-bzG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ne6-vy-vcz"/>
+                    <tabBarItem key="tabBarItem" title="Photo Gallery" image="gallery_tab_icon_unselected.png" id="ne6-vy-vcz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eI2-s9-sPH">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4078,6 +4078,7 @@
         <image name="button-orange.png" width="143" height="41"/>
         <image name="createuser_button.png" width="111" height="27"/>
         <image name="facebook_button.png" width="111" height="27"/>
+        <image name="gallery_tab_icon_unselected.png" width="22" height="22"/>
         <image name="green.png" width="320" height="568"/>
         <image name="home_tab_icon_unselected.png" width="22" height="22"/>
         <image name="mic_off.png" width="30" height="30"/>
