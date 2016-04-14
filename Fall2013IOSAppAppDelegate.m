@@ -22,7 +22,9 @@
 //#import "iRate.h"
 //#import <FYX/FYX.h>
 
-
+static NSString *APP_ID = @"76A9F704-30A1-B509-FF98-9FD7549C0100";
+static NSString *SECRET_KEY = @"DAC5475D-A770-E3C6-FF80-3EF3983D6A00";
+static NSString *VERSION_NUM = @"v1";
 
 @implementation Fall2013IOSAppAppDelegate
 
@@ -71,6 +73,9 @@ int iNotificationCounter=0;
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    NSLog(@"AppDelegate -> application openURL:%@", url);
+    
     return [PFFacebookUtils handleOpenURL:url];
 }
 
@@ -78,13 +83,17 @@ int iNotificationCounter=0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    backendless.hostURL = @"https://api.backendless.com";
     
+    //[backendless initApp:@"76A9F704-30A1-B509-FF98-9FD7549C0100" secret:@"DAC5475D-A770-E3C6-FF80-3EF3983D6A00" version:@"v1"];
     
-    [backendless initApp:@"76A9F704-30A1-B509-FF98-9FD7549C0100" secret:@"DAC5475D-A770-E3C6-FF80-3EF3983D6A00" version:@"v1"];
+    [backendless initApp:APP_ID secret:SECRET_KEY version:VERSION_NUM];
+    
+    [backendless.messaging registerForRemoteNotifications];
     
     // If you plan to use Backendless Media Service, uncomment the following line (iOS ONLY!)
     // backendless.mediaService = [MediaService new];
-    return YES;
+    //return YES;
     
     self.customLocationManager = [[CLLocationManager alloc] init];
     self.customLocationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
@@ -114,7 +123,7 @@ int iNotificationCounter=0;
     
     [Crittercism enableWithAppID:@"5608ae1fd224ac0a00ed3e4a"];
     
-    [PFFacebookUtils initializeFacebook];
+    //[PFFacebookUtils initializeFacebook];
     
     [NSURLProtocol registerClass:[RNCachingURLProtocol class]];
     
@@ -145,6 +154,21 @@ int iNotificationCounter=0;
                                                          UIRemoteNotificationTypeAlert |
                                                          UIRemoteNotificationTypeSound)];
     }
+    
+//    PublishOptions *publishOptions = [PublishOptions new];
+//    publishOptions.headers = @{@"ios-text":@"Push notification for iOS",
+//                               @"android-content-title":@"Notification title for Android",
+//                               @"android-content-text":@"Notification text for Android"};
+//    
+//    [backendless.messagingService
+//     publish:@"default" message:@"This is a test." publishOptions:publishOptions
+//     response:^(MessageStatus *messageStatus) {
+//         NSLog(@"MessageStatus = %@ <%@>", messageStatus.messageId, messageStatus.status);
+//     }
+//     error:^(Fault *fault) {
+//         NSLog(@"FAULT = %@", fault);
+//     }
+//     ];
     
     
     //[[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
@@ -2326,10 +2350,15 @@ int iNotificationCounter=0;
 //
 //}
 
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    [backendless.messaging registerDeviceToken:deviceToken];
+}
+
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
     //[[PushIOManager sharedInstance] didFailToRegisterForRemoteNotificationsWithError:error];
 }
+
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
@@ -2479,6 +2508,26 @@ int iNotificationCounter=0;
     [SpeechKit setEarcon:earconStop forType:SKStopRecordingEarconType];
     [SpeechKit setEarcon:earconCancel forType:SKCancelRecordingEarconType];
 }
+
+//# pragma mark - Backendless test push
+//
+//-(MessageStatus *)publishMessageAsPushNotificationAsync:(NSString *)message
+//{
+//    PublishOptions *publishOptions = [PublishOptions new];
+//    publishOptions.headers = @{@"ios-text":@"Push notification for iOS",
+//                               @"android-content-title":@"Notification title for Android",
+//                               @"android-content-text":@"Notification text for Android"};
+//    
+//    [backendless.messagingService
+//     publish:@"default" message:message publishOptions:publishOptions
+//     response:^(MessageStatus *messageStatus) {
+//         NSLog(@"MessageStatus = %@ <%@>", messageStatus.messageId, messageStatus.status);
+//     }
+//     error:^(Fault *fault) {
+//         NSLog(@"FAULT = %@", fault);
+//     }
+//     ];
+//}
 
 
 

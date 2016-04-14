@@ -7,6 +7,7 @@
 //
 
 #import <Parse/Parse.h>
+//#import "backendless.h"
 
 @interface PFNewsAlertsViewController : PFQueryTableViewController
 
