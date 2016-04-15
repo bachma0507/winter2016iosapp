@@ -22,6 +22,8 @@
 		4C04E3331AF2977B0036E126 /* sky@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C04E32E1AF2977B0036E126 /* sky@3x.png */; };
 		4C04E3341AF2977B0036E126 /* sky~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C04E32F1AF2977B0036E126 /* sky~ipad.png */; };
 		4C0629E3182C021B00818EB2 /* sponsorsW14.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C0629E2182C021B00818EB2 /* sponsorsW14.json */; };
+		4C0638561CC007E400CF0B90 /* Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0638551CC007E400CF0B90 /* Alerts.m */; };
+		4C0638591CC02F8800CF0B90 /* BENewsAlertsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0638581CC02F8800CF0B90 /* BENewsAlertsTableViewController.m */; };
 		4C06D6DF176A2FF300B6E24D /* StartPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D6DE176A2FF300B6E24D /* StartPageViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		4C06D71B176A407B00B6E24D /* ConferenceScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C06D71A176A407B00B6E24D /* ConferenceScheduleViewController.m */; };
 		4C088C59177F667500CFBC96 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C088C21177F667500CFBC96 /* MagicalImportFunctions.m */; };
@@ -616,6 +618,10 @@
 		4C04E32E1AF2977B0036E126 /* sky@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky@3x.png"; sourceTree = "<group>"; };
 		4C04E32F1AF2977B0036E126 /* sky~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sky~ipad.png"; sourceTree = "<group>"; };
 		4C0629E2182C021B00818EB2 /* sponsorsW14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sponsorsW14.json; sourceTree = "<group>"; };
+		4C0638541CC007E400CF0B90 /* Alerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alerts.h; sourceTree = "<group>"; };
+		4C0638551CC007E400CF0B90 /* Alerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alerts.m; sourceTree = "<group>"; };
+		4C0638571CC02F8800CF0B90 /* BENewsAlertsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BENewsAlertsTableViewController.h; sourceTree = "<group>"; };
+		4C0638581CC02F8800CF0B90 /* BENewsAlertsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BENewsAlertsTableViewController.m; sourceTree = "<group>"; };
 		4C06D6DD176A2FF300B6E24D /* StartPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartPageViewController.h; sourceTree = "<group>"; };
 		4C06D6DE176A2FF300B6E24D /* StartPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartPageViewController.m; sourceTree = "<group>"; };
 		4C06D719176A407B00B6E24D /* ConferenceScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConferenceScheduleViewController.h; sourceTree = "<group>"; };
@@ -2112,6 +2118,8 @@
 		4C48759F176CEDE200059E21 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C0638541CC007E400CF0B90 /* Alerts.h */,
+				4C0638551CC007E400CF0B90 /* Alerts.m */,
 				4C644E681CBD341E0026AFBC /* WallImageObject.h */,
 				4C644E691CBD341E0026AFBC /* WallImageObject.m */,
 				4C58E01E1BF7E8AA003D3593 /* CoreDataHelper */,
@@ -3230,6 +3238,8 @@
 			children = (
 				4CD3ADC218B8699700497309 /* PFNewsAlertsViewController.h */,
 				4CD3ADC318B8699700497309 /* PFNewsAlertsViewController.m */,
+				4C0638571CC02F8800CF0B90 /* BENewsAlertsTableViewController.h */,
+				4C0638581CC02F8800CF0B90 /* BENewsAlertsTableViewController.m */,
 			);
 			name = "News&Alerts";
 			sourceTree = "<group>";
@@ -4124,6 +4134,7 @@
 				4CC5646618CC36B80033B05A /* FloorMapsViewController.m in Sources */,
 				4C9B1E1F19E34387007E0F51 /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
 				4C644E6A1CBD341E0026AFBC /* WallImageObject.m in Sources */,
+				4C0638561CC007E400CF0B90 /* Alerts.m in Sources */,
 				4CACEAC21776B5D400E90BD8 /* MBProgressHUD.m in Sources */,
 				4C644E5A1CBD2BB80026AFBC /* OAAttachment.m in Sources */,
 				4C1F7B321777872800BC66B3 /* ContactUsViewController.m in Sources */,
@@ -4166,6 +4177,7 @@
 				4C088C5D177F667500CFBC96 /* NSObject+MagicalDataImport.m in Sources */,
 				4C088C5E177F667500CFBC96 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,
 				4C9B1E1519E34387007E0F51 /* UIView+JSQMessages.m in Sources */,
+				4C0638591CC02F8800CF0B90 /* BENewsAlertsTableViewController.m in Sources */,
 				4C9B1D9019E31F4B007E0F51 /* AFHTTPSessionManager.m in Sources */,
 				4C088C5F177F667500CFBC96 /* NSString+MagicalDataImport.m in Sources */,
 				4CBE729B198C05530090DA6E /* Speakers3.m in Sources */,

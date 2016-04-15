@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 BICSI. All rights reserved.
 //
 
-#import <Parse/Parse.h>
-//#import "backendless.h"
+//#import <Parse/Parse.h>
+#import "backendless.h"
 
-@interface PFNewsAlertsViewController : PFQueryTableViewController
+@interface PFNewsAlertsViewController : UITableViewController
+
+@property (nonatomic, strong) id object;
+
 
 @end

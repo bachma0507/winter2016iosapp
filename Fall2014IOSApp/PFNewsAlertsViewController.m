@@ -9,10 +9,15 @@
 #import "PFNewsAlertsViewController.h"
 #import "Fall2013IOSAppAppDelegate.h"
 #import "AppConstant.h"
+#import "Alerts.h"
 
 extern int iNotificationCounter;
 
 @interface PFNewsAlertsViewController ()
+
+{
+    NSMutableArray *_properties;
+}
 
 @end
 
@@ -29,21 +34,21 @@ extern int iNotificationCounter;
 //    return self;
 //}
 
-- (id)initWithCoder:(NSCoder *)aCoder {
-    self = [super initWithCoder:aCoder];
-    if (self) {
-        // This table displays items in the Todo class
-        self.parseClassName = @"Alerts";
-        self.textKey = @"text";
-        self.pullToRefreshEnabled = YES;
-        self.paginationEnabled = YES;
-        self.objectsPerPage = 25;
-    }
-    
-    //NSLog(@"initWithCoder method is called");
-    
-    return self;
-}
+//- (id)initWithCoder:(NSCoder *)aCoder {
+//    self = [super initWithCoder:aCoder];
+//    if (self) {
+//        // This table displays items in the Todo class
+//        self.parseClassName = @"Alerts";
+//        self.textKey = @"text";
+//        self.pullToRefreshEnabled = YES;
+//        self.paginationEnabled = YES;
+//        self.objectsPerPage = 25;
+//    }
+//    
+//    //NSLog(@"initWithCoder method is called");
+//    
+//    return self;
+//}
 
 
 - (void)viewDidLoad
@@ -69,6 +74,27 @@ extern int iNotificationCounter;
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"objectIDArray"];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    QueryOptions *queryOptions = [QueryOptions query];
+    queryOptions.relationsDepth = @1;
+    BackendlessDataQuery *dataQuery = [BackendlessDataQuery query];
+    dataQuery.queryOptions = queryOptions;
+    [backendless.persistenceService find:[Alerts class]
+                               dataQuery:[BackendlessDataQuery query]
+                                response:^(BackendlessCollection *collection){
+                                    
+                                    //_properties = [NSMutableArray arrayWithArray:collection];
+                                    //NSLog(@"The collection string is: %@", collection);
+                                    //id object = [_object isKindOfClass:[NSArray class]]? [_object firstObject] : _object;
+                                    //if (![object isKindOfClass:[NSString class]]) {
+                                        _properties = [NSMutableArray arrayWithArray:[Types propertyKeys:collection]];
+                                        [_properties removeObjectsInArray:@[@"__meta", @"created", @"updated", @"___class"]];
+                                    //}
+
+                                    
+                                }
+                                   error:^(Fault *fault) {
+                                   }];
     
     // Simple way to create a user or log in the existing user
     // For your app, you will probably want to present your own login screen
@@ -106,25 +132,42 @@ extern int iNotificationCounter;
     // Dispose of any resources that can be recreated.
 }
 
-- (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
-    // If no objects are loaded in memory, we look to the cache
-    // first to fill the table and then subsequently do a query
-    // against the network.
-    //    if ([self.objects count] == 0) {
-    //        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    //    }
-    //
-    [query orderByDescending:@"createdAt"];
-    
-    //NSLog(@"OFQuery method is called");
-    
-    return query;
+//- (PFQuery *)queryForTable {
+//    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+//    
+//    // If no objects are loaded in memory, we look to the cache
+//    // first to fill the table and then subsequently do a query
+//    // against the network.
+//    //    if ([self.objects count] == 0) {
+//    //        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+//    //    }
+//    //
+//    [query orderByDescending:@"createdAt"];
+//    
+//    //NSLog(@"OFQuery method is called");
+//    
+//    return query;
+//}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //return [_object isKindOfClass:[NSArray class]]?[_object count]:1;
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _properties.count;
+    NSLog(@"properties count: %lu", (unsigned long)_properties.count);
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //NSObject *prop = [_data[indexPath.row] valueForKey:_selectedProperty];
+    
     static NSString *CellIdentifier = @"Cell";
     //PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell"];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -134,7 +177,8 @@ extern int iNotificationCounter;
     }
     
     // Configure the cell to show todo item with a priority at the bottom
-    cell.textLabel.text = [object objectForKey:@"text"];
+    //cell.textLabel.text = [_properties valueForKey:@"text"];
+    cell.textLabel.text = [_properties[indexPath.row] valueForKey: @"text"];
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     cell.textLabel.numberOfLines = 4;
     

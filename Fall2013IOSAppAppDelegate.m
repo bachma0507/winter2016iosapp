@@ -21,6 +21,7 @@
 #import "Backendless.h"
 //#import "iRate.h"
 //#import <FYX/FYX.h>
+#import "Alerts.h"
 
 static NSString *APP_ID = @"76A9F704-30A1-B509-FF98-9FD7549C0100";
 static NSString *SECRET_KEY = @"DAC5475D-A770-E3C6-FF80-3EF3983D6A00";
@@ -169,6 +170,7 @@ int iNotificationCounter=0;
 //         NSLog(@"FAULT = %@", fault);
 //     }
 //     ];
+    
     
     
     //[[UINavigationBar appearance]setShadowImage:[[UIImage alloc] init]];
