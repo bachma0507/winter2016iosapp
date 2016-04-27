@@ -37,6 +37,8 @@ extern int iNotificationCounter;
     
     self.tableView.backgroundView = tempImageView;
     
+    [self dataQuery];
+    
     //_properties = [NSMutableArray arrayWithObjects: @"one", @"two", @"three", nil];
     
     /*if ([[NSUserDefaults standardUserDefaults] objectForKey:@"objectIDArray"]){
@@ -44,6 +46,22 @@ extern int iNotificationCounter;
     }
     [[NSUserDefaults standardUserDefaults] synchronize];*/
     
+    
+
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)dataQuery{
     QueryOptions *queryOptions = [QueryOptions query];
     queryOptions.relationsDepth = @1;
     BackendlessDataQuery *dataQuery = [BackendlessDataQuery query];
@@ -64,21 +82,12 @@ extern int iNotificationCounter;
                                     //}
                                     NSLog(@"List of items in collection.data: %@", collection.data);
                                     
+                                    [self.tableView reloadData];
+                                    
                                 }
                                    error:^(Fault *fault) {
                                    }];
-
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -156,6 +165,7 @@ extern int iNotificationCounter;
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+    [self dataQuery];
     //[self refreshTable];
     //[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(refreshTable) userInfo:nil repeats:YES];
     
@@ -215,4 +225,9 @@ extern int iNotificationCounter;
 }
 */
 
+//- (IBAction)refresh:(UIRefreshControl *)sender {
+//    
+//    [self.tableView reloadData];
+//    [sender endRefreshing];
+//}
 @end

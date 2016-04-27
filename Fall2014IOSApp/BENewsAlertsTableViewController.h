@@ -11,6 +11,7 @@
 
 @interface BENewsAlertsTableViewController : UITableViewController
 @property (nonatomic, strong) NSArray *collectiondata;
+//- (IBAction)refresh:(UIRefreshControl *)sender;
 
 
 @end
