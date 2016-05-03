@@ -246,6 +246,8 @@
     
     WallImageObject * wallImageObject = [WallImageObject new];
     
+    NSString * imagePath = wallImageObject.image;
+    
     id<IDataStore> dataStore = [backendless.persistenceService of:[wallImageObject class]];
     
     //Upload a new picture
@@ -254,10 +256,10 @@
     NSString *filename = [NSString stringWithFormat:@"import/%@.jpg", result];
     BackendlessFile *filePicture = [backendless.fileService upload:filename content:pictureData];
     
+    imagePath = filePicture.fileURL;
     
     
-    
-    wallImageObject.image = [NSString stringWithFormat:@"%@", filePicture];
+    wallImageObject.image = [NSString stringWithFormat:@"%@", imagePath];
     wallImageObject.user = [NSString stringWithFormat:@"%@", wallImageObectUserName];
     wallImageObject.comment = self.commentTextField.text;
     [dataStore save: wallImageObject responder:responder];
