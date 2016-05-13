@@ -17,10 +17,12 @@
 
 #import "Backendless.h"
 
-@interface WallPicturesViewController () {
-    
-}
+#import "WallImageObject.h"
 
+@interface WallPicturesViewController ()
+{
+    BackendlessCollection *mainData;
+}
 @property (nonatomic, retain) NSArray *wallObjectsArray;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
@@ -28,6 +30,7 @@
 -(void)getWallImages;
 -(void)loadWallViews;
 -(void)showErrorView:errorString;
+
 
 @end
 
@@ -151,12 +154,13 @@
     //For every wall element, put a view in the scroll
     int originY = 10;
     
+    
     //    for (PFObject *wallObject in self.wallObjectsArray){
     //
     //
     //        //Build the view with the image and the comments
     //        UIView *wallImageView = [[UIView alloc] initWithFrame:CGRectMake(10, originY, self.view.frame.size.width - 20 , 300)];
-    //
+        //
     //        //Add the image
     //        PFFile *image = (PFFile *)[wallObject objectForKey:KEY_IMAGE];
     //        UIImageView *userImage = [[UIImageView alloc] initWithImage:[UIImage imageWithData:image.getData]];
@@ -212,6 +216,23 @@
 //Get the list of images
 -(void)getWallImages
 {
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    QueryOptions *query = [QueryOptions query:40 offset:0];
+    BackendlessDataQuery *dataQuery = [BackendlessDataQuery query:nil where:nil query:query];
+    //NSLog(@"BrowseViewController -> getAllEntitysAsync: (QUERY) %@", dataQuery);
+    [backendless.persistenceService find:[ WallImageObject class] dataQuery:dataQuery
+                                response:^(BackendlessCollection *bc) {
+                                    //NSLog(@"BrowseViewController -> getAllEntitysAsync: (RESPONSE) %@", bc);
+                                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                                    mainData = bc;
+                                    //[mainTableView reloadData];
+                                }
+                                   error:^(Fault *fault) {
+                                       //[self errorHandler:fault];
+                                   }];
+    
     //Prepare the query to get all the images in descending order
     //    PFQuery *query = [PFQuery queryWithClassName:WALL_OBJECT];
     //    [query orderByDescending:KEY_CREATION_DATE];

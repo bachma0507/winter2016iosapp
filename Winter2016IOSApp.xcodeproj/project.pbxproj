@@ -96,6 +96,11 @@
 		4C326EB81963407B006D4B76 /* NightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C326EB71963407B006D4B76 /* NightViewController.m */; };
 		4C326EBB19634139006D4B76 /* YelpAPIServiceShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C326EBA19634139006D4B76 /* YelpAPIServiceShop.m */; };
 		4C326EBE1963414F006D4B76 /* YelpAPIServiceNight.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C326EBD1963414F006D4B76 /* YelpAPIServiceNight.m */; };
+		4C338DC01CE6379800C9C64A /* BEFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DBF1CE6379800C9C64A /* BEFile.m */; };
+		4C338DC91CE637C500C9C64A /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC21CE637C500C9C64A /* BrowseViewController.m */; };
+		4C338DCA1CE637C500C9C64A /* ImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC41CE637C500C9C64A /* ImagePreviewViewController.m */; };
+		4C338DCB1CE637C500C9C64A /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC61CE637C500C9C64A /* StartViewController.m */; };
+		4C338DCC1CE637C500C9C64A /* SuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC81CE637C500C9C64A /* SuccessViewController.m */; };
 		4C36C697192F766F0018AB39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C36C696192F766F0018AB39 /* Images.xcassets */; };
 		4C384F3817A46009003C9063 /* ExhibitorNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C384F3717A46009003C9063 /* ExhibitorNotesViewController.m */; };
 		4C3A0CF6177C6C1300DA1D7E /* ExamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A0CF5177C6C1300DA1D7E /* ExamsViewController.m */; };
@@ -742,6 +747,16 @@
 		4C326EBA19634139006D4B76 /* YelpAPIServiceShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAPIServiceShop.m; sourceTree = "<group>"; };
 		4C326EBC1963414F006D4B76 /* YelpAPIServiceNight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpAPIServiceNight.h; sourceTree = "<group>"; };
 		4C326EBD1963414F006D4B76 /* YelpAPIServiceNight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAPIServiceNight.m; sourceTree = "<group>"; };
+		4C338DBE1CE6379800C9C64A /* BEFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEFile.h; sourceTree = "<group>"; };
+		4C338DBF1CE6379800C9C64A /* BEFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEFile.m; sourceTree = "<group>"; };
+		4C338DC11CE637C500C9C64A /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseViewController.h; sourceTree = "<group>"; };
+		4C338DC21CE637C500C9C64A /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseViewController.m; sourceTree = "<group>"; };
+		4C338DC31CE637C500C9C64A /* ImagePreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePreviewViewController.h; sourceTree = "<group>"; };
+		4C338DC41CE637C500C9C64A /* ImagePreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePreviewViewController.m; sourceTree = "<group>"; };
+		4C338DC51CE637C500C9C64A /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		4C338DC61CE637C500C9C64A /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		4C338DC71CE637C500C9C64A /* SuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessViewController.h; sourceTree = "<group>"; };
+		4C338DC81CE637C500C9C64A /* SuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessViewController.m; sourceTree = "<group>"; };
 		4C36C696192F766F0018AB39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C384F3617A46008003C9063 /* ExhibitorNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorNotesViewController.h; sourceTree = "<group>"; };
 		4C384F3717A46009003C9063 /* ExhibitorNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorNotesViewController.m; sourceTree = "<group>"; };
@@ -2118,6 +2133,8 @@
 		4C48759F176CEDE200059E21 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C338DBE1CE6379800C9C64A /* BEFile.h */,
+				4C338DBF1CE6379800C9C64A /* BEFile.m */,
 				4C0638541CC007E400CF0B90 /* Alerts.h */,
 				4C0638551CC007E400CF0B90 /* Alerts.m */,
 				4C644E681CBD341E0026AFBC /* WallImageObject.h */,
@@ -3452,16 +3469,24 @@
 		4CCB78E61843B8AC00D9D1C6 /* iPhoneGallery */ = {
 			isa = PBXGroup;
 			children = (
+				4C338DC11CE637C500C9C64A /* BrowseViewController.h */,
+				4C338DC21CE637C500C9C64A /* BrowseViewController.m */,
+				4C338DC31CE637C500C9C64A /* ImagePreviewViewController.h */,
+				4C338DC41CE637C500C9C64A /* ImagePreviewViewController.m */,
+				4C338DC51CE637C500C9C64A /* StartViewController.h */,
+				4C338DC61CE637C500C9C64A /* StartViewController.m */,
+				4C338DC71CE637C500C9C64A /* SuccessViewController.h */,
+				4C338DC81CE637C500C9C64A /* SuccessViewController.m */,
 				4C018E291808E15400A567C6 /* LoginViewController.h */,
 				4C018E2A1808E15400A567C6 /* LoginViewController.m */,
 				4C018E341808E6D700A567C6 /* RegisterViewController.h */,
 				4C018E351808E6D700A567C6 /* RegisterViewController.m */,
-				4C018E371808F1DA00A567C6 /* WallPicturesViewController.h */,
-				4C018E381808F1DA00A567C6 /* WallPicturesViewController.m */,
-				4C018E3A1808F1F500A567C6 /* UploadImageViewController.h */,
-				4C018E3B1808F1F500A567C6 /* UploadImageViewController.m */,
 				4C1284AB18D52B4D00060A56 /* ReportViewController.h */,
 				4C1284AC18D52B4D00060A56 /* ReportViewController.m */,
+				4C018E3A1808F1F500A567C6 /* UploadImageViewController.h */,
+				4C018E3B1808F1F500A567C6 /* UploadImageViewController.m */,
+				4C018E371808F1DA00A567C6 /* WallPicturesViewController.h */,
+				4C018E381808F1DA00A567C6 /* WallPicturesViewController.m */,
 			);
 			name = iPhoneGallery;
 			sourceTree = "<group>";
@@ -4096,6 +4121,7 @@
 				4CA7023D175FCB0600820E7B /* PlistViewController.m in Sources */,
 				4C3EC0CA17642207002E7415 /* SocialViewController.m in Sources */,
 				4C1284AD18D52B4D00060A56 /* ReportViewController.m in Sources */,
+				4C338DCB1CE637C500C9C64A /* StartViewController.m in Sources */,
 				4C3EC0CD17642619002E7415 /* SocialDetailViewController.m in Sources */,
 				4C3EC0E317645CAA002E7415 /* socialItems.m in Sources */,
 				4CE68DFF176553880082FA84 /* RNCachingURLProtocol.m in Sources */,
@@ -4149,11 +4175,14 @@
 				4CCD3F711777F811002E11DC /* SVWebViewController.m in Sources */,
 				4C8A8348177B7CC100022E03 /* exhibitors.m in Sources */,
 				4C9B1E1419E34387007E0F51 /* UIImage+JSQMessages.m in Sources */,
+				4C338DC91CE637C500C9C64A /* BrowseViewController.m in Sources */,
 				4CD3ADC418B8699700497309 /* PFNewsAlertsViewController.m in Sources */,
 				4C9B1E2219E34387007E0F51 /* JSQMessagesCollectionViewCell.m in Sources */,
+				4C338DCA1CE637C500C9C64A /* ImagePreviewViewController.m in Sources */,
 				4C3C390A18219B6700927FFD /* MapPoint.m in Sources */,
 				4C9B1E1A19E34387007E0F51 /* JSQMessagesBubbleImageFactory.m in Sources */,
 				4C8A834B177B7ECF00022E03 /* ExhibitorsViewController.m in Sources */,
+				4C338DCC1CE637C500C9C64A /* SuccessViewController.m in Sources */,
 				4C644E631CBD2BB80026AFBC /* OAServiceTicket.m in Sources */,
 				4C9B1E2519E34387007E0F51 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				4CC0ADF719E80BC800C42CCF /* ChatRegisterViewController.m in Sources */,
@@ -4249,6 +4278,7 @@
 				4C9B1D9619E31F4B007E0F51 /* AFURLSessionManager.m in Sources */,
 				4C9B1E2319E34387007E0F51 /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
 				4C9B1D9B19E31F4B007E0F51 /* UIImageView+AFNetworking.m in Sources */,
+				4C338DC01CE6379800C9C64A /* BEFile.m in Sources */,
 				4C474E1F1798D4F300953979 /* MoreViewController.m in Sources */,
 				4C018E361808E6D700A567C6 /* RegisterViewController.m in Sources */,
 				4C644E571CBD2BB80026AFBC /* Base64Transcoder.c in Sources */,

@@ -1,3 +1,4 @@
+
 //
 //  UploadImageViewController.m
 //  Winter2014IOSApp
@@ -248,7 +249,7 @@
     
     NSString * imagePath = wallImageObject.image;
     
-    id<IDataStore> dataStore = [backendless.persistenceService of:[wallImageObject class]];
+    id<IDataStore> dataStore = [backendless.persistenceService of:[WallImageObject class]];
     
     //Upload a new picture
     NSData *pictureData = UIImageJPEGRepresentation(resizedImage, 0.8f);
@@ -262,6 +263,9 @@
     wallImageObject.image = [NSString stringWithFormat:@"%@", imagePath];
     wallImageObject.user = [NSString stringWithFormat:@"%@", wallImageObectUserName];
     wallImageObject.comment = self.commentTextField.text;
+    NSLog(@"wallImageObject.image = %@", wallImageObject.image);
+    NSLog(@"wallImageObject.user = %@", wallImageObject.user);
+    NSLog(@"wallImageObject.comment = %@", wallImageObject.comment);
     [dataStore save: wallImageObject responder:responder];
     
     [loadingSpinner stopAnimating];
@@ -422,4 +426,5 @@
 
 
 @end
+
 
