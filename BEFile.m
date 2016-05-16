@@ -22,5 +22,5 @@
 #import "BEFile.h"
 
 @implementation BEFile
-@synthesize path;
+@synthesize path, comment;
 @end

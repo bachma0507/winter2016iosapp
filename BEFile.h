@@ -24,6 +24,6 @@
 @interface BEFile : BackendlessEntity
 @property (nonatomic, strong) NSString *path;
 //@property (nonatomic, strong) NSString *user;
-//@property (nonatomic, strong) NSString *comment;
+@property (nonatomic, strong) NSString *comment;
 //@property (strong, nonatomic) NSString *objectID;
 @end

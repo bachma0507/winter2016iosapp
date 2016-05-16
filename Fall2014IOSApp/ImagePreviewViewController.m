@@ -166,6 +166,14 @@
 //            [alert show];
             
             //Begin Send email
+            Responder *responder = [Responder responder:self
+                                     selResponseHandler:@selector(responseHandler:)
+                                        selErrorHandler:@selector(errorHandler:)];
+            file.comment= @"no";
+            id<IDataStore> dataStore = [backendless.persistenceService of:[BEFile class]];
+            [dataStore save:file responder:responder];
+            
+            
             NSString * badPic = [NSString stringWithFormat:@"img/%@", [[file.path pathComponents] lastObject]];
             
             NSString *post =[[NSString alloc] initWithFormat:@"message= The following pic is objectionable: %@",badPic];
@@ -199,6 +207,8 @@
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Pic Reported" message:@"Image has been reported" delegate:nil cancelButtonTitle:@"Done" otherButtonTitles:nil];
                 alertView.tag = 1;
                             [alertView show];
+                
+                
             }
             
             //End send email
@@ -233,7 +243,8 @@
     }
     @finally {
         
-        [self prepareView];
+        //[self prepareView];
+        [uploadBtn setTitle:@" " forState:UIControlStateNormal];
         if (isUpload)
         {
             NSURL *fileURL = [NSURL URLWithString:@"/System/Library/Audio/UISounds/Modern/sms_alert_bamboo.caf"]; // see list below
