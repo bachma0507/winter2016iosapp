@@ -101,6 +101,10 @@
 		4C338DCA1CE637C500C9C64A /* ImagePreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC41CE637C500C9C64A /* ImagePreviewViewController.m */; };
 		4C338DCB1CE637C500C9C64A /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC61CE637C500C9C64A /* StartViewController.m */; };
 		4C338DCC1CE637C500C9C64A /* SuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DC81CE637C500C9C64A /* SuccessViewController.m */; };
+		4C338DD11CEA35CE00C9C64A /* survey_tab_icon_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C338DCD1CEA35CE00C9C64A /* survey_tab_icon_unselected.png */; };
+		4C338DD21CEA35CE00C9C64A /* survey_tab_icon_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C338DCE1CEA35CE00C9C64A /* survey_tab_icon_unselected@2x.png */; };
+		4C338DD31CEA35CE00C9C64A /* survey_tab_icon_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C338DCF1CEA35CE00C9C64A /* survey_tab_icon_selected.png */; };
+		4C338DD41CEA35CE00C9C64A /* survey_tab_icon_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C338DD01CEA35CE00C9C64A /* survey_tab_icon_selected@2x.png */; };
 		4C36C697192F766F0018AB39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C36C696192F766F0018AB39 /* Images.xcassets */; };
 		4C384F3817A46009003C9063 /* ExhibitorNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C384F3717A46009003C9063 /* ExhibitorNotesViewController.m */; };
 		4C3A0CF6177C6C1300DA1D7E /* ExamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A0CF5177C6C1300DA1D7E /* ExamsViewController.m */; };
@@ -757,6 +761,10 @@
 		4C338DC61CE637C500C9C64A /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		4C338DC71CE637C500C9C64A /* SuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessViewController.h; sourceTree = "<group>"; };
 		4C338DC81CE637C500C9C64A /* SuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessViewController.m; sourceTree = "<group>"; };
+		4C338DCD1CEA35CE00C9C64A /* survey_tab_icon_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survey_tab_icon_unselected.png; sourceTree = "<group>"; };
+		4C338DCE1CEA35CE00C9C64A /* survey_tab_icon_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "survey_tab_icon_unselected@2x.png"; sourceTree = "<group>"; };
+		4C338DCF1CEA35CE00C9C64A /* survey_tab_icon_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survey_tab_icon_selected.png; sourceTree = "<group>"; };
+		4C338DD01CEA35CE00C9C64A /* survey_tab_icon_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "survey_tab_icon_selected@2x.png"; sourceTree = "<group>"; };
 		4C36C696192F766F0018AB39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C384F3617A46008003C9063 /* ExhibitorNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorNotesViewController.h; sourceTree = "<group>"; };
 		4C384F3717A46009003C9063 /* ExhibitorNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorNotesViewController.m; sourceTree = "<group>"; };
@@ -1990,6 +1998,10 @@
 		4C3EC0D0176428A4002E7415 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4C338DCD1CEA35CE00C9C64A /* survey_tab_icon_unselected.png */,
+				4C338DCE1CEA35CE00C9C64A /* survey_tab_icon_unselected@2x.png */,
+				4C338DCF1CEA35CE00C9C64A /* survey_tab_icon_selected.png */,
+				4C338DD01CEA35CE00C9C64A /* survey_tab_icon_selected@2x.png */,
 				4C4A7AB31BC8010000F0EC5F /* Winter_2016_images */,
 				4C04E32A1AF296BF0036E126 /* Fall_2015_images */,
 				4CB8E24A1AA41E0D00F8638A /* Canada_2015_images */,
@@ -3968,6 +3980,7 @@
 				4CD8E0B51938F1AD00A4326C /* powered-by-google-on-white@2x.png in Resources */,
 				4CF45E571781F5E6000F6A5D /* twitterpost_ipad@2x.png in Resources */,
 				4CF45E581781F5E6000F6A5D /* twitterpost_ipad.png in Resources */,
+				4C338DD11CEA35CE00C9C64A /* survey_tab_icon_unselected.png in Resources */,
 				4CD8E0B81938F58B00A4326C /* mic_off.png in Resources */,
 				4CF08422181ECE5800FF6978 /* createuser_button@2x.png in Resources */,
 				4CA334A61AAA84DB00D09FAE /* exhibit_hall_schedule_C15-ipad@2x.png in Resources */,
@@ -4005,6 +4018,7 @@
 				4C9B1E0819E34387007E0F51 /* bubble_stroked_tailless@2x.png in Resources */,
 				4CA334D61AAA84DB00D09FAE /* my_favorite_exhibitors_C15.png in Resources */,
 				4C246212178C772D00F0165B /* web.css in Resources */,
+				4C338DD41CEA35CE00C9C64A /* survey_tab_icon_selected@2x.png in Resources */,
 				4C24621A178C95D800F0165B /* contact.html in Resources */,
 				4CA334CA1AAA84DB00D09FAE /* find_area_activities_C15@2x.png in Resources */,
 				4C24621C178C967500F0165B /* cec.html in Resources */,
@@ -4020,6 +4034,7 @@
 				4CE1B37C178FA929006EF171 /* beep-beep.aiff in Resources */,
 				4C9B1E4319E34847007E0F51 /* blank_profile@2x.png in Resources */,
 				4CA334B11AAA84DB00D09FAE /* exhibit_hall_schedule_C15-ipad.png in Resources */,
+				4C338DD31CEA35CE00C9C64A /* survey_tab_icon_selected.png in Resources */,
 				4CB8E25C1AA421FA00F8638A /* SpeakersCan15-ipad@2x.png in Resources */,
 				4C4A7ABB1BC8011700F0EC5F /* green@2x~ipad.png in Resources */,
 				4CF74F401A30BBAF00C6FC3A /* W15_exhibithall_floorplan_icon_iphone.png in Resources */,
@@ -4052,6 +4067,7 @@
 				4CB8E2541AA41E2E00F8638A /* sunrise~ipad.png in Resources */,
 				4CC0ADF119E7728200C42CCF /* ProfileView.xib in Resources */,
 				4C97760719F1428700A1C460 /* candela@2x~ipad.png in Resources */,
+				4C338DD21CEA35CE00C9C64A /* survey_tab_icon_unselected@2x.png in Resources */,
 				4CA8A0E317ACA54E006957DB /* home_icon_selected@2x.png in Resources */,
 				4C9B1DFF19E34387007E0F51 /* bubble.png in Resources */,
 				4CD36C5C19F011DC004C2872 /* billow@2x.png in Resources */,

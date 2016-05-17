@@ -38,6 +38,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Presentations" id="qxv-SE-4a1">
+                        <barButtonItem key="leftBarButtonItem" title="All" id="hC2-mV-T79">
+                            <connections>
+                                <action selector="viewAll:" destination="24Z-AG-khO" id="rfR-gJ-yNt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Open In" id="6lL-WU-4yr">
                             <connections>
                                 <action selector="shareButton:" destination="24Z-AG-khO" id="4Up-kh-Mwq"/>
@@ -62,7 +67,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4651" y="-883"/>
+            <point key="canvasLocation" x="-2232" y="-2111"/>
         </scene>
         <!--Find Area Activities-->
         <scene sceneID="sb7-Nj-Uub">
@@ -801,7 +806,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GZ0-rU-Phe">
-                                <rect key="frame" x="85" y="162" width="151" height="44"/>
+                                <rect key="frame" x="68" y="162" width="182" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <state key="normal" title="Take a Photo">
@@ -811,22 +816,28 @@
                                     <action selector="takePhoto:" destination="M0j-T4-pgK" eventType="touchUpInside" id="GGq-fJ-i5I"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fgA-fj-myy">
-                                <rect key="frame" x="85" y="230" width="151" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mXw-c9-hcg">
+                                <rect key="frame" x="69" y="230" width="182" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Browse Uploaded">
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Upload a Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadPhoto:" destination="M0j-T4-pgK" eventType="touchUpInside" id="pTS-0r-5Rm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fgA-fj-myy">
+                                <rect key="frame" x="71" y="301" width="175" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Browse Photo Gallery">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="cjH-Tj-WIo" kind="push" id="iRq-rK-PaG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Backendless File Service" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hBc-fL-XUZ">
-                                <rect key="frame" x="85" y="85" width="154" height="54"/>
-                                <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -845,7 +856,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="euP-xw-im7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="506"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -925,16 +936,6 @@
                                     <outlet property="delegate" destination="cjH-Tj-WIo" id="9Hq-0h-bSx"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xHj-5e-ZqP">
-                                <rect key="frame" x="20" y="514" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" title="Delete all photos">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="removeAll:" destination="cjH-Tj-WIo" eventType="touchUpInside" id="5P8-nt-ip2"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2597,7 +2598,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bB-rV-u91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2148" y="-1859"/>
+            <point key="canvasLocation" x="-4172" y="-1787"/>
         </scene>
         <!--Custom Pager View Controller-->
         <scene sceneID="Bhv-9j-9Zu">
@@ -3278,11 +3279,11 @@
             </objects>
             <point key="canvasLocation" x="132" y="-1323"/>
         </scene>
-        <!--Chat Rooms-->
+        <!--Presentations-->
         <scene sceneID="eOI-CQ-PKc">
             <objects>
                 <navigationController id="enQ-KR-oEw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat Rooms" image="social_tab_icon_unselected.png" id="t0L-2Q-Jw3"/>
+                    <tabBarItem key="tabBarItem" title="Presentations" image="survey_tab_icon_unselected.png" id="t0L-2Q-Jw3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MUw-9o-y2l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3290,12 +3291,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bOC-Jp-ivm" kind="relationship" relationship="rootViewController" id="uVB-JU-vdk"/>
+                        <segue destination="24Z-AG-khO" kind="relationship" relationship="rootViewController" id="1hV-bw-ivv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv5-Gk-zJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1438" y="-2199"/>
+            <point key="canvasLocation" x="-2683" y="-2103"/>
         </scene>
         <!--Sessions Detail View Controller-->
         <scene sceneID="M8h-b1-54R">
@@ -4181,14 +4182,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7B-ez-dmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911" y="-2550"/>
+            <point key="canvasLocation" x="-1635" y="-2174"/>
         </scene>
         <!--Group View Table View Controller-->
         <scene sceneID="Fvs-ay-7Z4">
             <objects>
                 <tableViewController id="poy-DP-yzY" customClass="GroupViewTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7D2-bE-Uta">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -4328,18 +4329,19 @@
         <image name="news_tab_icon_unselected.png" width="22" height="22"/>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
         <image name="reload30x30.png" width="30" height="30"/>
-        <image name="social_tab_icon_unselected.png" width="22" height="22"/>
         <image name="speakersW16" width="320" height="320"/>
+        <image name="survey_tab_icon_unselected.png" width="22" height="22"/>
         <image name="updatedata_button.png" width="222" height="65"/>
         <image name="view_website_icon.png" width="25" height="25"/>
         <image name="yelp_logo.png" width="102" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v11-zK-g7b"/>
+        <segue reference="x5x-Pp-p1m"/>
+        <segue reference="40o-NH-skY"/>
         <segue reference="XS1-ta-yNk"/>
         <segue reference="kta-Nv-RwY"/>
         <segue reference="Dsf-md-SSX"/>
-        <segue reference="x5x-Pp-p1m"/>
+        <segue reference="Bmv-kT-R6k"/>
         <segue reference="wEA-Pg-XW8"/>
     </inferredMetricsTieBreakers>
 </document>

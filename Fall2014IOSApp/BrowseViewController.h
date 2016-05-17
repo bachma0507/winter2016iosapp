@@ -23,5 +23,5 @@
 
 @interface BrowseViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) IBOutlet UITableView *mainTableView;
-- (IBAction)removeAll:(id)sender;
+//- (IBAction)removeAll:(id)sender;
 @end

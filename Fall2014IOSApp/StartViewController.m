@@ -58,18 +58,34 @@
 
 - (void)takePhoto:(id)sender
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        picker.showsCameraControls = YES;
-    }
-    else
-    {
-        [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    [self presentViewController:picker animated:YES completion:^{}];
+
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self.navigationController presentViewController:imagePicker animated:YES completion:nil];
+    
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+//    {
+//        [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+//        picker.showsCameraControls = YES;
+//    }
+//    else
+//    {
+//        [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+//    }
+//    [self presentViewController:picker animated:YES completion:^{}];
+}
+
+- (IBAction)uploadPhoto:(id)sender {
+    
+    UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+    imgPicker.delegate = self;
+    imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self.navigationController presentViewController:imgPicker animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerController

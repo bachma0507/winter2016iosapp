@@ -246,7 +246,7 @@ int iNotificationCounter=0;
     //
     //        [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home_tab_icon_unselected.png"]];
     //        [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"news_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"news_tab_icon_unselected.png"]];
-    //        [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"social_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"social_tab_icon_unselected.png"]];
+    //        [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"survey_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"survey_tab_icon_unselected.png"]];
     //        [tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"mybicsi_tab_icon_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"mybicsi_tab_icon_unselected.png"]];
     //        [tabBarItem5 setFinishedSelectedImage:[UIImage imageNamed:@"gallery_tab_icon_selected.png"]withFinishedUnselectedImage:[UIImage imageNamed:@"gallery_tab_icon_unselected.png"]];
     //
@@ -285,9 +285,9 @@ int iNotificationCounter=0;
             tabBarItem2.image = [[UIImage imageNamed:@"news_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem2.title = @"News & Alerts";
             
-            tabBarItem3.selectedImage = [[UIImage imageNamed:@"social_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-            tabBarItem3.image = [[UIImage imageNamed:@"social_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-            tabBarItem3.title = @"Chat Rooms";
+            tabBarItem3.selectedImage = [[UIImage imageNamed:@"survey_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+            tabBarItem3.image = [[UIImage imageNamed:@"survey_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+            tabBarItem3.title = @"Presentations";
             
             tabBarItem4.selectedImage = [[UIImage imageNamed:@"mybicsi_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem4.image = [[UIImage imageNamed:@"mybicsi_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
@@ -320,9 +320,9 @@ int iNotificationCounter=0;
             tabBarItem2.image = [[UIImage imageNamed:@"news_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem2.title = @"News & Alerts";
             
-            tabBarItem3.selectedImage = [[UIImage imageNamed:@"social_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-            tabBarItem3.image = [[UIImage imageNamed:@"social_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-            tabBarItem3.title = @"Chat Rooms";
+            tabBarItem3.selectedImage = [[UIImage imageNamed:@"survey_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+            tabBarItem3.image = [[UIImage imageNamed:@"survey_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+            tabBarItem3.title = @"Presentations";
             
             tabBarItem4.selectedImage = [[UIImage imageNamed:@"mybicsi_tab_icon_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
             tabBarItem4.image = [[UIImage imageNamed:@"mybicsi_tab_icon_unselected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];

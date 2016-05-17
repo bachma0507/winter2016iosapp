@@ -35,6 +35,15 @@
     
     self.openInButton.enabled = NO;
     
+    //UIStoryboardSegue * segue;
+    
+//    if ([segue.sourceViewController isEqualToString:@"segueToPresentations"]) {
+////        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
+////        self.navigationItem.backBarButtonItem = backButtonItem;
+//        
+//        NSLog(@"Segue from StartPageViewController");
+//    }
+    
         
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
@@ -139,6 +148,21 @@ if (navigationType == UIWebViewNavigationTypeLinkClicked ) {
     [docController presentOpenInMenuFromBarButtonItem:sender animated:YES];
     
     //[super viewDidLoad];
+}
+
+- (IBAction)viewAll:(id)sender {
+    
+    self.openInButton.enabled = NO;
+    
+    webView.delegate = self;
+    
+    //NSString *httpSource = @"https://www.speedyreference.com/bicsiappcms/presentationspdf.html";
+    NSString *httpSource = @"http://www.bicsi.org/directory/uplink/default.aspx?id=7964";
+    //NSString *httpSource = @"https://www.bicsi.org/directory/uplink/default.aspx?id=7889";
+    //NSString *httpSource = @"http://www.bicsi.org/m/surveys.aspx#one";
+    NSURL *fullUrl = [NSURL URLWithString:httpSource];
+    NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
+    [webView loadRequest:httpRequest];
 }
 
 @end

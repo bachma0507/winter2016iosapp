@@ -103,22 +103,22 @@
 #pragma mark -
 #pragma mark Public Methods
 
--(void)removeAll:(id)sender
-{
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
-    [backendless.fileService removeDirectory:@"img"
-        response:^(id response) {
-            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            for (BEFile *file in mainData.data)
-                [backendless.persistenceService remove:[BEFile class] sid:file.objectId];
-            mainData = nil;
-            [mainTableView reloadData];
-        }
-        error:^(Fault *fault) {
-            [self errorHandler:fault];
-        }];
-}
+//-(void)removeAll:(id)sender
+//{
+//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+//    
+//    [backendless.fileService removeDirectory:@"img"
+//        response:^(id response) {
+//            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+//            for (BEFile *file in mainData.data)
+//                [backendless.persistenceService remove:[BEFile class] sid:file.objectId];
+//            mainData = nil;
+//            [mainTableView reloadData];
+//        }
+//        error:^(Fault *fault) {
+//            [self errorHandler:fault];
+//        }];
+//}
 
 #pragma mark - UITableViewDelegate/DataSource
 

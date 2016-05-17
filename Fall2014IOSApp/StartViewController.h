@@ -25,5 +25,6 @@
 @interface StartViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 - (IBAction)takePhoto:(id)sender;
+- (IBAction)uploadPhoto:(id)sender;
 
 @end

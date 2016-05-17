@@ -51,7 +51,7 @@
 {
     [super viewDidLoad];
     
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
     
     
@@ -247,10 +247,10 @@
         [uploadBtn setTitle:@" " forState:UIControlStateNormal];
         if (isUpload)
         {
-            NSURL *fileURL = [NSURL URLWithString:@"/System/Library/Audio/UISounds/Modern/sms_alert_bamboo.caf"]; // see list below
-            SystemSoundID soundID;
-            AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)fileURL,&soundID);
-            AudioServicesPlaySystemSound(soundID);
+//            NSURL *fileURL = [NSURL URLWithString:@"/System/Library/Audio/UISounds/Modern/sms_alert_bamboo.caf"]; // see list below
+//            SystemSoundID soundID;
+//            AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)fileURL,&soundID);
+//            AudioServicesPlaySystemSound(soundID);
             
             NSString *message = @"All photos and comments will be reviewed before being posted to the gallery. Any photos with potential indecency issues will not be posted and your user account will be terminated.";
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
@@ -260,10 +260,10 @@
                                                      otherButtonTitles:nil,nil];
             [alertView show];
 
-            
-            SuccessViewController *success = (SuccessViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"SuccessViewController"];
-            success.url = file.path;
-            [self presentViewController:success animated:YES completion:^{}];
+            [self.navigationController popViewControllerAnimated:YES];
+//            SuccessViewController *success = (SuccessViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"SuccessViewController"];
+//            success.url = file.path;
+//            [self presentViewController:success animated:YES completion:^{}];
         }
         
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
