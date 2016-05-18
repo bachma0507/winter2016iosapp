@@ -168,6 +168,7 @@
 		4C5AC7071A4B57300037906F /* overlay6_568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AC7031A4B57300037906F /* overlay6_568h@2x.png */; };
 		4C5AC7081A4B57300037906F /* overlay6@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5AC7041A4B57300037906F /* overlay6@3x.png */; };
 		4C5ACD571BB88920006FE21E /* Fall2013IOSApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C5ACD551BB88920006FE21E /* Fall2013IOSApp.xcdatamodeld */; };
+		4C5C6B051CECD62C00C49E1E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5C6B041CECD62C00C49E1E /* FBSDKCoreKit.framework */; };
 		4C5D81B418D77ECE0085C451 /* iPadReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D81B318D77ECE0085C451 /* iPadReportViewController.m */; };
 		4C6088C11770DB190055719C /* ExhibitHallFloorPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6088C01770DB190055719C /* ExhibitHallFloorPlanViewController.m */; };
 		4C6088C41770F33F0055719C /* EHSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6088C31770F33F0055719C /* EHSchedule.m */; };
@@ -864,6 +865,7 @@
 		4C5AC7031A4B57300037906F /* overlay6_568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay6_568h@2x.png"; sourceTree = "<group>"; };
 		4C5AC7041A4B57300037906F /* overlay6@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay6@3x.png"; sourceTree = "<group>"; };
 		4C5ACD561BB88920006FE21E /* Fall2013IOSApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fall2013IOSApp.xcdatamodel; sourceTree = "<group>"; };
+		4C5C6B041CECD62C00C49E1E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4C5D81B218D77ECE0085C451 /* iPadReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadReportViewController.h; sourceTree = "<group>"; };
 		4C5D81B318D77ECE0085C451 /* iPadReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadReportViewController.m; sourceTree = "<group>"; };
 		4C6088BF1770DB190055719C /* ExhibitHallFloorPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitHallFloorPlanViewController.h; sourceTree = "<group>"; };
@@ -1665,6 +1667,7 @@
 				4C4A456D18E9D7DA003A14C3 /* libCrittercism_v4_1_1.a in Frameworks */,
 				4CD0599819F58FCB0062C1EC /* Bolts.framework in Frameworks */,
 				4C1B9B1817A2269000267303 /* CoreTelephony.framework in Frameworks */,
+				4C5C6B051CECD62C00C49E1E /* FBSDKCoreKit.framework in Frameworks */,
 				4C01EEDD17931F1F00D49A99 /* MapKit.framework in Frameworks */,
 				4C644E1F1CBD20120026AFBC /* libavformat.a in Frameworks */,
 				4C3FFAF817650B6700166BD7 /* MessageUI.framework in Frameworks */,
@@ -1842,6 +1845,7 @@
 		4C2D69F7174541100053BCC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4C5C6B041CECD62C00C49E1E /* FBSDKCoreKit.framework */,
 				4C644E271CBD20560026AFBC /* CoreVideo.framework */,
 				4C644E251CBD204C0026AFBC /* CoreMedia.framework */,
 				4C644D4C1CBD1CEB0026AFBC /* libz.tbd */,

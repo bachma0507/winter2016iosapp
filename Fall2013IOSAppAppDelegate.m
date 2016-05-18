@@ -18,6 +18,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "NSDate+TimeStyle.h"
 
+
 #import "Backendless.h"
 //#import "iRate.h"
 //#import <FYX/FYX.h>
@@ -89,6 +90,8 @@ int iNotificationCounter=0;
     //[backendless initApp:@"76A9F704-30A1-B509-FF98-9FD7549C0100" secret:@"DAC5475D-A770-E3C6-FF80-3EF3983D6A00" version:@"v1"];
     
     [backendless initApp:APP_ID secret:SECRET_KEY version:VERSION_NUM];
+    
+    
     
     [backendless.messaging registerForRemoteNotifications];
     
